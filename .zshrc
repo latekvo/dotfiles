@@ -98,9 +98,13 @@ if [[ $(uname) == "Darwin" ]]; then
 	eval "$(rbenv init -)"
 	
 	# add brew to PATH
-	export PATH=$PATH:/opt/homebrew/bin/brew
+	export PATH=/opt/homebrew/bin:$PATH
+	export PATH=/opt/homebrew/bin/brew:$PATH
 	export PATH=/opt/homebrew/opt:$PATH
 	export PATH=/opt/homebrew/opt/ruby:$PATH
+	
+	# ruby 
+	export GEM_HOME=$HOME/.gem
 	
 	# add android SDK to path
 	export ANDROID_HOME=/Users/ignacylatka/Library/Android/sdk
@@ -124,6 +128,6 @@ if [[ $(uname) == "Darwin" ]]; then
 	        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
 	    fi
 	fi
-unset __conda_setup
+	unset __conda_setup
 # <<< conda initialize <<<
 fi
