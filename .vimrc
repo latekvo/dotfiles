@@ -96,8 +96,8 @@ set si "smart auto indent
 set cin "C lang indenting
 set wildmenu "unfolding selection menu
 
-set noarab "no arabic xdddd
-set noemo "had to set this xddd "no emoticons
+set noarab "disable arabic
+set noemo "disable emoticons
 
 set colorcolumn=100
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
