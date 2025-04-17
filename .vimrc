@@ -4,55 +4,37 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+
+" optional - pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" let Vundle manage plugins, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'chiel92/vim-autoformat'
 
 "PLUG IN HERE YOUR PLUGINS!
 
 packadd YouCompleteMe
 
 "ycm format on paste
-:autocmd BufWritePost * :YcmCompleter Format <afile>
+"this doesn't work anymore :autocmd BufWritePost * :YcmCompleter Format <afile>
 
 "Binds
 
-:function! OIOIOI_RUN()
+:function! CXX_RUN()
 :wa
-:!rm %:r.out %:r.e && ./ocen %:r
-:endfunction
-
-:function! ANY_RUN()
-:wa
-:!g++ %:r.cpp && ./a.out
+:!g++ %:r.c* && ./a.out
 :endfunction
 
 "basic html opensite
 map <f4> <esc>:!firefox *.html<CR>
-"basic compile with c++
 "map <f5> <esc>:!make<CR>
-map <f5> <esc>:execute ANY_RUN()<CR>
-"build and test oioioi files
-map <f6> <esc>:execute OIOIOI_RUN()<CR>
+map <f5> <esc>:execute CXX_RUN()<CR>
+
 " Don't save backups of *.gpg files
 set backupskip+=*.gpg
 " To avoid that parts of the file is saved to .viminfo when yanking or
@@ -82,10 +64,9 @@ augroup encrypted
     \ setlocal nobin
 augroup END
 
-"Holy, these popups are annoying
 set completeopt-=preview
 set encoding=utf-8
-set nocp "not that VI compatible, has pros and cons
+set nocp "disable VI compatibility
 set sol  "jump to first character
 set is "incremental search
 set ic "ignore case search
@@ -94,28 +75,29 @@ set nowrap "no wrapping
 set nolbr "more of nowrap
 set nobri "more of nowrap "no indent
 set wd=0 "no delay to writing
-set hid "not deleting buffer when outta reach
+set hid "keep buffer that are out of reach
 set mouse=a "enables all mouse functions
 set rnu "relative numbers
 set nu "works with rnu for better rnu
 set nospell "no english dictionary
 set ruler "cursor position as a coordinate number
 set smd "show mode
-set noeb "no error bells
-set hlg=en "english help (default is pl)
+set noeb "disable error bells
+set hlg=en "set english as help default
 set udf "enable undo file
-set udir=~/.vim/undodir "undodir
-set nosm "no jumping to {
+set udir=~/.vim/undodir "undo dir
+set nosm "disable confusing bracket highlighting
 set ts=2 "tab
 set sw=2 "autotab
-set nosta "disable some tab gimmick
+set nosta "disable smart tab
 set noet "tabs shall reamain tabs, not spaces
 set ai "auto indent
-set si "smart autoindent
-set cin "special C lang indenting
+set si "smart auto indent
+set cin "C lang indenting
 set wildmenu "unfolding selection menu
-set noarab "no arabic support
-set noemo "no emoticons support
+
+set noarab "no arabic xdddd
+set noemo "had to set this xddd "no emoticons
 
 set colorcolumn=100
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
