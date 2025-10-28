@@ -1,27 +1,20 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set shell=/bin/bash
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" using vim-plug for managing plugins
+call plug#begin('~/.vim/plugged')
 
-" optional - pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plug 'junegunn/vim-plug' " self-management
 
-" let Vundle manage plugins, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'vim-autoformat/vim-autoformat'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'chiel92/vim-autoformat'
-
-"PLUG IN HERE YOUR PLUGINS!
+call plug#end()
 
 packadd YouCompleteMe
 
-"ycm format on paste
-"this doesn't work anymore :autocmd BufWritePost * :YcmCompleter Format <afile>
+autocmd BufWritePre *.c,*.cpp,*.h,*.hpp,*.cc,*.cxx ClangFormat
 
 "Binds
 
@@ -87,14 +80,17 @@ set hlg=en "set english as help default
 set udf "enable undo file
 set udir=~/.vim/undodir "undo dir
 set nosm "disable confusing bracket highlighting
-set ts=2 "tab
-set sw=2 "autotab
-set nosta "disable smart tab
-set noet "tabs shall reamain tabs, not spaces
 set ai "auto indent
 set si "smart auto indent
 set cin "C lang indenting
 set wildmenu "unfolding selection menu
+set ts=2 "tab
+set sw=2 "autotab
+set nosta "disable smart tab
+set et "convert tabs to spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 
 set noarab "disable arabic
 set noemo "disable emoticons
@@ -103,27 +99,15 @@ set colorcolumn=100
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 hi ColorColumn ctermbg=236 guibg=blue
 
+"disable config load confirmation prompt
+let g:ycm_confirm_extra_conf = 0
+
 if has("syntax")
   syntax on
 endif
 
-"Install when new vim is available
-"Plugin 'Valloric/YouCompleteMe'
-"    let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-
-
-Plugin 'rust-lang/rust.vim'
-
-Plugin 'racer-rust/vim-racer'
-	let g:syntastic_rust_checkers = ['cargo']
-	let g:racer_experimental_completer = 1
-	let g:racer_insert_paren = 1
-	let g:racer_cmd = "/home/user/.cargo/bin/racer"
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 syntax enable
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
