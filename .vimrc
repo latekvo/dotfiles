@@ -95,6 +95,8 @@ set shiftwidth=2
 set noarab "disable arabic
 set noemo "disable emoticons
 
+set updatetime=50 "instant tooltips
+
 set colorcolumn=100
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 hi ColorColumn ctermbg=236 guibg=blue
