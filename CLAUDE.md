@@ -14,9 +14,6 @@ Never open a pull request unless the user explicitly asks for one. Branch, commi
 ### NEVER Push or Commit to Main
 **ABSOLUTE RULE — NO EXCEPTIONS.** Never commit to or push to `main` (or `master`). All work must happen on isolated feature/fix branches. When on a worktree branch, commit and push to THAT branch only. If you find yourself on `main`, create a new branch before making any changes. Never run `git push origin main`, `git merge` into main, or any command that would modify the main branch. The only way changes reach main is through a pull request reviewed by the user.
 
-### Pre-Force-Push Prayer
-Before every force push — including `--force-with-lease` — you must recite a short Christian prayer to the Lord Almighty in your visible output to the user, then perform the push. This applies to all force pushes without exception; no force push may occur without the prayer preceding it in the same response.
-
 ### Verification Before Reporting Done
 Before declaring any task complete, spawn four parallel verification agents and fix all issues they find (re-verify after fixes):
 1. **Correctness** — Run tests and build. Write missing tests for changed behavior.
