@@ -3,7 +3,7 @@
 ## Hard Constraints
 
 ### Worktrees
-Always implement new features or fixes in a separate git worktree, never in a worktree checked out to the `main` branch — unless the user explicitly says otherwise. When spawning sub-agents to implement changes, each agent must receive `isolation: "worktree"` AND must branch from the master agent's current branch, so their work stacks on top of the in-progress branch rather than diverging from it.
+For repos with collaborators or a shared remote, always implement new features or fixes in a separate git worktree, never in a worktree checked out to the `main` branch — unless the user explicitly says otherwise. For tiny solo single-contributor repos the user maintains alone (personal dotfiles, local experiments, scripts no one else touches), skip the worktree dance and commit straight to `main`. When in doubt — repo has collaborators, a public remote others might consume, or is the "released" branch of an OSS project — default to worktrees and ask. When spawning sub-agents to implement changes, each agent must still receive `isolation: "worktree"` AND must branch from the master agent's current branch, so their work stacks cleanly and merges back without polluting your working directory; this applies even in solo repos.
 
 ### Git — Zero AI Attribution
 No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` overrides, no "Generated with Claude/Claude Code/🤖" taglines. Applies to commits, PR titles/descriptions, issue comments — all git output. Strip these when editing existing PRs/issues. Commit author must always be the user.
@@ -11,8 +11,10 @@ No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` o
 ### Don't Open PRs Unprompted
 Never open a pull request unless the user explicitly asks for one. Branch, commit, and push freely on feature/fix branches, but stop before `gh pr create` and let the user decide when (and how) the PR opens. If they do ask for one, it must be a draft (`--draft`) — never mark a PR ready-for-review on your own.
 
-### NEVER Push or Commit to Main
-**ABSOLUTE RULE — NO EXCEPTIONS.** Never commit to or push to `main` (or `master`). All work must happen on isolated feature/fix branches. When on a worktree branch, commit and push to THAT branch only. If you find yourself on `main`, create a new branch before making any changes. Never run `git push origin main`, `git merge` into main, or any command that would modify the main branch. The only way changes reach main is through a pull request reviewed by the user.
+### Don't Commit to Main on Shared Repos
+For any repo with collaborators or a shared remote others consume, never commit or push directly to `main`/`master`. All work happens on isolated feature/fix branches; the only path to main is a PR the user reviews. Don't run `git push origin main`, `git merge` into main, or anything else that modifies the main branch on shared repos.
+
+**Exception:** tiny solo single-contributor repos (personal dotfiles, local-only experiments, scripts no one else touches) — commit directly to main, no branch ceremony required. Solo-but-public projects where `main` is the released branch still need branches and PRs; ask if uncertain whether a repo qualifies as solo.
 
 ### Verification Before Reporting Done
 Before declaring any task complete, spawn four parallel verification agents and fix all issues they find (re-verify after fixes):
@@ -20,6 +22,9 @@ Before declaring any task complete, spawn four parallel verification agents and 
 2. **Scope** — Audit the diff against the original request; flag gaps.
 3. **Edge cases** — Enumerate edge cases (nulls, boundaries, errors, concurrency) for every changed function; confirm each is handled.
 4. **Ripple effects** — Search all callers, references, docs, configs, CI, and tests for changed symbols; flag anything needing updates.
+
+### Maximize Parallelization via Sub-Agents
+Dispatch independent work to sub-agents aggressively, including swarms of them. Any task that doesn't require massive shared context or exclusive access to a race-prone resource (a single Android AVD, a single dev port, an in-progress DB migration, an interactive shell session) should be delegated. File searches across the repo, isolated edits to unrelated files, build verifications, independent test suites, multi-file refactors with non-overlapping scope, research and exploration: all of these run faster as parallel sub-agents than serially in the main thread. Default to delegating; reserve the main-thread context for synthesis, decisions, and work that must stay coherent across the whole task. When in doubt, prefer "spawn an agent" over "do it inline" — the cost of an unnecessary agent is small, the cost of unnecessarily serializing parallelizable work is paid against the user's wall-clock time.
 
 ### Prove Bugs Before Fixing or Reporting Them
 When you find or suspect a bug, prove it exists with a concrete repro or by reading the authoritative source (code, binary strings, protocol spec) — only then fix or report it. Plausible hypotheses, single observations, and second-hand claims from other agents do not clear this bar. After you believe the fix is in place, re-run the original repro end-to-end to confirm the fix lands before you tell the user the work is done.
