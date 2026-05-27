@@ -40,9 +40,6 @@ theme.tasklist_fg_focus   = "#f0dfaf"
 theme.tasklist_bg_normal  = theme.bg_normal
 theme.tasklist_fg_normal  = "#9f9f9f"
 
--- Wallpaper (overridden by ~/.fehbg autostart anyway)
-theme.wallpaper = os.getenv("HOME") .. "/Pictures/wallpapers/wall-midnight.png"
-
 -- Notification (naughty / ruled)
 theme.notification_font   = "JetBrainsMono Nerd Font 10"
 theme.notification_bg     = "#1f1f1f"
