@@ -2,6 +2,9 @@
 export ZSH="$HOME/.oh-my-zsh"
 export COLORTERM=truecolor
 
+# Skip oh-my-zsh's per-startup completion-dir security audit (multi-hundred-ms hit)
+ZSH_DISABLE_COMPFIX="true"
+
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="essembeh"
 
@@ -81,9 +84,8 @@ alias f1ys="FABRIC_ENABLED=1 yarn start"
 alias c="clear"
 alias cr="clear"
 
-# python & conda
-alias pac="source .venv/bin/activate" 
-alias cac="conda activate" 
+# python
+alias pac="source .venv/bin/activate"
 
 # package size diag
 alias atlasprod="EXPO_UNSTABLE_ATLAS=true npx expo start --no-dev"
