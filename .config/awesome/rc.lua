@@ -364,6 +364,14 @@ for i = 1, 9 do
     )
 end
 
+-- Guarded resize: titlebar strips and clientbuttons can both fire on
+-- the same click; the second mousegrabber start would log an error.
+local function safe_resize(c, corner)
+    if mousegrabber.isrunning() then return end
+    if corner then awful.mouse.client.resize(c, corner)
+    else           awful.mouse.client.resize(c) end
+end
+
 -- Detect which edge/corner of `c` the pointer is near; return an
 -- awful.placement direction string ("top_left", "right", ...) or nil
 -- if the pointer is in the interior of the window.
@@ -391,7 +399,7 @@ clientbuttons = gears.table.join(
         c:emit_signal("request::activate", "mouse_click", {raise = true})
         local corner = edge_under_pointer(c)
         if corner then
-            awful.mouse.client.resize(c, corner)
+            safe_resize(c, corner)
         end
     end),
     awful.button({ modkey }, 1, function (c)
@@ -400,7 +408,7 @@ clientbuttons = gears.table.join(
     end),
     awful.button({ modkey }, 3, function (c)
         c:emit_signal("request::activate", "mouse_click", {raise = true})
-        awful.mouse.client.resize(c)
+        safe_resize(c)
     end)
 )
 
@@ -458,11 +466,11 @@ client.connect_signal("request::titlebars", function(c)
     local edge_resize_buttons = gears.table.join(
         awful.button({ }, 1, function()
             c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.resize(c)
+            safe_resize(c)
         end),
         awful.button({ }, 3, function()
             c:emit_signal("request::activate", "titlebar", {raise = true})
-            awful.mouse.client.resize(c)
+            safe_resize(c)
         end)
     )
     for _, pos in ipairs({"left", "right", "bottom"}) do
