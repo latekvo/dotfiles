@@ -18,11 +18,11 @@ Before declaring done:
 1. **Run the change end-to-end** through the real entry point (CLI, HTTP, UI flow, build pipeline) and confirm observable behavior matches the request. Skip only if infeasible (no credentials, destructive on shared systems, user said skip) — and say so explicitly.
 2. **For any bug found or fixed**, prove it with a concrete repro before the fix and re-run the same repro after to confirm the fix lands. Plausible hypotheses, single observations, and second-hand agent claims do not clear this bar.
 3. **Run formatter and CI-equivalent checks locally** (lint, typecheck, tests, build). Don't push and wait for remote CI to surface what you could have caught.
-4. **Spawn four parallel verification agents** and fix everything they find (re-verify after fixes):
+4. **Review through these lenses, scaling effort to the change** — a one-line fix needs a glance; a large diff warrants a parallel agent per lens. Fix what's real and re-verify:
    - **Correctness** — tests and build; write missing tests for changed behavior.
-   - **Scope** — audit the diff against the original request and cut anything not required: redundant abstractions or branches nothing exercises, out-of-scope refactors and "while I was here" cleanups, speculative complexity (config knobs, fallbacks for cases that can't occur), dead code from exploration. For every non-trivial addition ask "if I delete this, does the feature still work?" — if yes, delete.
-   - **Edge cases** — enumerate nulls, boundaries, errors, concurrency for every changed function; confirm each is handled.
-   - **Ripple effects** — search callers, references, docs, configs, CI, tests for changed symbols.
+   - **Scope** — cut what the request didn't need: redundant abstractions, out-of-scope refactors, speculative complexity, dead code. For each addition ask "if I delete this, does the feature still work?"
+   - **Edge cases** — nulls, boundaries, errors, concurrency in every changed function.
+   - **Ripple effects** — callers, references, docs, configs, CI, tests for changed symbols.
 
 In the final summary, name the specific verification you ran (e.g., "ran `pnpm test` — 47 passed", "opened the page in Chrome and submitted — UI updated"). If you skipped a step, name which and why — never paper over with "should work" or "looks correct."
 
@@ -51,6 +51,10 @@ Bring real analytical depth to non-trivial decisions: failure modes, second-orde
 - **N testable approaches → try them.** If each candidate is independently verifiable (test passes, build succeeds, UI renders), run the experiment in priority order and keep what works. Empirical evidence beats user guess beats your guess.
 - **Don't ask** to pick libraries, file paths, or naming conventions; to clarify requirements resolvable from context; to confirm you should keep going; or to get a second opinion on a call you're capable of making.
 - **Only escalate** when the fork is genuinely outside your reach: product direction, naming the user owns, irreversible side effects, missing credentials. Make the call, note it in one line if load-bearing, move on.
+
+## Code Review Findings
+
+Beyond severity (**H/M/L**), non-bug findings may use category tags: **S** scope/simplification, **T** tests, **D** docs.
 
 ## Tools & Skills
 
