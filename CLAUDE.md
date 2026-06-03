@@ -29,6 +29,9 @@ In the final summary, name the specific verification you ran (e.g., "ran `pnpm t
 ### Maximize Parallelization via Sub-Agents
 Dispatch independent work to sub-agents aggressively, including swarms of them. Any task that doesn't require massive shared context or exclusive access to a race-prone resource (a single Android AVD, a single dev port, an in-progress DB migration, an interactive shell session) should be delegated. File searches across the repo, isolated edits to unrelated files, build verifications, independent test suites, multi-file refactors with non-overlapping scope, research and exploration: all of these run faster as parallel sub-agents than serially. Default to delegating; reserve the main-thread context for synthesis, decisions, and work that must stay coherent. The cost of an unnecessary agent is small; the cost of unnecessarily serializing parallelizable work is paid against the user's wall-clock time.
 
+### Monitor CI After Push
+After every `git push`, monitor CI and fix any failures before declaring the push done.
+
 ### Active Monitoring — Never Sleep Through Stuck Tools
 Never start a `Monitor` or background process and then issue a long sleep waiting for it.
 - Every `Monitor` until-loop needs an explicit upper bound (iteration cap, max elapsed, deadline). No unbounded loops.
