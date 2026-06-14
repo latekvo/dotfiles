@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export COLORTERM=truecolor
+
+# Skip oh-my-zsh's per-startup completion-dir security audit (multi-hundred-ms hit)
+ZSH_DISABLE_COMPFIX="true"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="essembeh"
@@ -43,7 +47,14 @@ export EDITOR='vim'
 # ALIASES
 
 # gh
-alias cleanele="git clean -fdX" 
+alias cleanele="git clean -fdX"
+alias nukele="git reset --hard && git clean -fd"
+
+# git workflow
+# 1. create branch $1, 2. create worktree for that branch, 3. switch to the worktree
+alias add_worktree='f(){ b="$1"; p=$(basename "$PWD"); c=${b//@/}; d="../${p}-worktrees/$c"; git show-ref --verify --quiet refs/heads/"$b" || git branch "$b" main; git worktree add "$d" "$b"; cd "$d"; }; f'
+# basically remove file changes from branch
+alias resmain='git restore --source=origin/main --staged --worktree'
 
 # dots & 中文 
 alias 。="."
@@ -73,15 +84,17 @@ alias f1ys="FABRIC_ENABLED=1 yarn start"
 alias c="clear"
 alias cr="clear"
 
-# python & conda
-alias pac="source .venv/bin/activate" 
-alias cac="conda activate" 
+# python
+alias pac="source .venv/bin/activate"
 
 # package size diag
 alias atlasprod="EXPO_UNSTABLE_ATLAS=true npx expo start --no-dev"
 alias atlasdev="EXPO_UNSTABLE_ATLAS=true npx expo start --no-dev"
 
 # other
+# perma enable yolo mode
+alias claude="claude --dangerously-skip-permissions"
+# kill all processes using given port
 alias killport='f(){ kill -9 $(lsof -t -i tcp:$1); }; f'
 
 # MACOS ONLY
@@ -118,3 +131,40 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 export PATH=$PATH:$HOME/.maestro/bin
+
+# argent dev helper scripts
+alias argent_install_branch="$HOME/argent-install-branch.sh"
+alias prettier_branch="$HOME/prettier-branch.sh"
+alias code_branch="$HOME/code-branch.sh"
+
+# cd into the worktree backing a branch name or PR number (PR lookup via gh on software-mansion/argent)
+cd_branch() {
+  local arg="${1:-}"
+  if [ -z "$arg" ]; then
+    echo "Usage: cd_branch <branch-name|pr-number>" >&2
+    return 1
+  fi
+  local repo="$HOME/dev/argent"
+  if [ ! -d "$repo/.git" ]; then
+    echo "Error: argent repo not found at $repo" >&2
+    return 1
+  fi
+  local branch="$arg"
+  if [[ "$arg" =~ ^[0-9]+$ ]]; then
+    branch=$(gh -R software-mansion/argent pr view "$arg" --json headRefName -q .headRefName 2>/dev/null)
+    if [ -z "$branch" ]; then
+      echo "Error: could not resolve PR #$arg to a branch." >&2
+      return 1
+    fi
+  fi
+  local wt
+  wt=$(git -C "$repo" worktree list --porcelain | awk -v b="refs/heads/$branch" '
+    /^worktree / { w = substr($0, 10) }
+    /^branch /   && $2 == b { print w; exit }
+  ')
+  if [ -z "$wt" ]; then
+    echo "Error: no existing worktree for branch '$branch' in $repo." >&2
+    return 1
+  fi
+  cd "$wt"
+}
