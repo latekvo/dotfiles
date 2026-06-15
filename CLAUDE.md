@@ -32,6 +32,11 @@ Before adding an interface, class, abstraction, or helper, check whether one alr
 ### Maximize Parallelization via Sub-Agents
 Dispatch independent work to sub-agents aggressively, including swarms of them. Any task that doesn't require massive shared context or exclusive access to a race-prone resource (a single Android AVD, a single dev port, an in-progress DB migration, an interactive shell session) should be delegated. File searches across the repo, isolated edits to unrelated files, build verifications, independent test suites, multi-file refactors with non-overlapping scope, research and exploration: all of these run faster as parallel sub-agents than serially. Default to delegating; reserve the main-thread context for synthesis, decisions, and work that must stay coherent. The cost of an unnecessary agent is small; the cost of unnecessarily serializing parallelizable work is paid against the user's wall-clock time. **Swarm sizing:** 5–50 parallel agents is the standard working range — use it fully rather than timidly spawning two or three; massive reworks that need broad verification and testing sweeps may scale to 80. Under-provisioning a parallelizable task wastes wall-clock time as surely as serializing it.
 
+### Swarm Review Passes: Iterate, but Verify Every Claim
+One review pass is not enough: when a pass surfaces real issues, fix them and dispatch another full pass, iterating until a pass comes back clean. Convergence is measured in *verified* issues, not raw findings.
+
+Treat sub-agent findings as leads, not verdicts — verify each against the actual code (reproduce it, trace the path, confirm the input can occur) before acting. This matters most in mature, hardened code, where swarms over-report theoretical problems on paths that never execute. A finding you can't substantiate is not an issue: don't fix it and don't let it trigger another pass, or the loop never converges.
+
 ### Monitor CI After Push
 After every `git push`, monitor CI and fix any failures before declaring the push done.
 
