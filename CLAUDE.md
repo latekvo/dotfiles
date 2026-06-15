@@ -16,7 +16,7 @@ No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` o
 
 Before declaring done:
 1. **Run the change end-to-end** through the real entry point (CLI, HTTP, UI flow, build pipeline) and confirm observable behavior matches the request. Skip only if infeasible (no credentials, destructive on shared systems, user said skip) — and say so explicitly.
-2. **For any bug found or fixed**, prove it with a concrete repro before the fix and re-run the same repro after to confirm the fix lands. Plausible hypotheses, single observations, and second-hand agent claims do not clear this bar.
+2. **Prove every discovery beyond reasonable doubt** — a bug, a root cause, a "here's how it works" conclusion — before you act on or report it; there is always a way to drive doubt lower, so find it. For a bug that means a concrete repro before the fix and the same repro re-run after to confirm the fix lands. Plausible hypotheses, single observations, and second-hand agent claims do not clear this bar.
 3. **Run formatter and CI-equivalent checks locally** (lint, typecheck, tests, build). Don't push and wait for remote CI to surface what you could have caught.
 4. **Review through these lenses, scaling effort to the change** — a one-line fix needs a glance; a large diff warrants a parallel agent per lens. Fix what's real and re-verify:
    - **Correctness** — tests and build; write missing tests for changed behavior.
@@ -26,8 +26,11 @@ Before declaring done:
 
 In the final summary, name the specific verification you ran (e.g., "ran `pnpm test` — 47 passed", "opened the page in Chrome and submitted — UI updated"). If you skipped a step, name which and why — never paper over with "should work" or "looks correct."
 
+### Work Within Existing Frameworks
+Before adding an interface, class, abstraction, or helper, check whether one already in place is sufficient — if so, use it. Take the time to analyze the workspace first: understanding what already exists is cheaper than writing a duplicate that later has to be reconciled. Extend or compose existing patterns rather than introducing parallel ones; build new only when nothing in place can be made to fit.
+
 ### Maximize Parallelization via Sub-Agents
-Dispatch independent work to sub-agents aggressively, including swarms of them. Any task that doesn't require massive shared context or exclusive access to a race-prone resource (a single Android AVD, a single dev port, an in-progress DB migration, an interactive shell session) should be delegated. File searches across the repo, isolated edits to unrelated files, build verifications, independent test suites, multi-file refactors with non-overlapping scope, research and exploration: all of these run faster as parallel sub-agents than serially. Default to delegating; reserve the main-thread context for synthesis, decisions, and work that must stay coherent. The cost of an unnecessary agent is small; the cost of unnecessarily serializing parallelizable work is paid against the user's wall-clock time.
+Dispatch independent work to sub-agents aggressively, including swarms of them. Any task that doesn't require massive shared context or exclusive access to a race-prone resource (a single Android AVD, a single dev port, an in-progress DB migration, an interactive shell session) should be delegated. File searches across the repo, isolated edits to unrelated files, build verifications, independent test suites, multi-file refactors with non-overlapping scope, research and exploration: all of these run faster as parallel sub-agents than serially. Default to delegating; reserve the main-thread context for synthesis, decisions, and work that must stay coherent. The cost of an unnecessary agent is small; the cost of unnecessarily serializing parallelizable work is paid against the user's wall-clock time. **Swarm sizing:** 5–50 parallel agents is the standard working range — use it fully rather than timidly spawning two or three; massive reworks that need broad verification and testing sweeps may scale to 80. Under-provisioning a parallelizable task wastes wall-clock time as surely as serializing it.
 
 ### Monitor CI After Push
 After every `git push`, monitor CI and fix any failures before declaring the push done.
