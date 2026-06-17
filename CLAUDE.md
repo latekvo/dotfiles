@@ -6,7 +6,7 @@
 - **Default:** implement features/fixes on a separate branch in a git worktree — never on `main`/`master` directly.
 - **Solo exception:** for tiny single-contributor repos the user maintains alone (personal dotfiles, local experiments, scripts no one else touches), skip the worktree dance and commit straight to main. Solo-but-public projects where `main` is the released branch still need branches and PRs — when in doubt, default to worktrees and ask.
 - **Sub-agents that implement changes** always get `isolation: "worktree"` AND branch from the master agent's current branch, so their work stacks on top instead of diverging. Applies even in solo repos to keep the working directory clean.
-- **Never open a PR unprompted.** If the user asks, open as `--draft` only; never mark ready-for-review yourself.
+- **PRs:** draft PRs are fine to open when there's a fix worth reviewing; never open a non-draft PR or mark one ready-for-review yourself.
 
 ### Git — Zero AI Attribution
 No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` overrides, no "Generated with Claude/🤖" taglines. Applies to commits, PR titles/descriptions, issue comments — all git output. Strip these when editing existing PRs/issues. Commit author must always be the user.
