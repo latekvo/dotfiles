@@ -7,6 +7,7 @@
 - **Solo exception:** for tiny single-contributor repos the user maintains alone (personal dotfiles, local experiments, scripts no one else touches), skip the worktree dance and commit straight to main. Solo-but-public projects where `main` is the released branch still need branches and PRs — when in doubt, default to worktrees and ask.
 - **Sub-agents that implement changes** always get `isolation: "worktree"` AND branch from the master agent's current branch, so their work stacks on top instead of diverging. Applies even in solo repos to keep the working directory clean.
 - **PRs:** draft PRs are fine to open when there's a fix worth reviewing; never open a non-draft PR or mark one ready-for-review yourself.
+- **Commits during iteration:** push plain incremental commits (`git commit` + `git push`); never `git commit --amend` + force-push just to keep a PR at one commit. PRs are squash-merged, so history tidiness is automatic. Reserve force-push for a rebase the user explicitly asked for.
 
 ### Git — Zero AI Attribution
 No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` overrides, no "Generated with Claude/🤖" taglines. Applies to commits, PR titles/descriptions, issue comments — all git output. Strip these when editing existing PRs/issues. Commit author must always be the user.
@@ -67,7 +68,17 @@ Bring real analytical depth to non-trivial decisions: failure modes, second-orde
 
 Beyond severity (**H/M/L**), non-bug findings may use category tags: **S** scope/simplification, **T** tests, **D** docs.
 
+### Leaving Review Comments on a PR
+When delivering findings on a GitHub PR, **submit a formal review (`POST .../pulls/{n}/reviews`), not a top-level issue comment.** Within that review:
+- **Always per-line.** Every finding is an inline comment anchored to the specific line(s) it concerns. Never dump findings into one general/PR-level comment.
+- **Never leave a "no issues found" / LGTM comment** unless the user explicitly asks for one. A clean PR gets an approval (or nothing) — not a comment.
+- **Never propose fixes** in review comments. Describe the problem and its concrete impact only; leave the solution to the author.
+- **Never leak internal markings.** Strip severity tags (`M -`, `H1.`, etc.) and any other internal scaffolding from the posted text — the comment the author reads is plain reviewer prose.
+
 ## Tools & Skills
 
 ### Argent MCP from the shell
 When iterating on Argent itself or driving tools from scripts/CI, use the `argent-local-test` skill — it hits the tool-server HTTP API directly and bypasses MCP stdio, so calls are synchronous and one `curl` away. Helper at `~/.claude/skills/argent-local-test/scripts/argent-call` (subcommands: `url`, `status`, `list`, `schema`, `call`, `devices`, `logs`, `kill`). Auto-discovers via `~/.argent/tool-server.json` or `$ARGENT_TOOLS_URL`. Full notes in `~/.claude/skills/argent-local-test/SKILL.md`.
+
+### Argent preview window (Electron) launcher
+To open the Electron variant-selection preview window from a *worktree* build, use `~/dev/scripts/launch-argent-preview.sh [WORKTREE_DIR] [PORT]` — run it via Terminal/osascript, NOT sandboxed Bash (Electron spawned from the sandbox dies with ERR_FAILED). It starts the worktree tool-server outside the sandbox using the worktree's streaming `simulator-server`; then drive `propose_variant` (`previewImage` is required) + `await_user_selection` over HTTP to open the window. The script header documents the gotchas (Electron `install.js` repair after `--ignore-scripts`, real `HOME`, sim-server contention, discovery-json overwrite).
