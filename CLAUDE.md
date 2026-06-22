@@ -78,7 +78,7 @@ When delivering findings on a GitHub PR, **submit a formal review (`POST .../pul
 - **Never leak internal markings.** Strip severity tags (`M -`, `H1.`, etc.) and any other internal scaffolding from the posted text — the comment the author reads is plain reviewer prose.
 
 ### Resolving Review Comments
-**Never mark a review comment as resolved without first replying `Fixed in <commit_hash>`.** Post the reply — with the actual commit SHA that addresses the comment — *before* you even consider resolving the thread. No reply, no resolve. This applies to every review comment on every platform: the reply that names the fixing commit is a hard prerequisite for resolution, no exceptions.
+**Never mark a review comment as resolved without first replying `Fixed in <commit_hash>`.**
 
 ## Tools & Skills
 
