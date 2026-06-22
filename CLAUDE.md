@@ -38,6 +38,8 @@ One review pass is not enough: when a pass surfaces real issues, fix them and di
 
 Treat sub-agent findings as leads, not verdicts — verify each against the actual code (reproduce it, trace the path, confirm the input can occur) before acting. This matters most in mature, hardened code, where swarms over-report theoretical problems on paths that never execute. A finding you can't substantiate is not an issue: don't fix it and don't let it trigger another pass, or the loop never converges.
 
+**Worktree verifiers run against the wrong base.** A sub-agent spawned with `isolation: "worktree"` branches from the repo default (`origin/main`), NOT from the master agent's in-progress feature branch — so it sees none of your uncommitted or unpushed work and will falsely report "work discarded / branch reset / files missing / line counts collapsed." Never act on such a finding. The git object DB is shared, so the in-progress commit is reachable by SHA: reproduce against the real master worktree (`git rev-parse HEAD`, `git log --first-parent`, `ls`/`wc -l` the actual files), or pass the agent the exact commit SHA and have it inspect via `git show <sha>:path` / `git grep <sha>` while warning it that its own checkout will be `origin/main`. The master worktree's own tsc/test/prettier is the authoritative build signal — isolation-worktree agents run those against the wrong tree.
+
 ### Monitor CI After Push
 After every `git push`, monitor CI and fix any failures before declaring the push done.
 
