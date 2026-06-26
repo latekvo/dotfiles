@@ -57,6 +57,9 @@ Ask before: system-wide changes that affect unrelated work (global PATH, shell r
 ### Linear / Project Management
 Never update, reassign, or change the status of any ticket (Linear, Jira, GitHub Issues) assigned to another person. Only create or modify tickets that are unassigned or assigned to "me." If a ticket belongs to someone else, report its state but don't touch it.
 
+### Writing Style
+Use regular dashes (-) instead of em-dashes in all output.
+
 ## Decisions — Decide, Don't Ask
 
 Bring real analytical depth to non-trivial decisions: failure modes, second-order effects, fit with existing patterns. `AskUserQuestion` is not an escape valve. Within a task the user delegated, every strategic choice is yours — they have less context on your immediate problem than you do at that moment, and asking is itself the failure.
