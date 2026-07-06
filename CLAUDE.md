@@ -6,6 +6,7 @@
 - **Default:** implement features/fixes on a separate branch in a git worktree — never on `main`/`master` directly.
 - **Solo exception:** for tiny single-contributor repos the user maintains alone (personal dotfiles, local experiments, scripts no one else touches), skip the worktree dance and commit straight to main. Solo-but-public projects where `main` is the released branch still need branches and PRs — when in doubt, default to worktrees and ask.
 - **Sub-agents that implement changes** always get `isolation: "worktree"` AND branch from the master agent's current branch, so their work stacks on top instead of diverging. Applies even in solo repos to keep the working directory clean.
+- **Worktree location:** place every new worktree of `<project_path>` at `<project_path>-worktrees/<worktree_name>` — a sibling `-worktrees` directory, never nested inside the repo. E.g. a worktree of `~/dev/argent` goes to `~/dev/argent-worktrees/foo`.
 - **PRs:** draft PRs are fine to open when there's a fix worth reviewing; never open a non-draft PR or mark one ready-for-review yourself.
 - **Commits during iteration:** push plain incremental commits (`git commit` + `git push`); never `git commit --amend` + force-push just to keep a PR at one commit. PRs are squash-merged, so history tidiness is automatic. Reserve force-push for a rebase the user explicitly asked for.
 
