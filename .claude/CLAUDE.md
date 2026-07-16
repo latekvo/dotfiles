@@ -34,6 +34,8 @@ Before adding an interface, class, abstraction, or helper, check whether one alr
 ### Maximize Parallelization via Sub-Agents
 Dispatch independent work to sub-agents aggressively, including swarms of them. Any task that doesn't require massive shared context or exclusive access to a race-prone resource (a single Android AVD, a single dev port, an in-progress DB migration, an interactive shell session) should be delegated. File searches across the repo, isolated edits to unrelated files, build verifications, independent test suites, multi-file refactors with non-overlapping scope, research and exploration: all of these run faster as parallel sub-agents than serially. Default to delegating; reserve the main-thread context for synthesis, decisions, and work that must stay coherent. The cost of an unnecessary agent is small; the cost of unnecessarily serializing parallelizable work is paid against the user's wall-clock time. **Swarm sizing:** 2-8 parallel agents is the normal operating range - size within it to match the task; only when very necessary (a massive rework needing broad verification and testing sweeps) scale beyond it, up to a hard limit of 14 - never more. Under-provisioning a parallelizable task wastes wall-clock time as surely as serializing it.
 
+**Workflows over raw swarms:** any run spawning more than 5 sub-agents must be orchestrated via the Workflow tool, not ad-hoc parallel Agent calls.
+
 ### Swarm Review Passes: Iterate, but Verify Every Claim
 One review pass is not enough: when a pass surfaces real issues, fix them and dispatch another full pass, iterating until a pass comes back clean. Convergence is measured in *verified* issues, not raw findings.
 
