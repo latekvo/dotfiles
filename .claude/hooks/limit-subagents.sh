@@ -25,7 +25,9 @@ set -uo pipefail
 
 CHILD_TIER="${CC_CHILD_TIER:-orchestrator}"   # the "children" — may spawn leaves
 LEAF_TIER="${CC_LEAF_TIER:-worker}"           # the "sub-children" — spawn nothing
-MAX_CHILDREN="${CC_MAX_CHILDREN:-5}"          # max leaves per child
+MAX_CHILDREN="${CC_MAX_CHILDREN:-14}"         # HARD cap on leaves per child; the normal
+                                              # operating range is 2-8 (see CLAUDE.md) —
+                                              # 9-14 is for when very necessary only
 
 command -v jq >/dev/null 2>&1 || exit 0       # fail-open if jq is unavailable
 
