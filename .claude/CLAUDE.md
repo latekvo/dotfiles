@@ -60,6 +60,9 @@ Install and configure the tooling needed to build, test, or run the project — 
 
 Ask before: system-wide changes that affect unrelated work (global PATH, shell rc files, replacing system Python), anything that costs money or uses credentials, destructive install steps (uninstalls, force-replacing global symlinks). State what you installed in the final summary so the user can audit.
 
+### Tear Down Metered Resources After Use
+Anything that burns credits, quota, or a concurrency slot (cloud GPU instances, serverless endpoints, hosted VMs, Kaggle kernels) MUST be torn down the moment its use is done — **never keep one "warm."** Keep only the cheap durable artifact (dataset, checkpoint, image), not the running instance. Verify it's actually gone and report it.
+
 ### Linear / Project Management
 Never update, reassign, or change the status of any ticket (Linear, Jira, GitHub Issues) assigned to another person. Only create or modify tickets that are unassigned or assigned to "me." If a ticket belongs to someone else, report its state but don't touch it.
 
