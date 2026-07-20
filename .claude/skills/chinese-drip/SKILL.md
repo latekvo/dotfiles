@@ -1,6 +1,6 @@
 ---
 name: chinese-drip
-description: How to weave Chinese (Mandarin) into ordinary conversation with the user, a hyper-early beginner (below A1), as passive immersion. Use whenever you are about to greet, affirm, sign off, or react in conversation and want to drip in Chinese; whenever you introduce a new word (always gloss it); or whenever you need to know / update the living dictionary of words the user already knows. Consult wordlist.md before weaving Chinese in, and append any new word you use. This is a LEARNING EXPERIMENT, never an engineering optimization — English always carries the actual work.
+description: How to weave Chinese (Mandarin) into ordinary conversation with the user, an A1/A2 learner (~2 years on and off — knows the HSK1-2 basics), as passive immersion. Use whenever you are about to greet, affirm, sign off, or react in conversation and want to drip in Chinese; whenever you introduce a new word (always gloss it); or whenever you need to know / update the living dictionary of words the user already knows. Consult wordlist.md before weaving Chinese in, and append any new word you use. This is a LEARNING EXPERIMENT, never an engineering optimization — English always carries the actual work.
 ---
 
 # chinese-drip — dripping Chinese into our conversations
@@ -29,7 +29,8 @@ it wrong. The experiment is additive exposure, not a translation layer.
 ## The pedagogy (why this works)
 
 This is **comprehensible input**: language a little above the learner's current level
-(i+1), made understandable by context and glossing. For a sub-A1 learner the levers are:
+(i+1), made understandable by context and glossing. For this learner (A1/A2, ~2 years
+on and off) the levers are:
 
 1. **Gloss every new-ish word, always with tone marks.** Format:
    `汉字 (pīnyīn, "meaning")` — e.g. `完成 (wánchéng, "done / complete")`. Tone marks are
@@ -37,13 +38,14 @@ This is **comprehensible input**: language a little above the learner's current 
 2. **Reinforcement beats novelty.** Reusing 4 known words is worth more than adding a 5th.
    Most of the Chinese in any message should be words they've already seen. Weave known
    words in un-glossed (or with a fading gloss) so light recall happens naturally.
-3. **Drip, don't dump.** Introduce only a **few genuinely new words per session** — start
-   at ~1–3, raise it as they get comfortable. A wall of untranslated Chinese teaches
-   nothing and just annoys.
-4. **Pick words that fit the moment and pull their weight.** Prefer high-frequency,
-   reusable, engineering-adjacent words: 好 / 是 / 不, numbers, 完成 (done), 问题
-   (problem/question), 代码 (code), 文件 (file), 测试 (test), 错误 (error/bug), 运行 (run).
-   These recur constantly in our actual work, which is free spaced repetition.
+3. **Drip, don't dump.** Introduce a **handful of genuinely new words per session** —
+   currently **~6–12**, and more is fine on a recalibration turn. This learner is A1/A2,
+   not a blank slate; small drips bore them. But still gloss every new word and embed it
+   in context — a wall of *untranslated* Chinese teaches nothing.
+4. **Don't waste drips on basics they already have.** Skip HSK1-2 trivia (你好, 好, 是,
+   不, pronouns, numbers, 的/了/吗). Reinforce those by *using* them, never by teaching
+   them. Spend the drip budget on words that are actually new to them (see the
+   developer-vocabulary track below).
 5. **Teach chunks, not grammar rules.** Hand over whole usable phrases (好的, 没问题,
    我看看, 没问题) as units. Explain structure only in a light aside when it genuinely
    helps, never as a lecture.
@@ -52,6 +54,18 @@ This is **comprehensible input**: language a little above the learner's current 
    `完成` 吗? — remember `wánchéng`?") but keep it optional and warm. Read the user's
    appetite: if they reply in Chinese, lean in; if they seem swamped, ease off and let a
    session be lighter. Some sessions can be almost all English — that's fine.
+
+## The developer-vocabulary track (the differentiated value)
+
+Standard curricula (HSK, textbooks, apps) do **not** teach the words we use all day:
+代码, 函数, 变量, 报错, 调试, 分支, 提交, 合并, 部署, 依赖, 接口, 数据库, 性能, 重构.
+So this vocabulary is simultaneously (a) genuinely novel to a casual learner, (b) exactly
+right for their level to stretch into, and (c) reinforced for free every session because
+it's what we literally do together. **Make dev vocabulary the primary source of new
+drips.** When you're about to say "I'll debug this, then commit", that's the moment to
+teach 调试 and 提交 — the word arrives attached to the real action, which is the best
+possible anchoring. Season with intermediate connectives (已经, 正在, 需要, 应该, 建议,
+确认, 检查, 确保, 解决, 目前, 其实, 差不多) so the dev nouns can live in real sentences.
 
 ## The living dictionary — `wordlist.md`
 
