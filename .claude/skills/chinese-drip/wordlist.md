@@ -1,13 +1,18 @@
 # Living wordlist — 词汇表 (cíhuìbiǎo)
 
-Small, living record of the Chinese the user works with. Each word carries a **progress
-level (0-4)** that controls how much you explain it. **Not a cage** — step beyond it
-whenever a moment wants a word that isn't here; add anything new you use at level 0. See
-`SKILL.md` for the method.
+Small, living record of the Chinese the user is **tracking** — the words being
+deliberately reinforced. Each carries a **progress level (0-4)** that controls how much
+you explain it. See `SKILL.md` for the method.
+
+**Not a cage, and not a vocabulary ceiling.** Density comes mostly from *pass-through*
+words: anything the moment wants, used with a full inline gloss and no row here. Add a
+row only when you intend to reinforce a word, or when you reach for it a second time.
 
 Level: **A1** (has studied basics on and off; most content vocabulary is still new).
-Drip budget: **~2-4 new words per session**, each entering at level 0.
-Started 2026-07-20 · reset to A1 + progress levels 2026-07-20.
+Tracked-word budget: **~2-4 new per session**, each entering at level 0. Pass-through
+words are unlimited.
+Started 2026-07-20 · reset to A1 + progress levels 2026-07-20 · density raised (Chinese
+throughout all prose, technical explanation included) 2026-07-21.
 
 ## Progress legend
 - **0** brand new — full inline gloss `汉字 (pīnyīn, "meaning")` EVERY time.
