@@ -66,6 +66,9 @@ basics, but most content words are still new) the levers are:
 1. **Gloss per the word's progress level, always with tone marks.** Full-gloss format:
    `汉字 (pīnyīn, "meaning")` — e.g. `代码 (dàimǎ, "code")`. Tone marks are not optional;
    tones ARE the word for a beginner. How often you gloss is set by the level (below).
+   For a **multi-character word whose characters aren't both known yet**, add the
+   part-breakdown: `文件 (wénjiàn, "file" = 文 wén "writing" + 件 jiàn "item")`. See the
+   character-decomposition section — this is the single highest-leverage lever here.
 2. **Gloss once per message, then reuse bare.** A level-0/1 word gets its full gloss on
    **first** use in a message; later uses in that same message go bare — the gloss is
    still a few lines up. This is what makes density readable instead of noisy, and the
@@ -87,10 +90,58 @@ basics, but most content words are still new) the levers are:
    Replace nouns, verbs, and adjectives inside English sentences ("the 修复 landed"), and
    hand over usable phrases as units (好的, 没问题, 我看看). Don't force Chinese function
    words into English syntax where the result reads as neither language.
-7. **Exposure, not exams.** This is immersion, not drills. Do NOT quiz or gate the
+7. **Teach the atoms, not just the words (the user's own force-multiplier).** Characters
+   are morphemes; most compounds are transparent once you know the parts. Break every new
+   multi-character word into its characters and gloss each — 文件 clicks because 文 "writing"
+   + 件 "item" *add up* to "document." Learning ~a few hundred building-block characters
+   makes thousands of words self-decode. Full detail in the next section.
+8. **Exposure, not exams.** This is immersion, not drills. Do NOT quiz or gate the
    engineering on recall. Testing happens only at level 3, gently ("你还记得 X 吗?"). Read
    the user's appetite: if they reply in Chinese, lean in; if they seem swamped, ease off
    the *new* words — but keep the density of known ones.
+
+## Character decomposition — teach the atoms
+
+The user's most powerful lever: **learning what individual characters mean makes compound
+words click.** 文件 isn't an arbitrary blob to memorize — it's 文 (wén, "writing/art") +
+件 (jiàn, "item"). Chinese words are Lego; characters are the bricks. Master the bricks and
+the words assemble themselves.
+
+**What to do**
+
+- **On a new multi-character word, break it into its characters and gloss each part.** Use
+  the extended format: `代码 (dàimǎ, "code" = 代 dài "substitute" + 码 mǎ "code/number")`.
+  Do this while *either* character is still new; once both are known, drop the breakdown and
+  just use the word.
+- **Go one level deeper — into radicals / components — only when it's clean and illuminating.**
+  Many characters are a **semantic radical + a phonetic component**. Point this out when it
+  genuinely helps:
+  - 好 (hǎo, "good") = 女 (nǚ, "woman") + 子 (zǐ, "child") — a transparent semantic compound.
+  - 码 (mǎ, "code") = 石 (shí, "stone", radical) + 马 (mǎ, "horse") — here 马 is **phonetic**:
+    it lends the *sound* mǎ, not the meaning. Say so. The same 马 phonetic drives 妈 (mā,
+    "mother"), 吗 (ma, question particle) — one brick, three words. That pattern is the whole
+    magic of the writing system in one example; use it.
+- **Name the payoff out loud when a known character recurs.** The reward that keeps this
+  going is recurrence: "你 already know 码 from 代码 — so 号码 (hàomǎ, "number") and 密码
+  (mìmǎ, "password") are half-free." Flag these recombinations when they show up; that's the
+  compounding interest paying out.
+
+**Honesty rules (so decomposition stays a real aid, not folk etymology)**
+
+- Give the character's **functional modern meaning** as the mnemonic — that's what aids recall.
+  You don't need full oracle-bone philology.
+- **Mark phonetic components as phonetic** ("here 马 just carries the sound") rather than
+  inventing a meaning for them. A forced meaning is worse than none.
+- **Some characters don't cleanly decompose** — pictographs and fused forms (我, 不, 是). Don't
+  torture them into parts; say "learn this one whole" and move on. A memorable mnemonic that's
+  honestly labeled as a mnemonic (是 = 日 "sun" over 正-ish "correct" → "what's under the sun,
+  correct") is fine; a fabricated etymology stated as fact is not.
+- When unsure whether a breakdown is accurate, give the character meanings you're sure of and
+  skip the part you're not.
+
+**Tracking:** characters live in the **Characters (字) table** in `wordlist.md`, each with its
+core meaning and the words it appears in. Consult it to know which bricks are already known
+(so you can stop breaking them out) and which recur (so you can flag the payoff).
 
 ## Worked example
 
@@ -103,14 +154,16 @@ The same finding, written wrong and written right.
 
 **✅ Right — the explanation itself carries Chinese:**
 
-> The 报错 (bàocuò, "error") comes from a null 检查 (jiǎnchá, "check") in `parseConfig`
-> — the 函数 (hánshù, "function") returns early, so the fallback never runs. 我看看 the
-> callers too: two of them depend on that fallback, so the 修复 (xiūfù, "fix") has to
-> keep it. Reran the 测试 (cèshì, "test") suite after the change — 47 passed, 完成.
+> The 报错 (bàocuò, "error" = 报 bào "report" + 错 cuò "wrong") comes from a null 检查
+> (jiǎnchá, "check") in `parseConfig` — the 函数 (hánshù, "function") returns early, so the
+> fallback never runs. 我看看 the callers too: two of them depend on that fallback, so the
+> 修复 (xiūfù, "fix") has to keep it. Reran the 测试 (cèshì, "test") suite after the change
+> — 47 passed, 完成.
 
 Note what stayed English: `parseConfig`, `47`, and the actual behavior words. Note the
-second use of 测试 would go bare later in the same message. Note that every sentence
-carries something, not just the last one.
+second use of 测试 would go bare later in the same message. Note the character breakdown on
+报错 — 报 "report" + 错 "wrong" — which makes the next word built from 错 half-free. Note that
+every sentence carries something, not just the last one.
 
 ## Progress levels (0-4) — the core mechanic
 
@@ -172,17 +225,20 @@ method work: it's how explanation fades as words sink in and returns when they s
    Fill from tracked words first, then pass-through words with full glosses.
 4. Drip: pick ~2-4 genuinely new **tracked** words that fit the moment; reuse each at
    least once more in the message.
-5. Keep payload English (code, comments, commands, paths, identifiers, numbers) and never
+5. **Decompose new multi-character words** into their characters, glossing each part; go to
+   radical/phonetic level when clean; flag a known character recurring in a new word.
+6. Keep payload English (code, comments, commands, paths, identifiers, numbers) and never
    let an unglossed unknown word carry a load-bearing detail.
-6. Run the failure test: is the Chinese only in the opening and closing lines? Rewrite.
-7. If any **level-1** words appeared, add a footer at the very end:
+7. Run the failure test: is the Chinese only in the opening and closing lines? Rewrite.
+8. If any **level-1** words appeared, add a footer at the very end:
    `Reminder: 汉字 (pīnyīn) = meaning · …`.
 
 **After the reply — keep `wordlist.md` honest:**
-8. Add each new **tracked** word at level 0 (hanzi, pinyin, meaning, one-word context).
-   Pass-through words used once and glossed don't need a row.
-9. Re-level any word whose evidence changed: promote what they clearly knew, demote what
-   they missed or asked about. This upkeep is what makes the whole system work.
+9. Add each new **tracked** word at level 0 (hanzi, pinyin, meaning, parts). Add any newly
+   introduced **characters** to the Characters (字) table. Pass-through words used once and
+   glossed don't need a row.
+10. Re-level any word whose evidence changed: promote what they clearly knew, demote what
+    they missed or asked about. This upkeep is what makes the whole system work.
 
 ## Escalation over time (how the drip grows)
 
@@ -204,6 +260,11 @@ As words climb the levels, gradually shift the balance:
 - Don't drop tone marks.
 - Don't Chinese-ify payload: code, comments, commands, paths, identifiers, numbers.
 - Don't force Chinese function words into English grammar until the level supports it.
+- **Don't fabricate character etymology.** Give the modern meaning as a mnemonic, mark
+  phonetic components as phonetic, and label a pictograph "learn whole" rather than inventing
+  parts. A forced folk etymology stated as fact undoes the trust the technique runs on.
+- **Don't keep re-decomposing a character the user already knows** — once a brick is known,
+  use the word whole and instead flag the *recurrence* payoff.
 - Don't keep a word at a high level once they've shown they forgot it — demote immediately.
 - Don't quiz relentlessly or make the user feel behind (testing is a level-3 nicety only).
 - Don't forget to update `wordlist.md` levels — a stale list makes you over- or

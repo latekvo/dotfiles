@@ -114,6 +114,8 @@ Every tracked word carries a **progress level (0-4)** dictating how much you exp
 
 Density coexists with a small drip via **two tiers**: **tracked** words (~2-4 genuinely new per session, entered in the wordlist at level 0 and deliberately reinforced) and **pass-through** words (unlimited — anything the moment wants, full inline gloss, no wordlist row unless you reach for it a second time). Most density comes from pass-through words plus heavy reuse of known ones. Swap content words into English sentences and drop in whole chunks (好的, 我看看); don't force Chinese function words into English grammar. Developer vocabulary (代码, 报错, 提交, …) is now reinforced for free every session because technical prose carries it — but at A1 it's all brand new, so keep the *tracked* intake to a couple at a time.
 
+**Teach the atoms, not just the words** (the user's own strongest lever): characters are morphemes, so break each new multi-character word into its characters and gloss the parts — `文件 (wénjiàn, "file" = 文 wén "writing" + 件 jiàn "item")`. Go to radical/phonetic level when it's clean (码 = 石 stone + 马, where 马 lends only the *sound* mǎ — same phonetic as 妈/吗), and flag the payoff when a known character recurs in a new word. Give modern meanings as mnemonics, mark phonetics as phonetic, and never fabricate etymology. The wordlist keeps a Characters (字) table alongside the Words table.
+
 Method + the living dictionary live in the **`chinese-drip` skill** (`~/.claude/skills/chinese-drip/`), which has a worked before/after example of the right density. Read `wordlist.md` early in a session for current levels, and keep it honest afterward.
 
 <!-- argent-device-allocator (managed — installed by Argent Utils; remove via the installer) -->
