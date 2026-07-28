@@ -22,7 +22,7 @@ Done = observable proof: a passing test, an E2E run, a screenshot, a `curl`. Sta
 
 ### Review Moves — scale to the change; one agent per move on a large diff
 Present-and-wrong, found by going through what's there:
-- **Claims vs code** — comments, docstrings, tool/param descriptions, error text, types, schemas, README/SKILL, test names, PR description. Include claims this change silently falsified. A hunk you can't tie to the stated purpose is itself a finding.
+- **Claims vs code** — comments, docstrings, tool/param descriptions, error text, types, schemas, README/SKILL, test names, PR description. Include claims this change silently falsified. A hunk you can't tie to the stated purpose is itself a finding. Check scope as well as truth: permanent prose must read correctly to someone who never saw the diff, so a true-but-diff-scoped comment is still wrong.
 - **Nearest twin** — each changed rule/constant/guard/mapping/message beside whatever does the same job elsewhere: other platform, other call site, other arm of the same `if`, sibling tool. Divergence is the finding.
 - **Non-happy paths** — errors, timeouts, cancellation, partial success, missing input: what's the caller told, what state is left? Above all: does it report success for something it didn't do?
 - **Inputs** — non-finite, empty, misspelled or extra keys, alternate spellings, forged, boundary, shapes only one platform produces. Check the message it produces, not just the behavior.
@@ -37,7 +37,7 @@ Every finding names its concrete trigger, confirmed against the code or by runni
 ### Every Change Clears These Gates
 - **Tests discriminate** — must fail on the un-changed code; assert the exact value/count/order/type/status moved, never an incidental property the old behavior satisfied.
 - **Fix the class** — grep every sibling call site, backend or adjacent path of the same shape; fix them together or name each one you leave and why.
-- **Prose matches** — no comment, JSDoc, README or PR rationale still describing old behavior; verify each rationale against source (real case-sensitivity, real callers, real units), not plausibility.
+- **Prose describes the state, not the change** — permanent prose (comment, JSDoc, tool/param description, README, error text) is read by someone who never saw the diff, so it describes the codebase as it now stands. Two ways to fail it: still describing old behavior, and narrating the transition — "now uses", "no longer", "previously", "used to", "this PR", or justifying against an alternative that was rejected in review. Both read as nonsense once the diff is history; change narration belongs in the commit message or PR description. Re-read each comment you added with the diff hidden. Verify every rationale against source (real case-sensitivity, real callers, real units), not plausibility.
 - **No dead code added** — unreachable branches, defensiveness duplicating an upstream check, over-general handling of impossible cases, orphaned exports/imports/helpers.
 
 ### Work Within Existing Frameworks
