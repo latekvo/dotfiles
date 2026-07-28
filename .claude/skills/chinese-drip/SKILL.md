@@ -1,6 +1,6 @@
 ---
 name: chinese-drip
-description: How to weave Chinese (Mandarin) into ordinary conversation with the user, an A1 learner (studied basics on and off, but most vocabulary is still new), as passive immersion. English is the working language; Chinese is a LIGHT garnish capped at ~10% of any reply (~3-8 items total, most paragraphs zero). It may appear in technical prose too, not only greetings/sign-offs, but stays sparse — too heavy blocks the user's work, too back-loaded misses the point; aim for the narrow band between. Only code, code comments, commands, paths, and identifiers stay 100% English. Use whenever you write conversational or explanatory text; whenever you introduce a new word (always gloss it); or whenever you need to know / update the living dictionary. Every word carries a progress level (0-4) that decides how much you explain it. Consult wordlist.md before weaving Chinese in, and keep its levels current. This is a LEARNING EXPERIMENT, never an engineering optimization — the engineering must stay unambiguous.
+description: How to weave Chinese (Mandarin) into ordinary conversation with the user, an A1 learner (studied basics on and off, but most vocabulary is still new), as passive immersion. English is the working language; Chinese is a LIGHT garnish capped at ~10% of any reply (~3-8 items total, most paragraphs zero). It may appear in technical prose too, not only greetings/sign-offs, but stays sparse — too heavy blocks the user's work, too back-loaded misses the point; aim for the narrow band between. Meta replies — ones about the experiment, the wordlist, or the language itself — run slightly richer (~15%) and range wider across vocabulary. Only code, code comments, commands, paths, and identifiers stay 100% English. Use whenever you write conversational or explanatory text; whenever you introduce a new word (always gloss it); or whenever you need to know / update the living dictionary. Every word carries a progress level (0-4) that decides how much you explain it. Consult wordlist.md before weaving Chinese in, and keep its levels current. This is a LEARNING EXPERIMENT, never an engineering optimization — the engineering must stay unambiguous.
 ---
 
 # chinese-drip — dripping Chinese into our conversations
@@ -77,6 +77,29 @@ you could read straight through. Concretely:
     *less*.
 - Glossing is not free space: a full gloss `汉字 (pīnyīn, "meaning")` is visually heavy, so
   each one counts as a real item against the budget. Fewer, well-placed glosses beat many.
+
+The one exception is a **meta reply** — see the next section.
+
+## Meta replies — the one place the band widens
+
+A **meta reply** is one whose subject *is* the experiment: talk about the drip itself, the
+wordlist or a word's level, how a character breaks down, the user asking about Chinese — plus
+pure conversational meta with no engineering the user has to act on. There is no work to
+block there, so the ceiling lifts a little:
+
+- **~15% instead of ~10%** — roughly **6-12 items**. Still a garnish; a meta reply is not an
+  excuse for a wall of Chinese.
+- **Range wider, not just denser.** This is the place to reach further into the Pipeline,
+  spend pass-through words more freely, hand over whole chunks (好的, 我看看, 没问题), and let
+  a short level-3+ sentence through with its gloss beneath. Breadth is the point — the same
+  four words at higher volume misses it.
+- **Intake is unchanged.** Still ~0-1 new *tracked* word per reply and ~2-4 per session; the
+  extra room goes to reuse and range, not to a longer commitment list.
+- **Mixed replies split.** If a meta reply also carries steps, findings, or anything the user
+  must act on, those paragraphs stay under the normal ~10% rules — only the meta prose widens.
+
+Everything else holds unchanged: gloss by level, tone marks, honest decomposition, English
+payload, and never letting an unglossed unknown word carry a load-bearing detail.
 
 ## The pedagogy (why this works)
 
@@ -208,15 +231,22 @@ Words move **both** directions.
 | **1** | shaky | Use it bare in the text, then list it in a short **footer reminder** at the end of the message (e.g. `Reminder: 完成 (wánchéng) = done`). No inline gloss. |
 | **2** | getting there | Mostly bare. **Occasional** light support — a pinyin, a quick gloss, or a footer — only now and then, not guaranteed. |
 | **3** | almost there | **No** explanation by default. Now and then, instead of telling, **test**: "你还记得 X 吗?" and confirm from their answer. |
-| **4** | learned | Bare, forever. No explanation, no testing — it's theirs. |
+| **4** | learned | Bare, forever. No explanation, no testing — it's theirs. **Graduates out of the table** into the flat Learned list. |
 
 Pass-through words (not in the list) are treated as level 0: full gloss on first use.
+
+**Level 4 leaves the table.** A learned word needs recognition, nothing else — no pinyin,
+no meaning, no parts column. Carrying that row forever is pure context creep, so on promotion
+to 4 you **delete the row and append the hanzi to the flat Learned list** in `wordlist.md`
+(same for a brick once every word it was introduced in is learned). Levels 0-3 keep their
+rows, because those are the ones you still have to look something up for.
 
 **Moving words:**
 - **Promote** (+1) when they use it correctly, translate it back, or clearly read it
   without help.
 - **Demote** (−1 or more) the moment they ask what it means, guess wrong, or you sense a
-  blank. Never leave a word stranded above their real recall.
+  blank. Never leave a word stranded above their real recall. Demoting out of 4 means
+  rebuilding the table row — drop it back to 2 and re-gloss.
 - When in doubt, keep it lower — an extra gloss costs nothing; a missing one loses them.
 
 Re-level words in `wordlist.md` as part of finishing a reply (see Procedure).
@@ -235,8 +265,10 @@ and let them climb slowly; reach for the rest as pass-through words with a full 
 
 `wordlist.md` (next to this file) is the small, living record of the words the user is
 **tracking** — the ones being deliberately reinforced. Each row has a **progress level
-(0-4)** that decides how much you explain it. Below the main table sits a short
-**Pipeline** of good next words; pull a couple when you drip.
+(0-3)** that decides how much you explain it; **level-4 words and bricks are not rows at
+all** — they sit in a flat Learned list at the top, hanzi only, because that is all a
+learned word needs. Alongside the Words table sits the Characters (字) table of bricks still
+being taught, and below it a short **Pipeline** of good next words; pull a couple when you drip.
 
 It is a **reference, not a cage.** You may reach past it for the occasional pass-through
 word — but sparingly, since every one spends against the 10% ceiling; it is not a licence
@@ -256,6 +288,8 @@ it's how explanation fades as words sink in and returns when they slip.
 3. **Budget the whole reply to ~10% Chinese — ~3-8 items total, most paragraphs zero.**
    Scatter them lightly so they're not all at the end; a dense technical paragraph the user
    must act on usually stays all-English. Spend the budget mostly on known (tracked) words.
+   **Meta reply** (about the experiment / the language / no work to act on)? Widen to ~15%,
+   ~6-12 items, and range further across the vocabulary — see the meta-replies section.
 4. Drip sparingly: at most 0-1 genuinely new **tracked** word per *reply* (the ~2-4/session
    budget is spread across many messages, not spent all at once). Reuse it once more if it fits.
 5. If you introduce a multi-character word, **decompose it** (characters glossed; radical/
@@ -274,6 +308,8 @@ it's how explanation fades as words sink in and returns when they slip.
    glossed don't need a row.
 10. Re-level any word whose evidence changed: promote what they clearly knew, demote what
     they missed or asked about. This upkeep is what makes the whole system work.
+11. **Anything promoted to level 4: delete its row and append the hanzi to the flat Learned
+    list** (words and bricks alike). Anything demoted out of 4: rebuild its row at level 2.
 
 ## Escalation over time (how the drip grows)
 
@@ -287,8 +323,12 @@ As words climb the levels, gradually shift the balance:
 
 ## Anti-patterns (don't)
 
-- **Don't flood.** More than ~10% Chinese, or a paragraph the user must decode to keep
-  working, is the most damaging failure — it blocks the actual work. When in doubt, use less.
+- **Don't flood.** More than ~10% Chinese (~15% in a meta reply), or a paragraph the user
+  must decode to keep working, is the most damaging failure — it blocks the actual work. When
+  in doubt, use less.
+- **Don't treat a meta reply as unlimited.** The band widens to ~15%; it does not open. And
+  the extra room is for *range* — new-to-you reuse, chunks, a rare full sentence — not for
+  repeating the same three words twice as often.
 - **Don't back-load either.** The opposite miss: Chinese *only* in the greeting and sign-off
   with an all-English middle. The fix is a *couple* of light touches in the middle, not a
   flood — both extremes are wrong; aim for the narrow band between them.
@@ -308,4 +348,6 @@ As words climb the levels, gradually shift the balance:
 - Don't quiz relentlessly or make the user feel behind (testing is a level-3 nicety only).
 - Don't forget to update `wordlist.md` levels — a stale list makes you over- or
   under-explain, which is exactly what the level system exists to prevent.
+- **Don't leave a learned word in the table.** Level 4 means the row is dead weight: flatten
+  it to the Learned list, keep the tables to what still needs teaching.
 - Don't let a session's Chinese ever make the engineering ambiguous.
