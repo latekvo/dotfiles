@@ -14,41 +14,44 @@
 No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` overrides, no "Generated with Claude/🤖" taglines. Applies to commits, PR titles/descriptions, issue comments — all git output. Strip these when editing existing PRs/issues. Commit author must always be the user.
 
 ### Verification Before Reporting Done
-**Done means hard, observable, reproducible proof** — a passing test, an E2E run producing the requested behavior, a screenshot showing the UI works, a `curl` returning the expected response. Static checks (typecheck, lint, unit tests) pass on broken code constantly; necessary but never sufficient. Declaring done on belief is a hard failure even if the code happens to be correct.
+Done = observable proof: a passing test, an E2E run, a screenshot, a `curl`. Static checks never suffice.
+- **Run it E2E** through the real entry point; if infeasible, say which step and why.
+- **Prove every discovery** with a repro before acting, same repro re-run after fixing. Hypotheses, single observations and sub-agent claims don't clear the bar.
+- **Run CI locally** — format, lint, typecheck, test, build.
+- **Name the verification you ran.** Never "should work" / "looks correct".
 
-Before declaring done:
-1. **Run the change end-to-end** through the real entry point (CLI, HTTP, UI flow, build pipeline) and confirm observable behavior matches the request. Skip only if infeasible (no credentials, destructive on shared systems, user said skip) — and say so explicitly.
-2. **Prove every discovery beyond reasonable doubt** — a bug, a root cause, a "here's how it works" conclusion — before you act on or report it; there is always a way to drive doubt lower, so find it. For a bug that means a concrete repro before the fix and the same repro re-run after to confirm the fix lands. Plausible hypotheses, single observations, and second-hand agent claims do not clear this bar.
-3. **Run formatter and CI-equivalent checks locally** (lint, typecheck, tests, build). Don't push and wait for remote CI to surface what you could have caught.
-4. **Review through these lenses, scaling effort to the change** — a one-line fix needs a glance; a large diff warrants a parallel agent per lens. Fix what's real and re-verify:
-   - **Correctness** — tests and build; write missing tests for changed behavior.
-   - **Scope** — cut what the request didn't need: redundant abstractions, out-of-scope refactors, speculative complexity, dead code. For each addition ask "if I delete this, does the feature still work?"
-   - **Edge cases** — nulls, boundaries, errors, concurrency in every changed function.
-   - **Ripple effects** — callers, references, docs, configs, CI, tests for changed symbols.
+### Review Moves — scale to the change; one agent per move on a large diff
+Present-and-wrong, found by going through what's there:
+- **Claims vs code** — comments, docstrings, tool/param descriptions, error text, types, schemas, README/SKILL, test names, PR description. Include claims this change silently falsified. A hunk you can't tie to the stated purpose is itself a finding.
+- **Nearest twin** — each changed rule/constant/guard/mapping/message beside whatever does the same job elsewhere: other platform, other call site, other arm of the same `if`, sibling tool. Divergence is the finding.
+- **Non-happy paths** — errors, timeouts, cancellation, partial success, missing input: what's the caller told, what state is left? Above all: does it report success for something it didn't do?
+- **Inputs** — non-finite, empty, misspelled or extra keys, alternate spellings, forged, boundary, shapes only one platform produces. Check the message it produces, not just the behavior.
+- **Reachability both ways** — can this branch/guard/code actually fire, or is it shadowed by an earlier check? Does its value reach the consumer that motivated it, or get swallowed and reformatted?
+- **What outlives the call** — processes, temp files, global caches, device state, in-flight work at shutdown, two callers racing one file, a stale cache surviving a state change. Sum every timeout on the path against the budget the code claims; check the growth rate of anything accumulating.
 
-In the final summary, name the specific verification you ran (e.g., "ran `pnpm test` — 47 passed", "opened the page in Chrome and submitted — UI updated"). If you skipped a step, name which and why — never paper over with "should work" or "looks correct."
+Absence is ~half of all real findings and can't be grepped — it shows only against a reference:
+- **A sibling that has it** · **prose that promises it** · **symmetry** (spawn/reap, open/close, write/delete, set/reset) · **the mutation** — break the constant, delete the branch, invert the condition, swap two args, run the suite; green means nothing pins it. Highest-yield single act, and it applies to every change, not just fixes.
 
-### Every Fix Clears These Four Gates
-Recurring review rejections trace to fixes that reproduce-clean but skip one of these. Run all four against your own diff before calling a fix done — scale the effort to the change, never skip a gate.
-- **Prove the test discriminates.** A regression test must fail on the un-fixed code; assert the exact value/count/order/type/status the fix changed, never an incidental property (`>= 1`, "contains something", `not.toBe(x)`) the old behavior already satisfied — a test that passes with or without the fix guards nothing.
-- **Fix the class, not the instance.** Grep the whole repo for every sibling call site, backend, or adjacent path that hits the same sink or repeats the same shape and fix them in the same change — or name each one you leave as a known-unfixed instance with a reason; an identical bug one call over is the single most common rejection.
-- **Update the prose the change touches.** No description, JSDoc, comment, README, or PR rationale may still describe the old behavior after your change, and every rationale must be verified true against the source (real case-sensitivity, real callers, real units), not plausible-sounding.
-- **Delete the dead code your fix creates.** Re-read your own diff for branches or early-returns that can't run given the guards above them, over-general operations handling cases that can't occur on this path, defensiveness duplicating an upstream check, or now-orphaned exports/imports/helpers — every line you add must be reachable and load-bearing.
+Every finding names its concrete trigger, confirmed against the code or by running it. For claims about an OS, CLI, library or spec: run the thing and read the output.
+
+### Every Change Clears These Gates
+- **Tests discriminate** — must fail on the un-changed code; assert the exact value/count/order/type/status moved, never an incidental property the old behavior satisfied.
+- **Fix the class** — grep every sibling call site, backend or adjacent path of the same shape; fix them together or name each one you leave and why.
+- **Prose matches** — no comment, JSDoc, README or PR rationale still describing old behavior; verify each rationale against source (real case-sensitivity, real callers, real units), not plausibility.
+- **No dead code added** — unreachable branches, defensiveness duplicating an upstream check, over-general handling of impossible cases, orphaned exports/imports/helpers.
 
 ### Work Within Existing Frameworks
-Before adding an interface, class, abstraction, or helper, check whether one already in place is sufficient — if so, use it. Take the time to analyze the workspace first: understanding what already exists is cheaper than writing a duplicate that later has to be reconciled. Extend or compose existing patterns rather than introducing parallel ones; build new only when nothing in place can be made to fit.
+Check whether something already in place suffices before adding an interface, class, abstraction or helper; extend or compose rather than introducing a parallel one.
 
 ### Maximize Parallelization via Sub-Agents
 Dispatch independent work to sub-agents aggressively, including swarms of them. Any task that doesn't require massive shared context or exclusive access to a race-prone resource (a single Android AVD, a single dev port, an in-progress DB migration, an interactive shell session) should be delegated. File searches across the repo, isolated edits to unrelated files, build verifications, independent test suites, multi-file refactors with non-overlapping scope, research and exploration: all of these run faster as parallel sub-agents than serially. Default to delegating; reserve the main-thread context for synthesis, decisions, and work that must stay coherent. The cost of an unnecessary agent is small; the cost of unnecessarily serializing parallelizable work is paid against the user's wall-clock time. **Swarm sizing:** 2-8 parallel agents is the normal operating range - size within it to match the task; only when very necessary (a massive rework needing broad verification and testing sweeps) scale beyond it, up to a hard limit of 14 - never more. Under-provisioning a parallelizable task wastes wall-clock time as surely as serializing it.
 
 **Workflows over raw swarms:** any run spawning more than 5 sub-agents must be orchestrated via the Workflow tool, not ad-hoc parallel Agent calls.
 
-### Swarm Review Passes: Iterate, but Verify Every Claim
-One review pass is not enough: when a pass surfaces real issues, fix them and dispatch another full pass, iterating until a pass comes back clean. Convergence is measured in *verified* issues, not raw findings.
-
-Treat sub-agent findings as leads, not verdicts — verify each against the actual code (reproduce it, trace the path, confirm the input can occur) before acting. This matters most in mature, hardened code, where swarms over-report theoretical problems on paths that never execute. A finding you can't substantiate is not an issue: don't fix it and don't let it trigger another pass, or the loop never converges.
-
-**Worktree verifiers run against the wrong base.** A sub-agent spawned with `isolation: "worktree"` branches from the repo default (`origin/main`), NOT from the master agent's in-progress feature branch — so it sees none of your uncommitted or unpushed work and will falsely report "work discarded / branch reset / files missing / line counts collapsed." Never act on such a finding. The git object DB is shared, so the in-progress commit is reachable by SHA: reproduce against the real master worktree (`git rev-parse HEAD`, `git log --first-parent`, `ls`/`wc -l` the actual files), or pass the agent the exact commit SHA and have it inspect via `git show <sha>:path` / `git grep <sha>` while warning it that its own checkout will be `origin/main`. The master worktree's own tsc/test/prettier is the authoritative build signal — isolation-worktree agents run those against the wrong tree.
+### Swarm Review Passes
+- **Iterate** until a pass comes back clean; convergence counts verified issues, not raw findings.
+- **Findings are leads** — reproduce, trace the path, confirm the input can occur before acting. Mature code attracts theoretical reports on paths that never execute.
+- **Worktree verifiers see `origin/main`**, not your branch — "work discarded / files missing" from one is always false; reproduce in the real worktree (`git rev-parse HEAD`, `ls`/`wc -l` the files) or hand them the SHA to inspect via `git show <sha>:path`. The master worktree's own tsc/test/prettier is the authoritative build signal.
 
 ### Monitor CI After Push
 After every `git push`, monitor CI and fix any failures before declaring the push done.
@@ -92,11 +95,13 @@ Bring real analytical depth to non-trivial decisions: failure modes, second-orde
 Beyond severity (**H/M/L**), non-bug findings may use category tags: **S** scope/simplification, **T** tests, **D** docs.
 
 ### Leaving Review Comments on a PR
-When delivering findings on a GitHub PR, **submit a formal review (`POST .../pulls/{n}/reviews`), not a top-level issue comment.** Within that review:
-- **Always per-line.** Every finding is an inline comment anchored to the specific line(s) it concerns. Never dump findings into one general/PR-level comment.
-- **Never leave a "no issues found" / LGTM comment** unless the user explicitly asks for one. A clean PR gets an approval (or nothing) — not a comment.
-- **Never propose fixes** in review comments. Describe the problem and its concrete impact only; leave the solution to the author.
-- **Never leak internal markings.** Strip severity tags (`M -`, `H1.`, etc.) and any other internal scaffolding from the posted text — the comment the author reads is plain reviewer prose.
+Submit a formal review (`POST .../pulls/{n}/reviews`), never a top-level issue comment. Within it:
+- **Per-line**, anchored to the exact lines — never a PR-level dump.
+- **No LGTM / "no issues"** comment unless asked.
+- **Never propose fixes** — problem and concrete impact only.
+- **Strip internal markings** — no severity tags (`M -`, `H1.`) in posted text.
+- **Say what you ran and what you compared it against**, not how it felt.
+- **A limitation acknowledged in the PR body is not a resolved finding.**
 
 ### Resolving Review Comments
 **Never mark a review comment as resolved without first replying `Fixed in <commit_hash>`.**
