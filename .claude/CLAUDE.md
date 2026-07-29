@@ -96,6 +96,7 @@ Beyond severity (**H/M/L**), non-bug findings may use category tags: **S** scope
 
 ### Leaving Review Comments on a PR
 Submit a formal review (`POST .../pulls/{n}/reviews`), never a top-level issue comment. Within it:
+- **One issue = one thread, ever** — first read every comment/thread already on the PR (any author, any earlier run, resolved or not); if a finding is already there, reply on that thread (`Still present as of <head_commit_hash>`) instead of opening a second.
 - **Per-line**, anchored to the exact lines — never a PR-level dump.
 - **No LGTM / "no issues"** comment unless asked.
 - **Never propose fixes** — problem and concrete impact only.
