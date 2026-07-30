@@ -25,7 +25,8 @@ Tracked-word budget: **~2-4 new per session** (often 0-1 per reply), each enteri
 level 0. Pass-through words are rare (each spends against the 10% cap).
 Started 2026-07-20 · reset to A1 + progress levels 2026-07-20 · density raised then
 **capped at ~10%** (too-heavy was blocking work) 2026-07-21 · character-decomposition
-track added 2026-07-21 · level-4 flattened out of the tables 2026-07-28.
+track added 2026-07-21 · level-4 flattened out of the tables 2026-07-28 · user-set re-level
+2026-07-30 (完成 → 4 and out; every remaining word +1).
 
 ## Progress legend
 - **0** brand new — full inline gloss `汉字 (pīnyīn, "meaning")` on FIRST use per message.
@@ -39,54 +40,58 @@ A demotion out of level 4 pulls the word back into the table (rebuild its row).
 
 ---
 
+> **The tables below are generated.** `counter/state.json` is the source of truth and the
+> `chinese-drip-counter` MCP server owns the bookkeeping — call `drip_status` to read levels,
+> `drip_record` to log a reply and check it against the density band, `drip_level` to promote
+> or demote, `drip_add` to commit a new tracked word. Every mutation rewrites this block, so
+> what follows is a current mirror you can read directly, but edit through the tools instead
+> of by hand or the next write will overwrite you.
+
+<!-- BEGIN:generated (chinese-drip counter owns this block) -->
+
 ## Learned (level 4) — bare, forever
 
-**Words:** 你好 · 好 · 谢谢 · 我 · 你 · 是 · 不
+**Words:** 你好 · 好 · 谢谢 · 我 · 你 · 是 · 不 · 完成
 
-**Bricks (字):** 你 · 好 · 女 · 子 · 我 · 是 · 不
+**Bricks (字):** 你 · 好 · 女 · 子 · 我 · 是 · 不 · 完 · 成
 
 ## Words
 
 | 汉字 | pīnyīn | meaning | lvl | parts (character breakdown) |
 |------|--------|---------|:---:|------|
-| 完成 | wánchéng | done / complete | 1 | 完 finish + 成 accomplish; reused 2026-07-28 (malware investigation wrap-up) |
-| 代码 | dàimǎ | code | 0 | 代 substitute + 码 code; 码 = 石 stone + 马 mǎ (phonetic) |
-| 报错 | bàocuò | (throws) an error | 0 | 报 report + 错 wrong; 错 = 钅 metal + 昔 (phonetic) |
-| 文件 | wénjiàn | file / document | 1 | 文 writing/art + 件 item ← the user's own example; reused 2026-07-27 (the temporary test harness file) → lvl 1, footer reminder next |
-| 提交 | tíjiāo | commit (also "submit / hand in") | 0 | 提 raise/carry + 交 hand over; introduced 2026-07-28 on the dotfiles commit of this very change |
-| 发布 | fābù | release / publish | 1 | 发 send out + 布 spread/announce; introduced 2026-07-23 on the argent release walkthrough; reused 2026-07-24 in the 0.17.0 E2E report → lvl 1; reused 2026-07-28 (MCP Registry publish doc — topic-perfect fit) |
+| 发布 | fābù | release / publish | 2 | 发 send out + 布 spread/announce; user-set → lvl 2 2026-07-30 |
+| 提交 | tíjiāo | commit (also "submit / hand in") | 2 | 提 raise/carry + 交 hand over; user-set → lvl 2 2026-07-30 |
+| 文件 | wénjiàn | file / document | 2 | 文 writing/art + 件 item ← the user's own example; user-set → lvl 2 2026-07-30 |
+| 测试 | cèshì | test | 2 | 测 measure + 试 try/attempt; user-set → lvl 2 2026-07-30 |
+| 代码 | dàimǎ | code | 1 | 代 substitute + 码 code; 码 = 石 stone + 马 mǎ (phonetic); user-set → lvl 1 2026-07-30, footer reminder next |
+| 报错 | bàocuò | (throws) an error | 1 | 报 report + 错 wrong; 错 = 钅 metal + 昔 (phonetic); user-set → lvl 1 2026-07-30, footer reminder next |
 
 ## Characters (字) — the atoms
 
-The reusable bricks still being taught. Once a brick is known, stop decomposing the words
-it's in and move it to the flat **Bricks** list above; when it recurs in a NEW word, name
-the payoff ("你 already know 码 from 代码"). Radicals and common phonetics are bricks too.
-**R** = the character often acts as a radical (meaning cue); **P** = often acts as a
-phonetic (sound cue).
+The reusable bricks still being taught. Once a brick is known, stop decomposing the
+words it appears in and name the payoff instead ("你 already know 码 from 代码").
+**R** = often acts as a radical (meaning cue); **P** = often acts as a phonetic (sound cue).
 
 | 字 | pīnyīn | meaning | tags | appears in / notes |
 |----|--------|---------|:----:|------|
-| 文 | wén | writing / language / art | | 文件; a base for 文字, 中文, 论文 |
-| 件 | jiàn | item / piece | | 文件; measure word for matters/things |
-| 完 | wán | complete / finish | | 完成 = 宀 roof + 元 primary |
-| 成 | chéng | become / accomplish | | 完成 (contains 戈 halberd) |
-| 代 | dài | substitute / represent / generation | | 代码; also 现代 "modern", 时代 "era" |
-| 码 | mǎ | code / number | | 代码 = 石+马; recurs in 号码, 密码 |
+| 文 | wén | writing / language / art |  | 文件; a base for 文字, 中文, 论文 |
+| 件 | jiàn | item / piece |  | 文件; measure word for matters/things |
+| 代 | dài | substitute / represent / generation |  | 代码; also 现代 "modern", 时代 "era" |
+| 码 | mǎ | code / number |  | 代码 = 石+马; recurs in 号码, 密码 |
 | 石 | shí | stone | R | radical in 码 |
 | 马 | mǎ | horse | P | **key phonetic:** 码 mǎ, 妈 mā (mother), 吗 ma (question) |
-| 报 | bào | report / announce | | 报错; also 报告 "report", 报名 "sign up" |
-| 错 | cuò | wrong / mistaken | | 报错 = 钅+昔; recurs in 错误, 没错 |
+| 报 | bào | report / announce |  | 报错; also 报告 "report", 报名 "sign up" |
+| 错 | cuò | wrong / mistaken |  | 报错 = 钅+昔; recurs in 错误, 没错 |
 | 钅 | jīn | metal / gold | R | radical (金) — signals metal words |
-| 发 | fā | send out / emit / issue | | 发布; also 发现 "discover", 开发 "develop" |
-| 布 | bù | cloth → spread / announce | | 发布; also 宣布 "declare" |
-| 提 | tí | raise / lift / carry | | 提交; also 提出 "put forward", 提高 "raise" |
-| 交 | jiāo | hand over / exchange | | 提交; also 交流 "exchange", 交付 "deliver" |
+| 发 | fā | send out / emit / issue |  | 发布; also 发现 "discover", 开发 "develop" |
+| 布 | bù | cloth → spread / announce |  | 发布; also 宣布 "declare" |
+| 提 | tí | raise / lift / carry |  | 提交; also 提出 "put forward", 提高 "raise" |
+| 交 | jiāo | hand over / exchange |  | 提交; also 交流 "exchange", 交付 "deliver" |
+| 测 | cè | measure / survey |  | 测试; also 测量 "measure", 预测 "forecast" (氵 water radical) |
+| 试 | shì | try / attempt / test |  | 测试; also 试试 "give it a try", 尝试 "attempt" |
 
 ## Pipeline (introduce a couple at a time; all enter at level 0)
 
-分支 fēnzhī branch (分 divide + 支 branch) ·
-修复 xiūfù fix (修 repair + 复 restore) · 功能 gōngnéng feature (功 merit + 能 ability) ·
-调试 tiáoshì debug (调 adjust + 试 try/test) · 部署 bùshǔ deploy · 合并 hébìng merge (合 join + 并 combine) ·
-测试 cèshì test (测 measure + 试 try) · 运行 yùnxíng run (运 move + 行 go) · 需要 xūyào need ·
-检查 jiǎnchá check (检 inspect + 查 examine) · 问题 wèntí problem/question (问 ask + 题 topic) ·
-现在 xiànzài now · 已经 yǐjīng already · 函数 hánshù function · 变量 biànliàng variable (变 change + 量 quantity)
+分支 fēnzhī branch (分 divide + 支 branch) · 修复 xiūfù fix (修 repair + 复 restore) · 功能 gōngnéng feature (功 merit + 能 ability) · 调试 tiáoshì debug (调 adjust + 试 try/test) · 部署 bùshǔ deploy · 合并 hébìng merge (合 join + 并 combine) · 运行 yùnxíng run (运 move + 行 go) · 需要 xūyào need · 检查 jiǎnchá check (检 inspect + 查 examine) · 问题 wèntí problem / question (问 ask + 题 topic) · 现在 xiànzài now · 已经 yǐjīng already · 函数 hánshù function · 变量 biànliàng variable (变 change + 量 quantity)
+
+<!-- END:generated -->

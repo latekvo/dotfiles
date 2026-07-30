@@ -1,6 +1,6 @@
 ---
 name: chinese-drip
-description: How to weave Chinese (Mandarin) into ordinary conversation with the user, an A1 learner (studied basics on and off, but most vocabulary is still new), as passive immersion. English is the working language; Chinese is a LIGHT garnish capped at ~10% of any reply (~3-8 items total, most paragraphs zero). It may appear in technical prose too, not only greetings/sign-offs, but stays sparse — too heavy blocks the user's work, too back-loaded misses the point; aim for the narrow band between. Meta replies — ones about the experiment, the wordlist, or the language itself — run slightly richer (~15%) and range wider across vocabulary. Only code, code comments, commands, paths, and identifiers stay 100% English. Use whenever you write conversational or explanatory text; whenever you introduce a new word (always gloss it); or whenever you need to know / update the living dictionary. Every word carries a progress level (0-4) that decides how much you explain it. Consult wordlist.md before weaving Chinese in, and keep its levels current. This is a LEARNING EXPERIMENT, never an engineering optimization — the engineering must stay unambiguous.
+description: How to weave Chinese (Mandarin) into ordinary conversation with the user, an A1 learner (studied basics on and off, but most vocabulary is still new), as passive immersion. English is the working language; Chinese is a LIGHT garnish capped at ~10% of any reply (~3-8 items total, most paragraphs zero). It may appear in technical prose too, not only greetings/sign-offs, but stays sparse — too heavy blocks the user's work, too back-loaded misses the point; aim for the narrow band between. Meta replies — ones about the experiment, the wordlist, or the language itself — run slightly richer (~15%) and range wider across vocabulary. Only code, code comments, commands, paths, and identifiers stay 100% English. Use whenever you write conversational or explanatory text; whenever you introduce a new word (always gloss it); or whenever you need to know / update the living dictionary. Every word carries a progress level (0-4) that decides how much you explain it. The chinese-drip-counter MCP server keeps the books: call drip_status before weaving Chinese in, drip_record before sending a reply that contains any, and drip_level / drip_add to keep levels current. This is a LEARNING EXPERIMENT, never an engineering optimization — the engineering must stay unambiguous.
 ---
 
 # chinese-drip — dripping Chinese into our conversations
@@ -261,6 +261,26 @@ the deed arrive together. About to commit? That's when 提交 (tíjiāo, "commit
 At A1 each still starts at **level 0**. Keep the *tracked* intake to a couple at a time
 and let them climb slowly; reach for the rest as pass-through words with a full gloss.
 
+## The counter — who does the bookkeeping
+
+The accounting is not done by hand. The **`chinese-drip-counter`** MCP server (in
+`counter/`, dependency-free, always available) owns it and exposes four tools:
+
+| tool | when | what it does for you |
+|------|------|----------------------|
+| `drip_status` | once, early in a session | levels, ready-made gloss and footer strings, Learned list, bricks, pipeline, session budget |
+| `drip_record` | after composing any reply with Chinese, before sending | measures density against the band, logs a dated use per word, flags owed footers and twice-used pass-through words |
+| `drip_level` | on real evidence of recall or a slip | promotes/demotes, and handles level-4 graduation, brick flattening, and demotion rebuilds |
+| `drip_add` | committing a new tracked word | enters it at level 0 with its bricks, pulls it from the pipeline, enforces the budget |
+
+`counter/state.json` is the source of truth; `wordlist.md` is a mirror it regenerates on
+every mutation. **Read the mirror freely, but make changes through the tools** — a hand-edit
+inside the generated block is overwritten by the next write. The tools advise; they never
+promote a word on their own, because exposure count is not evidence of recall.
+
+Run `node counter/test.cjs` after touching the server — it drives real MCP stdio against a
+sandboxed copy of the state and asserts the level, graduation, density, and mirror rules.
+
 ## The living dictionary — `wordlist.md`
 
 `wordlist.md` (next to this file) is the small, living record of the words the user is
@@ -279,8 +299,11 @@ it's how explanation fades as words sink in and returns when they slip.
 ## Procedure
 
 **Before weaving Chinese into a reply (once per session, early):**
-1. Read `wordlist.md` and note each relevant word's **progress level**. That level decides
-   how you treat the word (see the table above).
+1. Call **`drip_status`** (the `chinese-drip-counter` MCP server). It returns every tracked
+   word with its **progress level** — which decides how you treat the word — plus the exact
+   gloss string to use at that level, the Learned list, the bricks still being taught, the
+   pipeline, and how much of the session's new-word budget is left. This replaces reading
+   `wordlist.md`; that file is a generated mirror, useful to read but never to edit by hand.
 
 **When composing any reply:**
 2. Use tracked words at their level: 4 bare · 3 bare (maybe test one) · 2 mostly bare ·
@@ -301,15 +324,22 @@ it's how explanation fades as words sink in and returns when they slip.
    touch to the middle; over ~10% or any paragraph hard to skim → **cut back**. Err toward less.
 8. If any **level-1** words appeared, add a footer at the very end:
    `Reminder: 汉字 (pīnyīn) = meaning · …`.
+9. Before sending, call **`drip_record`** with the items you used, the reply's word count,
+   and `meta: true` if it's a meta reply. It returns the measured density against the band —
+   `IN BAND` / `OVER — cut back` / `UNDER — likely back-loaded` — plus a reminder of any
+   level-1 footer you still owe, and flags pass-through words now used twice. Act on the
+   verdict *before* sending; that is the point of the check.
 
-**After the reply — keep `wordlist.md` honest:**
-9. Add each new **tracked** word at level 0 (hanzi, pinyin, meaning, parts). Add any newly
-   introduced **characters** to the Characters (字) table. Pass-through words used once and
-   glossed don't need a row.
-10. Re-level any word whose evidence changed: promote what they clearly knew, demote what
-    they missed or asked about. This upkeep is what makes the whole system work.
-11. **Anything promoted to level 4: delete its row and append the hanzi to the flat Learned
-    list** (words and bricks alike). Anything demoted out of 4: rebuild its row at level 2.
+**After the reply — keep the dictionary honest (all through the counter, never by hand):**
+10. **`drip_add`** each new **tracked** word (hanzi, pinyin, meaning, parts, chars, and any
+    new bricks). It enters at level 0, leaves the pipeline, and counts against the session
+    budget. Pass-through words used once and glossed don't need a row.
+11. **`drip_level`** any word whose evidence changed: promote what they clearly knew, demote
+    what they missed or asked about. This upkeep is what makes the whole system work.
+    Level-4 graduation and its brick-flattening are handled for you — including holding a
+    brick back while another tracked word still teaches it — as is rebuilding a row on
+    demotion out of 4. `drip_record` never changes a level on its own: exposure is not
+    evidence of recall, so promotion stays a judgement call you make.
 
 ## Escalation over time (how the drip grows)
 
