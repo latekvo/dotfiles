@@ -14,7 +14,13 @@ const os = require('os');
 const SANDBOX = fs.mkdtempSync(path.join(os.tmpdir(), 'drip-counter-test-'));
 fs.mkdirSync(path.join(SANDBOX, 'counter'));
 fs.copyFileSync(path.join(__dirname, 'server.cjs'), path.join(SANDBOX, 'counter', 'server.cjs'));
-fs.copyFileSync(path.join(__dirname, 'state.json'), path.join(SANDBOX, 'counter', 'state.json'));
+
+// The dictionary is the fixture, but session/pass-through history accumulates in
+// real use — zero it so the suite asserts the same thing whenever it is run.
+const fixture = JSON.parse(fs.readFileSync(path.join(__dirname, 'state.json'), 'utf8'));
+fixture.sessions = [];
+fixture.passthrough = {};
+fs.writeFileSync(path.join(SANDBOX, 'counter', 'state.json'), JSON.stringify(fixture, null, 2));
 
 const server = spawn('node', [path.join(SANDBOX, 'counter', 'server.cjs')], { stdio: ['pipe', 'pipe', 'inherit'] });
 
@@ -221,6 +227,14 @@ fs.writeFileSync(
   check('unknown method → -32601', badMethod.error.code === -32601);
   const ping = await rpc('ping');
   check('ping answers', !!ping.result);
+
+  // --- session rollover: an existing recent session is reused, not restarted
+  const sameSession = await call('drip_status', {});
+  check('session: recent activity reuses the open session', sameSession.session.fresh === false && sameSession.session.id === 1, JSON.stringify(sameSession.session));
+  check('session: tallies accumulated across the run', sameSession.session.replies > 5, `replies=${sameSession.session.replies}`);
+  const forced = await call('drip_status', { new_session: true });
+  check('session: new_session forces a fresh one', forced.session.fresh === true && forced.session.id === 2, JSON.stringify(forced.session));
+  check('session: fresh session resets the tallies', forced.session.replies === 0 && forced.session.new_tracked.length === 0);
 
   // --- markdown mirror
   const md = fs.readFileSync(MIRROR, 'utf8');
