@@ -3,6 +3,7 @@
 ## Hard Constraints
 
 ### Worktrees, Branches, and PRs
+**BEFORE OPENING A PR, LIST THE OPEN PRs (`gh pr list`) AND MAKE SURE IT DOES NOT DUPLICATE ONE THAT IS ALREADY OPEN.**
 - **Default:** implement features/fixes on a separate branch in a git worktree — never on `main`/`master` directly.
 - **Solo exception:** for tiny single-contributor repos the user maintains alone (personal dotfiles, local experiments, scripts no one else touches), skip the worktree dance and commit straight to main. Solo-but-public projects where `main` is the released branch still need branches and PRs — when in doubt, default to worktrees and ask.
 - **Sub-agents that implement changes** always get `isolation: "worktree"` AND branch from the master agent's current branch, so their work stacks on top instead of diverging. Applies even in solo repos to keep the working directory clean.
