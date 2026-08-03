@@ -1,3 +1,27 @@
+# Homebrew comes first: tmux, rbenv and the rest of the toolchain live there, and the
+# tmux hand-off below has to be able to find tmux. /etc/zprofile's path_helper does not
+# add Homebrew, so without this the guard below silently never fires.
+if [[ $(uname) == "Darwin" ]]; then
+	export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+# Start every interactive terminal inside its own tmux session. The guards skip the
+# shells tmux would break or nest inside: shells already under tmux, non-interactive
+# shells (scripts, agent tooling), shells with no tty, and `dumb` terminals. Set
+# NO_TMUX=1 to launch a plain shell.
+#
+# This sits at the top of the file so the outer shell hands off immediately. tmux
+# starts its pane as a login shell, so everything below runs there anyway; doing it
+# before the hand-off would build an environment that is discarded by the exec.
+if command -v tmux >/dev/null 2>&1 \
+	&& [[ -o interactive ]] && [[ -t 1 ]] \
+	&& [[ -z "$TMUX" ]] && [[ -z "$NO_TMUX" ]] && [[ "$TERM" != "dumb" ]]; then
+	exec tmux new-session
+fi
+
+# Several blocks below prepend to PATH unconditionally; keep the duplicates out.
+typeset -U path PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export COLORTERM=truecolor
@@ -104,32 +128,25 @@ if [[ $(uname) == "Darwin" ]]; then
 	# android studio
 	export PATH="/Applications/Android Studio.app/Contents/MacOS:$PATH"		
 
-	# ruby environment
-	export PATH="$HOME/.rbenv/bin:$PATH"
-	eval "$(rbenv init -)"
-	
-	# add brew to PATH - at beginning and end to ensure priority
-	export PATH=/opt/homebrew/bin:$PATH
-	export PATH=/opt/homebrew/bin/brew:$PATH
-	export PATH=/opt/homebrew/opt:$PATH
-	export PATH=/opt/homebrew/opt/ruby:$PATH
-	export PATH=$PATH:/opt/homebrew/bin
-	export PATH=$PATH:/opt/homebrew/bin/brew
-	export PATH=$PATH:/opt/homebrew/opt
-	export PATH=$PATH:/opt/homebrew/opt/ruby
-	
-	# ruby 
+	# ruby environment. rbenv is a Homebrew install; ~/.rbenv holds only the shims,
+	# which rbenv init puts on PATH itself. .zprofile already runs this for login
+	# shells, so only pay for it when the shims are missing - i.e. in a non-login
+	# interactive shell. --no-rehash skips a `rbenv rehash` subprocess per startup.
+	if [[ ":$PATH:" != *":$HOME/.rbenv/shims:"* ]]; then
+		eval "$(rbenv init - --no-rehash zsh)"
+	fi
+
+	# ruby
 	export GEM_HOME=$HOME/.gem
-	
+
 	# add android SDK to path
 	export ANDROID_HOME=/Users/ignacylatka/Library/Android/sdk
 
 	# add JDK to PATH
 	export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-	export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 	# perhaps bash compatibility - likely to be removed
-	export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+	export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 fi
 export PATH=$PATH:$HOME/.maestro/bin
 
@@ -155,7 +172,26 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH=/Users/ignacylatka/.opencode/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# Sourcing nvm.sh in its default mode runs a full `nvm use <default>` on every shell,
+# which costs ~600ms of a ~850ms startup. --no-use skips that; the default version goes
+# on PATH directly below, which is what the auto-use was there to achieve. `nvm use
+# <version>` still switches versions inside a session.
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+	() {
+		[[ -r "$NVM_DIR/alias/default" ]] || return
+		local want=$(<"$NVM_DIR/alias/default")
+		# one level of indirection resolves aliases like `lts/jod` to a version
+		[[ -r "$NVM_DIR/alias/$want" ]] && want=$(<"$NVM_DIR/alias/$want")
+		# exact match first, else the numerically highest install under that prefix
+		local -a found=(
+			"$NVM_DIR/versions/node/$want"(N/)
+			"$NVM_DIR/versions/node/v$want"(N/)
+			"$NVM_DIR/versions/node/v$want."*(N/n)
+		)
+		(( $#found )) && path=( "${found[-1]}/bin" $path )
+	}
+	\. "$NVM_DIR/nvm.sh" --no-use
+fi
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias argent_install_branch="$HOME/argent-install-branch.sh"
@@ -207,13 +243,3 @@ source "/Users/ignacylatka/vega/env"
 
 # Added by Antigravity CLI installer
 export PATH="/Users/ignacylatka/.local/bin:$PATH"
-
-# Start every interactive terminal inside its own tmux session. The guards skip the
-# shells tmux would break or nest inside: shells already under tmux, non-interactive
-# shells (scripts, agent tooling), shells with no tty, and `dumb` terminals. Set
-# NO_TMUX=1 to launch a plain shell.
-if command -v tmux >/dev/null 2>&1 \
-	&& [[ -o interactive ]] && [[ -t 1 ]] \
-	&& [[ -z "$TMUX" ]] && [[ -z "$NO_TMUX" ]] && [[ "$TERM" != "dumb" ]]; then
-	exec tmux new-session
-fi
