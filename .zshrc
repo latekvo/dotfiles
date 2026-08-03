@@ -47,14 +47,8 @@ export EDITOR='vim'
 # ALIASES
 
 # gh
-alias cleanele="git clean -fdX"
-alias nukele="git reset --hard && git clean -fd"
-
-# git workflow
-# 1. create branch $1, 2. create worktree for that branch, 3. switch to the worktree
-alias add_worktree='f(){ b="$1"; p=$(basename "$PWD"); c=${b//@/}; d="../${p}-worktrees/$c"; git show-ref --verify --quiet refs/heads/"$b" || git branch "$b" main; git worktree add "$d" "$b"; cd "$d"; }; f'
-# basically remove file changes from branch
-alias resmain='git restore --source=origin/main --staged --worktree'
+alias cleanele="git clean -fdX" 
+alias nukele="git reset --hard && git clean -fd" 
 
 # dots & 中文 
 alias 。="."
@@ -84,18 +78,26 @@ alias f1ys="FABRIC_ENABLED=1 yarn start"
 alias c="clear"
 alias cr="clear"
 
-# python
-alias pac="source .venv/bin/activate"
+# python & conda
+alias pac="source .venv/bin/activate" 
+alias cac="conda activate" 
 
 # package size diag
 alias atlasprod="EXPO_UNSTABLE_ATLAS=true npx expo start --no-dev"
 alias atlasdev="EXPO_UNSTABLE_ATLAS=true npx expo start --no-dev"
 
-# other
-# perma enable yolo mode
-alias claude="claude --dangerously-skip-permissions"
+# perma enable yolo mode + default to xhigh effort (still overridable per-session via /effort)
+alias claude="claude --dangerously-skip-permissions --effort xhigh"
+alias agy="agy --dangerously-skip-permissions"
+
 # kill all processes using given port
 alias killport='f(){ kill -9 $(lsof -t -i tcp:$1); }; f'
+
+# 1. create branch $1, 2. create worktree for that branch, 3. switch to the worktree
+alias add_worktree='f(){ b="$1"; p=$(basename "$PWD"); c=${b//@/}; d="../${p}-worktrees/$c"; git show-ref --verify --quiet refs/heads/"$b" || git branch "$b" main; git worktree add "$d" "$b"; cd "$d"; }; f'
+
+# basically remove file changes from branch
+alias resmain='git restore --source=origin/main --staged --worktree'
 
 # MACOS ONLY
 if [[ $(uname) == "Darwin" ]]; then
@@ -129,10 +131,33 @@ if [[ $(uname) == "Darwin" ]]; then
 	# perhaps bash compatibility - likely to be removed
 	export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 fi
-
 export PATH=$PATH:$HOME/.maestro/bin
 
-# argent dev helper scripts
+# Added by Antigravity
+export PATH="/Users/ignacylatka/.antigravity/antigravity/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/ignacylatka/.codeium/windsurf/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# OpenClaw Completion
+source "/Users/ignacylatka/.openclaw/completions/openclaw.zsh"
+
+# bun completions
+[ -s "/Users/ignacylatka/.bun/_bun" ] && source "/Users/ignacylatka/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/Users/ignacylatka/.opencode/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 alias argent_install_branch="$HOME/argent-install-branch.sh"
 alias prettier_branch="$HOME/prettier-branch.sh"
 alias code_branch="$HOME/code-branch.sh"
@@ -168,3 +193,17 @@ cd_branch() {
   fi
   cd "$wt"
 }
+
+# Ollama: raise the default context for all models. gemma4 (silver:e4b, gemma4:e4b)
+# defaults to num_ctx=4096; agent harnesses (OpenCode, etc.) send long system+tools
+# that overflow it, so Ollama truncates the input and the model emits degenerate
+# "TheThe..." output until max tokens. 32768 fits harness payloads. Restart `ollama
+# serve` after sourcing this for it to take effect.
+export OLLAMA_CONTEXT_LENGTH=32768
+
+#Vega CLI
+source "/Users/ignacylatka/vega/env"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/ignacylatka/.local/bin:$PATH"
