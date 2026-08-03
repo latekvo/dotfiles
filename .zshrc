@@ -207,3 +207,13 @@ source "/Users/ignacylatka/vega/env"
 
 # Added by Antigravity CLI installer
 export PATH="/Users/ignacylatka/.local/bin:$PATH"
+
+# Start every interactive terminal inside its own tmux session. The guards skip the
+# shells tmux would break or nest inside: shells already under tmux, non-interactive
+# shells (scripts, agent tooling), shells with no tty, and `dumb` terminals. Set
+# NO_TMUX=1 to launch a plain shell.
+if command -v tmux >/dev/null 2>&1 \
+	&& [[ -o interactive ]] && [[ -t 1 ]] \
+	&& [[ -z "$TMUX" ]] && [[ -z "$NO_TMUX" ]] && [[ "$TERM" != "dumb" ]]; then
+	exec tmux new-session
+fi
