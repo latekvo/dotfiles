@@ -50,8 +50,10 @@ Dispatch independent work to sub-agents aggressively, including swarms of them. 
 **Workflows over raw swarms:** any run spawning more than 5 sub-agents must be orchestrated via the Workflow tool, not ad-hoc parallel Agent calls.
 
 ### Swarm Review Passes
-- **Iterate** until a pass comes back clean; convergence counts verified issues, not raw findings.
+- **Iterate** until a pass comes back clean; convergence counts verified issues, not raw findings. **One** clean pass ends the loop — don't run a confirmation pass on top of it.
 - **Findings are leads** — reproduce, trace the path, confirm the input can occur before acting. Mature code attracts theoretical reports on paths that never execute.
+- **Verification effort scales with severity.** H/M earn the full treatment: repro, device, verifier agents, whatever it takes. An **L** gets one short adversarial check and nothing more — never spin up a device or a swarm to verify an L; if a quick read can't confirm it, drop it. A **nitpick dies on sight** — don't spend a single verification step on one.
+- **A pass whose findings are all L or nitpick counts as CLEAN** — post the L ones as comments (nitpicks stay dropped) and stop iterating. Only an H or M keeps the loop alive.
 - **Worktree verifiers see `origin/main`**, not your branch — "work discarded / files missing" from one is always false; reproduce in the real worktree (`git rev-parse HEAD`, `ls`/`wc -l` the files) or hand them the SHA to inspect via `git show <sha>:path`. The master worktree's own tsc/test/prettier is the authoritative build signal.
 
 ### Monitor CI After Push
@@ -93,7 +95,7 @@ Bring real analytical depth to non-trivial decisions: failure modes, second-orde
 
 ## Code Review Findings
 
-Beyond severity (**H/M/L**), non-bug findings may use category tags: **S** scope/simplification, **T** tests, **D** docs.
+Severity is **H/M/L**, below which sits **nitpick** — style preference, phrasing, or a defect with no reachable consequence. Beyond severity, non-bug findings may use category tags: **S** scope/simplification, **T** tests, **D** docs.
 
 ### Leaving Review Comments on a PR
 Submit a formal review (`POST .../pulls/{n}/reviews`), never a top-level issue comment. Within it:

@@ -13,10 +13,15 @@ fi
 # This sits at the top of the file so the outer shell hands off immediately. tmux
 # starts its pane as a login shell, so everything below runs there anyway; doing it
 # before the hand-off would build an environment that is discarded by the exec.
+#
+# The session belongs to the window: destroy-unattached reaps it when the window
+# closes and takes its client with it, and @window_session tells the hooks in
+# ~/.tmux.conf to re-arm that whenever a window picks the session up again.
+# Detaching with the prefix key (see the same file) is the way to park one and keep it.
 if command -v tmux >/dev/null 2>&1 \
 	&& [[ -o interactive ]] && [[ -t 1 ]] \
 	&& [[ -z "$TMUX" ]] && [[ -z "$NO_TMUX" ]] && [[ "$TERM" != "dumb" ]]; then
-	exec tmux new-session
+	exec tmux new-session \; set @window_session 1 \; set destroy-unattached on
 fi
 
 # Several blocks below prepend to PATH unconditionally; keep the duplicates out.
