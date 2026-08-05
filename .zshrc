@@ -158,9 +158,6 @@ export PATH="/Users/ignacylatka/.codeium/windsurf/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# OpenClaw Completion
-source "/Users/ignacylatka/.openclaw/completions/openclaw.zsh"
-
 # bun completions
 [ -s "/Users/ignacylatka/.bun/_bun" ] && source "/Users/ignacylatka/.bun/_bun"
 
@@ -236,10 +233,6 @@ cd_branch() {
 # "TheThe..." output until max tokens. 32768 fits harness payloads. Restart `ollama
 # serve` after sourcing this for it to take effect.
 export OLLAMA_CONTEXT_LENGTH=32768
-
-#Vega CLI
-source "/Users/ignacylatka/vega/env"
-
 
 # Added by Antigravity CLI installer
 export PATH="/Users/ignacylatka/.local/bin:$PATH"
