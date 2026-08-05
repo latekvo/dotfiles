@@ -56,6 +56,15 @@ Dispatch independent work to sub-agents aggressively, including swarms of them. 
 - **A pass whose findings are all L or nitpick counts as CLEAN** — post the L ones as comments (nitpicks stay dropped) and stop iterating. Only an H or M keeps the loop alive.
 - **Worktree verifiers see `origin/main`**, not your branch — "work discarded / files missing" from one is always false; reproduce in the real worktree (`git rev-parse HEAD`, `ls`/`wc -l` the files) or hand them the SHA to inspect via `git show <sha>:path`. The master worktree's own tsc/test/prettier is the authoritative build signal.
 
+### Comment Golf - The Final Step
+Run this once, when the change is genuinely finished: every fix landed, every check and verification pass converged, nothing further will touch these lines. Then re-read every comment you freshly added, one at a time, and ask:
+1. **Will anyone working on this code ever need this, or any part of it?** Not "is it true" or "is it nice" - does its absence actually cost a future reader something? Volume is a real cost paid by everyone who reads the file afterwards; a comment restating the code charges that cost for nothing. If it doesn't clear the bar, delete it.
+2. **If it does, how few words can carry it?** Cut to the smallest wording that still carries only the slice that is necessary. Code golf, for information: same payload, fewest words.
+
+Default is delete - a comment you can't justify in one sentence loses. What survives is what the code cannot say itself: the non-obvious why, the constraint that isn't local, the trap the next person would otherwise fall into.
+
+Directives are not commentary: `# type: ignore`, `// eslint-disable-next-line`, `# noqa`, `@ts-expect-error`, build tags and pragmas are code wearing comment syntax. They are out of scope here, and cutting one is a behavior change that has to be re-verified like any other.
+
 ### Monitor CI After Push
 After every `git push`, monitor CI and fix any failures before declaring the push done.
 
