@@ -65,54 +65,109 @@ mytextclock = wibox.widget.textclock(
     "<span foreground='#f0dfaf'>󰃭 </span>%a %d %b  <span foreground='#f0dfaf'>󰥔 </span>%H:%M  ",
     20)
 
--- CPU widget (averages over /proc/stat deltas)
+-- Pure-Lua file readers replace awful.widget.watch's subprocess polling for
+-- everything we can read directly from /proc or /sys. Saves a fork+exec per
+-- widget per tick; the wibar used to burn 4 shells every 2-10 seconds.
+local function read_first_line(path)
+    local f = io.open(path, "r")
+    if not f then return nil end
+    local line = f:read("*l")
+    f:close()
+    return line
+end
+
+-- CPU widget (averages over /proc/stat deltas, read directly from Lua)
 local _cpu_prev = { idle = 0, total = 0 }
-local cpuwidget = awful.widget.watch("cat /proc/stat", 2, function(widget, stdout)
+local cpuwidget = wibox.widget.textbox()
+local function update_cpu()
+    local line = read_first_line("/proc/stat")
+    if not line then cpuwidget.markup = "󰻠 ?% " return end
     local user, nice, system, idle, iowait, irq, softirq, steal =
-        stdout:match("cpu%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)")
-    if not user then widget.markup = "󰻠 ?% " return end
+        line:match("cpu%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)%s+(%d+)")
+    if not user then cpuwidget.markup = "󰻠 ?% " return end
+    user, nice, system, idle = tonumber(user), tonumber(nice), tonumber(system), tonumber(idle)
+    iowait, irq, softirq, steal = tonumber(iowait), tonumber(irq), tonumber(softirq), tonumber(steal)
     local total = user + nice + system + idle + iowait + irq + softirq + steal
     local d_total = total - _cpu_prev.total
     local d_idle  = idle  - _cpu_prev.idle
     _cpu_prev.total, _cpu_prev.idle = total, idle
     local pct = d_total > 0 and math.floor(100 * (d_total - d_idle) / d_total) or 0
-    widget.markup = string.format("<span foreground='#f0dfaf'>󰻠 </span>%2d%%  ", pct)
-end)
+    cpuwidget.markup = string.format("<span foreground='#f0dfaf'>󰻠 </span>%2d%%  ", pct)
+end
+gears.timer { timeout = 2, autostart = true, call_now = true, callback = update_cpu }
 
--- RAM widget (MiB used / total)
-local memwidget = awful.widget.watch("free -m", 5, function(widget, stdout)
-    local total, used = stdout:match("Mem:%s+(%d+)%s+(%d+)")
-    if total then
-        widget.markup = string.format(
-            "<span foreground='#f0dfaf'>󰍛 </span>%s/%s MiB  ", used, total)
+-- RAM widget (MiB used / total, via /proc/meminfo)
+local memwidget = wibox.widget.textbox()
+local function update_mem()
+    local f = io.open("/proc/meminfo", "r")
+    if not f then return end
+    local total_kb, avail_kb
+    for line in f:lines() do
+        local k, v = line:match("(%S+):%s+(%d+) kB")
+        if k == "MemTotal" then total_kb = tonumber(v)
+        elseif k == "MemAvailable" then avail_kb = tonumber(v) end
+        if total_kb and avail_kb then break end
     end
-end)
+    f:close()
+    if total_kb and avail_kb then
+        memwidget.markup = string.format(
+            "<span foreground='#f0dfaf'>󰍛 </span>%d/%d MiB  ",
+            math.floor((total_kb - avail_kb) / 1024),
+            math.floor(total_kb / 1024))
+    end
+end
+gears.timer { timeout = 5, autostart = true, call_now = true, callback = update_mem }
 
--- Network rate widget (rx/tx Bps via /proc/net/dev primary up iface)
+-- Network rate widget (rx/tx Bps via /proc/net/dev for default-route iface)
 local _net_prev = { rx = 0, tx = 0, t = os.time() }
 local function fmt_rate(b)
     if b > 1024*1024 then return string.format("%.1fM", b/1024/1024) end
     if b > 1024 then return string.format("%.0fK", b/1024) end
     return string.format("%dB", b)
 end
-local netwidget = awful.widget.watch(
-    [[sh -c "IF=$(ip route show default 2>/dev/null | awk '/^default/{print $5; exit}'); ]]
-    .. [[awk -v IF=\"$IF\" '$1 ~ IF\":\" {sub(\":\",\"\",$1); print $1, $2, $10; exit}' /proc/net/dev"]],
-    2, function(widget, stdout)
-        local iface, rx, tx = stdout:match("(%S+)%s+(%d+)%s+(%d+)")
-        if not rx then widget.markup = "󰖩 -- " return end
-        local now = os.time()
-        local dt = math.max(now - _net_prev.t, 1)
-        local drx = (tonumber(rx) - _net_prev.rx) / dt
-        local dtx = (tonumber(tx) - _net_prev.tx) / dt
-        _net_prev.rx, _net_prev.tx, _net_prev.t = tonumber(rx), tonumber(tx), now
-        if drx < 0 or dtx < 0 then drx, dtx = 0, 0 end
-        widget.markup = string.format(
-            "<span foreground='#f0dfaf'>󰇚 </span>%s <span foreground='#f0dfaf'>󰕒 </span>%s  ",
-            fmt_rate(drx), fmt_rate(dtx))
-    end)
+local function default_iface()
+    local f = io.open("/proc/net/route", "r")
+    if not f then return nil end
+    f:read("*l") -- header
+    for line in f:lines() do
+        local iface, dest = line:match("(%S+)%s+(%S+)")
+        if dest == "00000000" then f:close() return iface end
+    end
+    f:close()
+    return nil
+end
+local netwidget = wibox.widget.textbox()
+local function update_net()
+    local iface = default_iface()
+    if not iface then netwidget.markup = "󰖩 -- " return end
+    local f = io.open("/proc/net/dev", "r")
+    if not f then return end
+    local rx, tx
+    for line in f:lines() do
+        local ifn, rest = line:match("^%s*(%S+):%s*(.+)$")
+        if ifn == iface then
+            local nums = {}
+            for n in rest:gmatch("(%d+)") do nums[#nums+1] = tonumber(n) end
+            rx, tx = nums[1], nums[9]
+            break
+        end
+    end
+    f:close()
+    if not rx then netwidget.markup = "󰖩 -- " return end
+    local now = os.time()
+    local dt = math.max(now - _net_prev.t, 1)
+    local drx = (rx - _net_prev.rx) / dt
+    local dtx = (tx - _net_prev.tx) / dt
+    _net_prev.rx, _net_prev.tx, _net_prev.t = rx, tx, now
+    if drx < 0 or dtx < 0 then drx, dtx = 0, 0 end
+    netwidget.markup = string.format(
+        "<span foreground='#f0dfaf'>󰇚 </span>%s <span foreground='#f0dfaf'>󰕒 </span>%s  ",
+        fmt_rate(drx), fmt_rate(dtx))
+end
+gears.timer { timeout = 2, autostart = true, call_now = true, callback = update_net }
 
--- Volume widget (pamixer-driven, click to toggle mute)
+-- Volume widget (pamixer-driven, click to toggle mute). Kept as a subprocess
+-- poll because PulseAudio/PipeWire state has no clean kernel-side file to read.
 local volwidget = awful.widget.watch(
     "sh -c 'pamixer --get-volume-human 2>/dev/null || echo n/a'", 2,
     function(widget, stdout)
@@ -127,17 +182,28 @@ volwidget:buttons(gears.table.join(
     awful.button({}, 5, function() awful.spawn("pamixer -d 5") end)
 ))
 
--- Battery widget (sysfs; gracefully shows "AC" on desktops)
-local batwidget = awful.widget.watch(
-    "sh -c 'for b in /sys/class/power_supply/BAT*; do [ -e \"$b\" ] && cat \"$b/capacity\" \"$b/status\"; done'",
-    10, function(widget, stdout)
-        local cap, status = stdout:match("(%d+)%s+(%a+)")
-        if not cap then widget.markup = "<span foreground='#f0dfaf'>󰚥 </span>AC  " return end
-        local icon = (status == "Charging") and "󰂄" or "󰁹"
-        local color = (tonumber(cap) <= 15) and "#cc4444" or "#f0dfaf"
-        widget.markup = string.format(
-            "<span foreground='%s'>%s </span>%s%%  ", color, icon, cap)
-    end)
+-- Battery widget (sysfs; gracefully shows "AC" when no BAT* present)
+local batwidget = wibox.widget.textbox()
+local function update_bat()
+    local cap, status
+    for _, name in ipairs({"BAT0", "BAT1", "BAT2"}) do
+        local c = read_first_line("/sys/class/power_supply/" .. name .. "/capacity")
+        if c then
+            cap = c
+            status = read_first_line("/sys/class/power_supply/" .. name .. "/status")
+            break
+        end
+    end
+    if not cap then
+        batwidget.markup = "<span foreground='#f0dfaf'>󰚥 </span>AC  "
+        return
+    end
+    local icon = (status == "Charging") and "󰂄" or "󰁹"
+    local color = (tonumber(cap) <= 15) and "#cc4444" or "#f0dfaf"
+    batwidget.markup = string.format(
+        "<span foreground='%s'>%s </span>%s%%  ", color, icon, cap)
+end
+gears.timer { timeout = 10, autostart = true, call_now = true, callback = update_bat }
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -428,7 +494,9 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     -- no_overlap is O(n*m) over existing clients per spawn; the
+                     -- visible cost on every new window wasn't worth it.
+                     placement = awful.placement.no_offscreen
      }
     },
 
@@ -439,11 +507,6 @@ awful.rules.rules = {
         role     = { "pop-up" }, -- e.g. Chrome's detached DevTools
       }, properties = { floating = true }},
 
-    -- Enable titlebars on normal/dialog clients so the invisible
-    -- edge-resize handles below have a surface to live on.
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
-    },
 }
 -- }}}
 
@@ -458,28 +521,8 @@ client.connect_signal("manage", function (c)
     end
 end)
 
--- Invisible edge-resize handles: thin strips on left/right/bottom that
--- start awful.mouse.client.resize() on click. Works for both floating
--- (free-form geometry) and tiled clients (adjusts ratios). No top
--- titlebar -- title info lives in the wibar tasklist.
-client.connect_signal("request::titlebars", function(c)
-    local edge_resize_buttons = gears.table.join(
-        awful.button({ }, 1, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            safe_resize(c)
-        end),
-        awful.button({ }, 3, function()
-            c:emit_signal("request::activate", "titlebar", {raise = true})
-            safe_resize(c)
-        end)
-    )
-    for _, pos in ipairs({"left", "right", "bottom"}) do
-        awful.titlebar(c, { position = pos, size = 4, bg = "#1f1f1f" }) :setup {
-            buttons = edge_resize_buttons,
-            layout  = wibox.layout.flex.horizontal,
-        }
-    end
-end)
+-- Edge-resize via titlebar strips was removed: the strips rendered as a
+-- visible dark frame on translucent windows. Use Mod+RightClick to resize.
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)

@@ -1,11 +1,15 @@
 [terminal.shell]
 program = "/usr/bin/zsh"
-args = ["-l"]
+# No -l (login shell): PATH is already populated by /etc/zsh/zshenv and
+# /etc/profile.d, and -l reruns /etc/profile every launch.
+args = []
 
 [window]
 opacity = 0.85
 padding = { x = 8, y = 6 }
-decorations = "none"
+# "full" works on both DEs: xfwm4 (XFCE) draws a real titlebar, while a tiling
+# Awesome ignores client decorations and keeps the borderless look itself.
+decorations = "full"
 dynamic_title = true
 
 [font]
