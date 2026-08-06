@@ -1,15 +1,11 @@
 {
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Agent|Task",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/hooks/limit-subagents.sh"
-          }
-        ]
-      }
+  "permissions": {
+    "allow": [
+      "mcp__argent"
     ]
-  }
+  },
+  "model": "opus",
+  "effortLevel": "xhigh",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark"
 }
