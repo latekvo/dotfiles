@@ -65,6 +65,24 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# oh-my-zsh's precmd reports the cwd to the terminal with OSC 7, but tmux absorbs
+# that sequence into #{pane_path} rather than passing it on, so the terminal
+# emulator never learns where the shell moved to and opens every new window in
+# the directory its tmux session was created in. Send a second copy wrapped in
+# tmux's DCS passthrough, which tmux unwraps and forwards to the terminal; the
+# protocol requires every ESC inside the wrapper to be doubled, and the receiving
+# end is allow-passthrough in ~/.tmux.conf. omz_termsupport_cwd is undefined over
+# SSH, inside Emacs and on terminals that mishandle OSC 7, so there is nothing to
+# forward in those cases.
+if [[ -n "$TMUX" ]] && (( $+functions[omz_termsupport_cwd] )); then
+	_tmux_forward_osc7() {
+		local seq
+		seq="$(omz_termsupport_cwd)" || return 0
+		printf '\ePtmux;%s\e\\' "${seq//$'\e'/$'\e\e'}"
+	}
+	add-zsh-hook precmd _tmux_forward_osc7
+fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
