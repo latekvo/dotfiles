@@ -106,6 +106,9 @@ Bring real analytical depth to non-trivial decisions: failure modes, second-orde
 
 Severity is **H/M/L**, below which sits **nitpick** — style preference, phrasing, or a defect with no reachable consequence. Beyond severity, non-bug findings may use category tags: **S** scope/simplification, **T** tests, **D** docs.
 
+### Out-of-Scope Findings — File, Never Discard
+A real problem the diff didn't introduce is still a finding. **Never drop one for being out of scope** — open it as a new issue in whatever tracker the project uses (GitHub Issues, Linear, …), with the repro and the concrete impact, and link that issue from the review so the trail survives. The fix stays out of the current PR; the ticket is what carries it forward. Same one-issue-one-thread rule as review comments: search existing open issues first and comment on the match instead of filing a duplicate. Anything H/M earns a ticket, an L earns one when it names a concrete trigger, nitpicks earn nothing.
+
 ### Leaving Review Comments on a PR
 Submit a formal review (`POST .../pulls/{n}/reviews`), never a top-level issue comment. Within it:
 - **One issue = one thread, ever** — first read every comment/thread already on the PR (any author, any earlier run, resolved or not); if a finding is already there, reply on that thread (`Still present as of <head_commit_hash>`) instead of opening a second.
