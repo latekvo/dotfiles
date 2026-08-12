@@ -140,6 +140,9 @@ alias agy="agy --dangerously-skip-permissions"
 # kill all processes using given port
 alias killport='f(){ kill -9 $(lsof -t -i tcp:$1); }; f'
 
+# reap parked tmux sessions that outlived destroy-unattached
+alias tmux_kill_unattached="tmux list-sessions -f '#{?session_attached,0,1}' -F '#{session_name}' | xargs -r -I{} tmux kill-session -t {}"
+
 # 1. create branch $1, 2. create worktree for that branch, 3. switch to the worktree
 alias add_worktree='f(){ b="$1"; p=$(basename "$PWD"); c=${b//@/}; d="../${p}-worktrees/$c"; git show-ref --verify --quiet refs/heads/"$b" || git branch "$b" main; git worktree add "$d" "$b"; cd "$d"; }; f'
 
