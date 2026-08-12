@@ -1,8 +1,24 @@
-# Homebrew comes first: tmux, rbenv and the rest of the toolchain live there, and the
-# tmux hand-off below has to be able to find tmux. /etc/zprofile's path_helper does not
-# add Homebrew, so without this the guard below silently never fires.
+# More glob syntax
+setopt extendedglob
+
 if [[ $(uname) == "Darwin" ]]; then
+  # homebrew has to be first or things break
 	export PATH="/opt/homebrew/bin:$PATH"
+	export PATH="/Applications/Android Studio.app/Contents/MacOS:$PATH"		
+
+	# ruby env
+	if [[ ":$PATH:" != *":$HOME/.rbenv/shims:"* ]]; then
+		eval "$(rbenv init - --no-rehash zsh)"
+	fi
+
+	# ruby
+	export GEM_HOME=$HOME/.gem
+
+	export ANDROID_HOME=/Users/ignacylatka/Library/Android/sdk
+	export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+  # bash compat (?)
+	export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 fi
 
 # Start every interactive terminal inside its own tmux session. The guards skip the
@@ -149,39 +165,6 @@ alias add_worktree='f(){ b="$1"; p=$(basename "$PWD"); c=${b//@/}; d="../${p}-wo
 # basically remove file changes from branch
 alias resmain='git restore --source=origin/main --staged --worktree'
 
-# MACOS ONLY
-if [[ $(uname) == "Darwin" ]]; then
-	# android studio
-	export PATH="/Applications/Android Studio.app/Contents/MacOS:$PATH"		
-
-	# ruby environment. rbenv is a Homebrew install; ~/.rbenv holds only the shims,
-	# which rbenv init puts on PATH itself. .zprofile already runs this for login
-	# shells, so only pay for it when the shims are missing - i.e. in a non-login
-	# interactive shell. --no-rehash skips a `rbenv rehash` subprocess per startup.
-	if [[ ":$PATH:" != *":$HOME/.rbenv/shims:"* ]]; then
-		eval "$(rbenv init - --no-rehash zsh)"
-	fi
-
-	# ruby
-	export GEM_HOME=$HOME/.gem
-
-	# add android SDK to path
-	export ANDROID_HOME=/Users/ignacylatka/Library/Android/sdk
-
-	# add JDK to PATH
-	export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-	# perhaps bash compatibility - likely to be removed
-	export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
-fi
-export PATH=$PATH:$HOME/.maestro/bin
-
-# Added by Antigravity
-export PATH="/Users/ignacylatka/.antigravity/antigravity/bin:$PATH"
-
-# Added by Windsurf
-export PATH="/Users/ignacylatka/.codeium/windsurf/bin:$PATH"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # bun completions
@@ -195,10 +178,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH=/Users/ignacylatka/.opencode/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
-# Sourcing nvm.sh in its default mode runs a full `nvm use <default>` on every shell,
-# which costs ~600ms of a ~850ms startup. --no-use skips that; the default version goes
-# on PATH directly below, which is what the auto-use was there to achieve. `nvm use
-# <version>` still switches versions inside a session.
+
 if [ -s "$NVM_DIR/nvm.sh" ]; then
 	() {
 		[[ -r "$NVM_DIR/alias/default" ]] || return
@@ -215,6 +195,7 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
 	}
 	\. "$NVM_DIR/nvm.sh" --no-use
 fi
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias argent_install_branch="$HOME/argent-install-branch.sh"
@@ -253,12 +234,4 @@ cd_branch() {
   cd "$wt"
 }
 
-# Ollama: raise the default context for all models. gemma4 (silver:e4b, gemma4:e4b)
-# defaults to num_ctx=4096; agent harnesses (OpenCode, etc.) send long system+tools
-# that overflow it, so Ollama truncates the input and the model emits degenerate
-# "TheThe..." output until max tokens. 32768 fits harness payloads. Restart `ollama
-# serve` after sourcing this for it to take effect.
 export OLLAMA_CONTEXT_LENGTH=32768
-
-# Added by Antigravity CLI installer
-export PATH="/Users/ignacylatka/.local/bin:$PATH"
