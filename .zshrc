@@ -76,9 +76,11 @@ source $ZSH/oh-my-zsh.sh
 # forward in those cases.
 if [[ -n "$TMUX" ]] && (( $+functions[omz_termsupport_cwd] )); then
 	_tmux_forward_osc7() {
-		local seq
+		# The replacement half of ${//} takes $'...' literally, so the doubling
+		# that the wrapper depends on has to come from a variable.
+		local seq esc=$'\e'
 		seq="$(omz_termsupport_cwd)" || return 0
-		printf '\ePtmux;%s\e\\' "${seq//$'\e'/$'\e\e'}"
+		printf '\ePtmux;%s\e\\' "${seq//$esc/$esc$esc}"
 	}
 	add-zsh-hook precmd _tmux_forward_osc7
 fi
