@@ -25,10 +25,8 @@ set -uo pipefail
 
 CHILD_TIER="${CC_CHILD_TIER:-orchestrator}"   # the "children" — may spawn leaves
 LEAF_TIER="${CC_LEAF_TIER:-worker}"           # the "sub-children" — spawn nothing
-MAX_CHILDREN="${CC_MAX_CHILDREN:-8}"          # cap on leaves per child. NOTE: the counter is
-                                              # cumulative, never decremented on completion, so
-                                              # this bounds lifetime fan-out — not the concurrent
-                                              # ceiling CLAUDE.md actually specifies.
+MAX_CHILDREN="${CC_MAX_CHILDREN:-8}"          # counter is cumulative, never decremented: bounds
+                                              # lifetime fan-out, not CLAUDE.md's concurrent ceiling
 
 command -v jq >/dev/null 2>&1 || exit 0       # fail-open if jq is unavailable
 
