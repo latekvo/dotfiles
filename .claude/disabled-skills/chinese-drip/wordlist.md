@@ -65,6 +65,15 @@ A demotion out of level 4 pulls the word back into the table (rebuild its row).
 | 测试 | cèshì | test | 2 | 测 measure + 试 try/attempt; user-set → lvl 2 2026-07-30 |
 | 代码 | dàimǎ | code | 1 | 代 substitute + 码 code; 码 = 石 stone + 马 mǎ (phonetic); user-set → lvl 1 2026-07-30, footer reminder next |
 | 报错 | bàocuò | (throws) an error | 1 | 报 report + 错 wrong; 错 = 钅 metal + 昔 (phonetic); user-set → lvl 1 2026-07-30, footer reminder next |
+| 修复 | xiūfù | fix / repair | 0 | 修 xiū "repair / cultivate" + 复 fù "return / restore / again"; introduced on the android-input select-all read-back fix, draft PR #821 |
+| 分支 | fēnzhī | branch | 0 | 分 fēn "divide / split" + 支 zhī "branch / limb"; the surviving feat/screen-recording-server-side branch holding the lost feasibility doc |
+| 合并 | hébìng | merge / combine | 0 | 合 hé "join / close / fit" + 并 bìng "combine / side by side"; Introduced on merging origin/main into the recording branch (PR 155). |
+| 声音 | shēngyīn | sound | 0 | 声 shēng "sound / voice" + 音 yīn "sound / tone / music"; Introduced on the IEM research - diagnosing why sealing the WH-CH720N cups restores bass detail. |
+| 好的 | hǎo de | OK / alright / got it | 0 | 好 hǎo "good" (already learned) + 的 de (particle); promoted after repeated pass-through use opening research answers |
+| 检查 | jiǎnchá | check / inspect | 0 | 检 jiǎn "examine / inspect" + 查 chá "investigate / look into"; Introduced on the source audit of the token-economics model; reused when inspecting every rendered PDF page. |
+| 运行 | yùnxíng | run (a program, a machine) | 0 | 运 yùn "transport / move" + 行 xíng "go / travel / operate"; introduced on running the newly installed xpra client on the mac |
+| 部署 | bùshǔ | deploy | 0 | 部 bù "part / section / ministry" + 署 shǔ "arrange / assign / office"; Introduced on the Vercel deploy CI migration to app-control-bench. |
+| 问题 | wèntí | problem / question | 0 | 问 wèn "ask" + 题 tí "topic / problem"; the puzzle-per-day vs puzzle-per-week cadence research |
 
 ## Characters (字) — the atoms
 
@@ -89,9 +98,26 @@ words it appears in and name the payoff instead ("你 already know 码 from 代�
 | 交 | jiāo | hand over / exchange |  | 提交; also 交流 "exchange", 交付 "deliver" |
 | 测 | cè | measure / survey |  | 测试; also 测量 "measure", 预测 "forecast" (氵 water radical) |
 | 试 | shì | try / attempt / test |  | 测试; also 试试 "give it a try", 尝试 "attempt" |
+| 分 | fēn | divide / split / minute |  | in 分支 branch; the top 八 is two strokes splitting apart over 刀 knife |
+| 支 | zhī | branch / limb / support |  | in 分支 branch |
+| 运 | yùn | transport / move / fortune |  | in 运行 run; 辶 the walking radical |
+| 行 | xíng | go / walk / operate / OK |  | in 运行 run; also stands alone meaning "that works / OK" |
+| 检 | jiǎn | examine / inspect | R | 木 wood radical + 佥; appears in 检查, 检验, 检测 |
+| 查 | chá | investigate / look into / check |  | 木 wood over 旦 dawn; appears in 检查, 调查, 查看 |
+| 部 | bù | part / section / ministry |  | the "section" in 部署; also 部分 bùfen "part" |
+| 署 | shǔ | arrange / assign / (government) office |  | the "arrange" in 部署 — deploying = arranging the sections |
+| 问 | wèn | ask | P | 口 mouth inside 门 mén 'door' (phonetic) - asking at the door |
+| 题 | tí | topic / problem / title |  | the 题 in 问题 and in exam/puzzle questions |
+| 的 | de | possessive / descriptive particle - the single most common character in Chinese |  | grammatical glue; turns 好 'good' into 好的 'alright' |
+| 合 | hé | join / close / fit together |  | in 合并 merge; also 合作 cooperate |
+| 并 | bìng | combine / side by side / and |  | in 合并 merge; also 并行 parallel (with 行 xíng, already a brick) |
+| 修 | xiū | repair / mend / cultivate |  | the 修 of 修复; also 修改 xiūgǎi "revise" |
+| 复 | fù | return / restore / again |  | the 复 of 修复; also 恢复 huīfù "recover", 重复 chóngfù "repeat" |
+| 声 | shēng | sound / voice |  | also the 声 in 声调 shēngdiào 'tone (of a syllable)' |
+| 音 | yīn | sound / tone / music |  | recurs in 音乐 yīnyuè 'music' and 拼音 pīnyīn - the 音 the user already reads in every gloss |
 
 ## Pipeline (introduce a couple at a time; all enter at level 0)
 
-分支 fēnzhī branch (分 divide + 支 branch) · 修复 xiūfù fix (修 repair + 复 restore) · 功能 gōngnéng feature (功 merit + 能 ability) · 调试 tiáoshì debug (调 adjust + 试 try/test) · 部署 bùshǔ deploy · 合并 hébìng merge (合 join + 并 combine) · 运行 yùnxíng run (运 move + 行 go) · 需要 xūyào need · 检查 jiǎnchá check (检 inspect + 查 examine) · 问题 wèntí problem / question (问 ask + 题 topic) · 现在 xiànzài now · 已经 yǐjīng already · 函数 hánshù function · 变量 biànliàng variable (变 change + 量 quantity)
+功能 gōngnéng feature (功 merit + 能 ability) · 调试 tiáoshì debug (调 adjust + 试 try/test) · 需要 xūyào need · 现在 xiànzài now · 已经 yǐjīng already · 函数 hánshù function · 变量 biànliàng variable (变 change + 量 quantity)
 
 <!-- END:generated -->

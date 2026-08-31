@@ -1,0 +1,4777 @@
+{
+  "version": 1,
+  "level": "A1",
+  "started": "2026-07-20",
+  "learned": {
+    "words": [
+      "你好",
+      "好",
+      "谢谢",
+      "我",
+      "你",
+      "是",
+      "不",
+      "完成"
+    ],
+    "bricks": [
+      "你",
+      "好",
+      "女",
+      "子",
+      "我",
+      "是",
+      "不",
+      "完",
+      "成"
+    ]
+  },
+  "words": [
+    {
+      "hanzi": "代码",
+      "pinyin": "dàimǎ",
+      "meaning": "code",
+      "level": 1,
+      "parts": "代 substitute + 码 code; 码 = 石 stone + 马 mǎ (phonetic)",
+      "chars": [
+        "代",
+        "码"
+      ],
+      "added": "2026-07-21",
+      "leveled_at": "2026-07-30",
+      "notes": [
+        "user-set → lvl 1 2026-07-30, footer reminder next"
+      ],
+      "uses": [
+        {
+          "date": "2026-08-05",
+          "context": "scoping the rule to code comments vs instruction prose",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the 254 failing files being my cleanup, not the code",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "footer reminder, level 1",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the generator script instead of hand-written JSON",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the PostHog key hardcoded in source on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "code you'd be comfortable having trained on",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the decompiled limiter code",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the AgentModel reader",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "no code changed, only prose",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "AgentModel.swift rules vs a lookup table",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two independent codebases",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the Swift toolchain agents need to build Diplomat's own core",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the three places the invariant is stated in shipped prose",
+          "glossed": false
+        }
+      ]
+    },
+    {
+      "hanzi": "报错",
+      "pinyin": "bàocuò",
+      "meaning": "(throws) an error",
+      "level": 1,
+      "parts": "报 report + 错 wrong; 错 = 钅 metal + 昔 (phonetic)",
+      "chars": [
+        "报",
+        "错"
+      ],
+      "added": "2026-07-21",
+      "leveled_at": "2026-07-30",
+      "notes": [
+        "user-set → lvl 1 2026-07-30, footer reminder next"
+      ],
+      "uses": [
+        {
+          "date": "2026-07-30",
+          "context": "the judge itself erroring out",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the symlink launcher failure",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "whether the 504 is a real build error",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the No route to host failure from Xpra.app",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the build failing on the missing runner/ refs",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the zsh: number expected error from bare glob qualifiers",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the missing-delimiter glob qualifier error",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "CI's macOS type-check failure",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the Swift 5.10 CI build failure",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the 400 the edge returned with an empty timeUnixNano",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the misroute reporting an error as success",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "OTLPExporterError 301 from the production host",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the Knip check failing on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the 401 the prod collector returns",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "both hosts returning 401",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the npm EBADENGINE failure that reached the user",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the flow steps that now fail instead of passing green",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the failure that reads as a source regression",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the stop call erroring with 'stop needs the id'",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the flow selector-step error string",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the EACCES errors the env reproduces",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the EACCES rename in the log",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the HTTP Basic access denied push failure",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the mis-case refusal message",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "hermes chat 401 blocking the live repro",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the osascript error Diplomat discards on a failed spawn",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the CLI's API Error banner family",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "pre-flight under-report erroring mid-run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the quiet vs loud failure code choice",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the API-error banner the watcher reads",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the SIGSEGV that produces no crash report",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-31",
+          "context": "the uninstaller not erroring, just lying",
+          "glossed": false
+        }
+      ]
+    },
+    {
+      "hanzi": "文件",
+      "pinyin": "wénjiàn",
+      "meaning": "file / document",
+      "level": 2,
+      "parts": "文 writing/art + 件 item ← the user's own example",
+      "chars": [
+        "文",
+        "件"
+      ],
+      "added": "2026-07-21",
+      "leveled_at": "2026-07-30",
+      "notes": [
+        "user-set → lvl 2 2026-07-30"
+      ],
+      "uses": [
+        {
+          "date": "2026-07-27",
+          "context": "the temporary test harness file",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the feasibility doc file that never landed on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "econ3.py, the model file",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "econ4.py, the rebuilt model",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the mp4 copied out of sim-server's temp dir",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the two CLAUDE.md copies",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the SKILL.md file already carrying the note",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "native-devtools.ts being byte-identical across the two tags",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the node_modules symlink blocking the pull",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 7 changed doc files",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the two files in PR #598",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the ~/.ssh/config file",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "server.json in the drift repro",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "cli/runtime.rs where the stdin surface is defined",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the ADR file the argent hits live in",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "test_mesh_tor.py",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the exported PDF",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the new chromium-visibility source file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the live .zshrc",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "34 scrubbed transcript files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the three config files created",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the workflow file needing no change",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the 19 website files copied over",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "2956 tracked files in the new root tree",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the index-runs.html rename",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "2171 file count matching source",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "excluding *.txt files from a glob",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the files the glob would delete",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the five files touched in the vercel removal",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the audit.jsonl feed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the stray audit.jsonl lines still pending",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the new ~/.tmux.conf",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the two config files, ~/.tmux.conf and ~/.zshrc",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the six local-harness files deleted",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the 9 files changed in the purge",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the two SKILL.md files in scope",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "where in CLAUDE.md to place the new rule",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the CLAUDE.md file the rule landed in",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the files searched for the key",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the repo's compose file the containers did not come from",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "19 files changed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "19 files changed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the 3 files the change touches",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the resume state file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the ten files carrying the policy prose",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the dashboard JSON file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "szpontnet files untouched by the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "verifying the rendered mp4 rather than the preview",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "measuring the rendered mp4 rather than the preview",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the delivered comparison-v3.mp4",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the three test files removed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the otel-infra .env file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-13",
+          "context": "the 22 dossier files delivered",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "sim-remote.ts, the file main also touched",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the one conflicted file, flow-run.ts",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the files touched locally",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the single conflicted file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the state.json state file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the four test files carrying the fragile assertions",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "macOS shrinking the swap file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the transcript files on disk vs the wire request",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the new global-prefix.ts and E2E files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the recorded mp4s",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the three test files with stale requiresAppRestart stubs",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the six test files already doing ambient save/restore",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the five changed files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the BOM'd manifest file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the two conflicted files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "clickhouse/init/01-schema.sql",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "gh pr edit --body-file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "no compose files on the prod box",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "settings.json being a regular file, not a symlink",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the dashboard JSON files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the README inside the env",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the two conflicted files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the 22 changed files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the second docs mirror on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "~/.diplomat/config.json",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the resume state file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "2400 result files in the data commit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "configs/tool-versions.json as the file being pinned",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the models.dev catalog file beside model.json",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the cron.d file placement",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "assets/models.json",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the 35 modified files in the issue-sweep worktree",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "guardian.log",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "~/.zshrc, the file to change",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "nothing pushed, no files changed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the single changed file / the skill reference files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the 6 skill files mandating adb reverse",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "no Diplomat file references focus-guardian",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the four files in MR !10",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the wiped runner/*.py and venv files on radoniusz",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the per-run transcript files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the six small run-dir files that stay bind-mounted",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the ~/.netrc and ~/.npmrc token files that stay on the host",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "runsSteps exported from flow-utils.ts",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the broken-chain flow file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "flow-utils.ts defining the term 'served'",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "fold conflict naming one file twice",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "correcting wording against the source files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the recording hint walking one file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-26",
+          "context": "results pulled to the scratchpad",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the untouched published docs file",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "emulator-supports-flag.test.ts",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-31",
+          "context": "the four shell dotfiles kiro had hooked",
+          "glossed": false
+        }
+      ]
+    },
+    {
+      "hanzi": "提交",
+      "pinyin": "tíjiāo",
+      "meaning": "commit (also \"submit / hand in\")",
+      "level": 2,
+      "parts": "提 raise/carry + 交 hand over",
+      "chars": [
+        "提",
+        "交"
+      ],
+      "added": "2026-07-28",
+      "leveled_at": "2026-07-30",
+      "notes": [
+        "user-set → lvl 2 2026-07-30"
+      ],
+      "uses": [
+        {
+          "date": "2026-07-28",
+          "context": "introduced on the dotfiles commit of the drip change",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-29",
+          "context": "the 13 Diplomat commits",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the dotfiles commit 720e4dd",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the 22 commits new since local main",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the 22 commits that left it untouched",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the 3 commits on the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the docs commit on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 2 radon commits since last sim-server build",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the pushed fix commit",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 0.18.0 bump commit 646f726b",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "commit 0c75a20b on the 587 branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the commit that removed the mentions",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "commits still reachable from the closed PR",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the two fix commits 49c0b1cc + a71ee797",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "commit 7de9578 on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the two dotfiles commits",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "commit 7de9578 tagged szpontnet-v0.5.0",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the 4 missing commits",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "diffing my commit against upstream's",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the squashed root commit e00a534",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "noting the changes aren't committed yet",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the five commits on PR #24",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the 10 commits that landed on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the fix commit 0fdbc7b pushed to main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "changes left uncommitted on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the dotfiles commit f39820a",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "commit fc165d1",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "commit 0e64d49 in otel-infra",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the ops: purge Vercel commit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the commit b5567086",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the dotfiles commit carrying the Comment Golf rule",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-06",
+          "context": "the single refactor commit on the stacked branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-07",
+          "context": "the 5 commits pushed to main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "9c1e7ab landing in szpontnet-core after the release",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "main moved 20 commits ahead",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "4 commits in the PR",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the two commits pushed to PR #570",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the single commit on the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "verifying no credential reached the repo before committing",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the two commits on the posthog-import branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the two commits on the szpont-launcher branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "offering to commit the NDIAG fix",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the four commits pushed to #767",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the policy-change commit 097f9de",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the four commits on PR #28",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the endpoint commit 8bca962f",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the pushed commit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-13",
+          "context": "submitting the permit package to the Kraków office",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-13",
+          "context": "the 3 fix commits pushed to PR 155",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the two commits pushed to the PR branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the pushed merge commit 7135308f",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the two fix commits on the harmony branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the six review-fix commits",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the single commit on the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the three pushed commits",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the two commits pushed to main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the three commits pushed this session",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the round-4 commit's local gates",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "round-12 commit 1b72f27de",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the four commits on the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 5 review-fix commits",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the commit pushed to draft PR #821",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the two pushed commits",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "counting the commits pushed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the two commits pushed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the merge commit c48b6f728",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the merge commit 0d05e02a8",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the pushed merge commit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "commit 8b2c338 on dashboard-scoping",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "no commit was made - body-only edit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "commits 8b2c338 and 9ec6532",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the single commit on quota-probe-retry",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the single commit on the PR",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the unchanged commit on PR 56",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the d0889ca commit message explaining why the hook was unwired",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the three dotfiles commits pushed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the comment-golf commit e4a0dbc",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the guard commit d815536",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the orphan commit publish.py built",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the two web-editor commits that broke CI",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the two commits on PR #878",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the merge commit pushed to feat/harmonyos-emulator",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-22",
+          "context": "commit 0e75044fa",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the four commits pushed to main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the single commit on the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the two publish fix commits on 08-11",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the two commits on the data branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the correction commit 7dd1eb25",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the commit on the new branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the commit the withdrawn finding was true at",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the commit on the PR branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the single commit on selfupdate-view-race",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the single commit on the fix branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "argent's first commit 2026-02-23",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the three commits on the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the worst-case outcome being one bad commit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the single commit on retire-under-live-agent",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two commits on the branch",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the single commit on first-turn-grace",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the two commits pushed to bench/qwen-360-results",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the lint-fix commit bd1678e1a",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "bd1678e1a",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-31",
+          "context": "the commit on PR #100",
+          "glossed": false
+        }
+      ]
+    },
+    {
+      "hanzi": "测试",
+      "pinyin": "cèshì",
+      "meaning": "test",
+      "level": 2,
+      "parts": "测 measure + 试 try/attempt",
+      "chars": [
+        "测",
+        "试"
+      ],
+      "added": "2026-07-28",
+      "leveled_at": "2026-07-30",
+      "notes": [
+        "user-set → lvl 2 2026-07-30"
+      ],
+      "uses": [
+        {
+          "date": "2026-07-28",
+          "context": "the SzpontLock click-suppression test run",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-29",
+          "context": "the 563-test Diplomat suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "benchmarking throughput and the I/O ratio",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the remaining throughput benchmark",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the throughput benchmark to run on a rented node",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the 18 new tests in argent#587",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the E2E sweep over the packed bundle",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the E2E + full workspace suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "restarting the tool-server before testing",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "vscode-extension-tester E2E changes",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the dry_run rehearsal",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "mutation-testing the version guard",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the verification pass on the installed client",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the new platform-parity test file",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "Glama's build-spec test run",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the discriminating public-vs-LAN connectivity test",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 3,077 unit tests that were the PR's only evidence",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 7 new spawn tests, 76/76 on CI",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the Tor test file being offline",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the tool-server test suite in the PR review",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the 262 unit tests + conformance gates",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the curl serve test of both tarballs",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "verifying the glob forms on zsh 5.9",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the queue self-test's 22 assertions",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "re-running the self-tests on the merged tree",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the new store/panel tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the tmux key-injection harness",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the pty-driven e2e test run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the smoke test passing 16/16 on the silently-diverged stack",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the ported harness rigs as vitest tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "tests pinning the tool descriptions",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-06",
+          "context": "the mutation tests on the CI guard",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-06",
+          "context": "the 3596-test tool-server suite plus the new definitions table",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-07",
+          "context": "the mutation campaign / E2E audit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the Full E2E test action",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the quick smoke pass over the bundle",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the quick smoke pass over the bundle",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "3863 tests passing",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the test collector vs the production one",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "3863 unit tests passing",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the 51 Playwright checks",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the local 910-passing test suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the E2E import test runs",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the launcher suites and parity test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the pytest suite that was aborting",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 14 new emulator boot tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "mutation testing the two flipped defaults",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the two tests pinning the transport defaults",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 13 green CI checks",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "verifying all 13 panels return data",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the 15 new Hermes store tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the 10/10 and 13/13 verification runs",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "verifying all 30 panels against the datasource",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the swmtest.xyz collector",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "swmtest.xyz still being the test collector",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the live-Tor and iroh e2e suites in CI",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the live-Tor and iroh e2e suites in CI",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the test collector staying the verifiable one",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "testing the prod endpoint",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the test collector the token belongs to",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the Linux test suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the 1031-test Linux suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the deleted bindings test files",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the test collector rejecting it too",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-13",
+          "context": "the mesh tests that never ran the spawn method",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-13",
+          "context": "the 17→55 CI test gap",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the full workspace test run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "4071 tool-server tests + CI Unit tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the 4034-test local suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the e2e test asserting 'Hide ads' never appears",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the 4066-test suite run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the 965-passing suite and the mutation gate",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the flaky mesh-recovery test that went green on re-run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the flaky mesh-recovery test that went green on re-run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the CI unit-test job",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 4072 tool-server tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the suites run for verification",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the full workspace test run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 5-test mutation run on the diff-image size claim",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "a 150-step QA run building a 500k context",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "Device E2E smoke dying before argent ran",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the installer unit tests + E2E suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 58-test CI run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the mutation sweep over the new tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 12-check E2E suite on sim + emulator",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 20 new/changed tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the tool-server suite I re-ran at the merged commit",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the unit suite in PR #707",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the Linux pytest job's 1171 passed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 55 -> 68 test count",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the guard tests and mutation runs",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the 317-test telemetry suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the 4293-test tool-server suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the 91/91 test:scripts run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the physical-iPhone screen-recording test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the E2E verification of the installed 99.99.99",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the sharded vitest suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the on-emulator verification of each ref",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the emulator E2E runs against the built APK",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the 1126 flow tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the 43-panel old-vs-new verification run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the 43-panel run against the materialized schema",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the 9 new tests added",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the PR #767 harmony device test sweep",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the flaky mesh-recovery test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the mesh-recovery flake in issue 53",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the PR711 A/B soak test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "reuse - the vega-cli-timeout test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the test box the dashboards were compared against",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the mutation test on the guard",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the E2E phases run against the env",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the headless E2E concurrency probes",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "what the colleague's log did/didn't test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the 1218 local tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the 14 new subagent-guard tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "capturing Settings at five scales",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the failing unit test suite on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the still-failing describe-tool assertion on main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the 160-call on-model legibility eval",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the six vitest shards on the merged tree",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-22",
+          "context": "the two mutation checks on the new file clause",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the 982 passing tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the flaky SzpontNet CI job going green on a rerun",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the 13 flow-composition timeouts",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the 104-test flow suite and mutation pass",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the dry run before the real import",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the tests that pin the opencode tag behaviour",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the discriminating 3-day window test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the full Linux pytest suite in CI",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the full Linux pytest run in flight",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the 1234-test Linux suite",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the two test suites run E2E",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "swmtest as the test site",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "test_ledger.py 24/24",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the live OpenCode E2E I ran",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the four verification tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the DiplomatCoreSmoke checks on displayName",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the new attribution test running in CI",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the 27 hermes store tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the emulator boot test I ran",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the list of things ruled out by testing",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the 320 follow-up test iterations that failed to reproduce",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the discriminating test added to PR 82",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two failing doc-contract tests in CI",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the pacing and effort probes",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two spawn focus tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the flaky selfupdate test",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the 13 environmental local failures",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the 13 environmental local failures",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the element-01 smoke run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two smoke/pytest suites that assert the banner",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the 11 paired element runs so far",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "argent's PR-gate tests running Linux-only",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "testing the absolute-path claim against a real Debian image",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the mutation-killing tests",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the mutation gate on both twins",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the parity scenario that pins it",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "no test found UNVERIFIABLE reaching a skip",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the refutation agent testing my own findings",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the adversarial verifier testing the findings",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "verifying anything pass 5 turns up",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the adversarial round that killed 6 of 22",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the 60-run element A/B",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the mutation testing that pinned the swallow finding",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the mutation gate on both twins",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the depth probe runs on the simulator",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the tool-server suite 361/361",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the 5-failure discrimination run",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the 4 adb.ts mutations, all caught",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-31",
+          "context": "the 322 tests run to verify the fix",
+          "glossed": false
+        }
+      ]
+    },
+    {
+      "hanzi": "发布",
+      "pinyin": "fābù",
+      "meaning": "release / publish",
+      "level": 2,
+      "parts": "发 send out + 布 spread/announce",
+      "chars": [
+        "发",
+        "布"
+      ],
+      "added": "2026-07-23",
+      "leveled_at": "2026-07-30",
+      "notes": [
+        "user-set → lvl 2 2026-07-30"
+      ],
+      "uses": [
+        {
+          "date": "2026-07-23",
+          "context": "the argent release walkthrough",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-24",
+          "context": "the 0.17.0 E2E report",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-28",
+          "context": "the MCP Registry publish doc",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "republishing the audited artifact to the same URL",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "republishing the corrected analysis to the same URL",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "republishing the MXFP4-only version",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the rolling radon-main release tag argent pulls from",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "today's 0.17.x release the bundle was built for",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-30",
+          "context": "shipping unfixed for a second release",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 0.18.0 global install",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 0.18.0 release check",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the 0.18.0 publish steps",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the publish step being out of scope",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the registry publish that gets rejected",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the GitHub release assets holding the prebuilds",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the registry publish the guard protects",
+          "glossed": false
+        },
+        {
+          "date": "2026-07-31",
+          "context": "publishing the light-mode artifact to a new URL",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the szpontnet 0.5.0 PyPI release",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "future releases now being a tag push",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "making the prerelease repo public",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the new landing UI now live on the public site",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-03",
+          "context": "handing the archive to devops",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-04",
+          "context": "publishing moving to the GitLab repo",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the 19:00 release schedule",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "reuse - dual regional release",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "no scheduled release in Hacktoberfest",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "daily release decoupled from the deadline",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "reuse - release hour stops mattering",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "release window vs submission window",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-05",
+          "context": "time-decay from release",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-06",
+          "context": "the release/publish flow this PR builds",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "running it before a release",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the release-day E2E prompts",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the release-day E2E prompts",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the possible 0.6.0 PyPI release",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the e2e-full release gate reddened by #766",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-11",
+          "context": "publishing szpont to npm/PyPI",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "publishing v3 alongside v2",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the release build environment gap",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the token shipping inside a release bundle",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "release builds vs dev builds",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "failing a release build with no token",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the next szpont release from main",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the packed tgz / local release",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the APK currently published to argent-private-releases",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the publishing feature whose CI is failing",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the manual public publish pipeline",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-21",
+          "context": "reuse - re-publishing the same version",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the szpont release CI job",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "what the internal site can publish",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the public publish job needs PUBLISH_VERSION",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-25",
+          "context": "first public release dates of both projects",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the publish.py dry runs standing in for CI",
+          "glossed": false
+        }
+      ]
+    },
+    {
+      "hanzi": "分支",
+      "pinyin": "fēnzhī",
+      "meaning": "branch",
+      "level": 0,
+      "parts": "分 fēn \"divide / split\" + 支 zhī \"branch / limb\"",
+      "chars": [
+        "分",
+        "支"
+      ],
+      "added": "2026-07-30",
+      "leveled_at": "2026-07-30",
+      "notes": [
+        "the surviving feat/screen-recording-server-side branch holding the lost feasibility doc"
+      ],
+      "uses": [
+        {
+          "date": "2026-07-30",
+          "context": "the surviving feat/screen-recording-server-side branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-30",
+          "context": "local main branch being 22 commits behind origin",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-30",
+          "context": "the pushed feat/link-apply-local-flags branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the main branch the permalink resolves on",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the deleted head ref on PR #589",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the feat/mcp-registry-server-json PR branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the security/scrub branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the landing-ui-improvements branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "deleting the orphaned landing-ui-improvements branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the agent-task-queue branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the stacked branch feat/otel-telemetry -> test/otel-wire-e2e",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-06",
+          "context": "the orphan release branch x.y.z",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-06",
+          "context": "the stacked branch based on feat/concurrent-flow-recordings",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-07",
+          "context": "the 11 branches classified and pruned",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the branch predating the knip gate",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the feat/otel-telemetry branch the endpoint change landed on",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the opencode-runner branch touching no szpontnet files",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the posthog-import branch pushed to GitLab",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the mesh-transport-agreement branch the draft PR sits on",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the settings-rework branch and the assets branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the red CI check was not this branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the PR branch the 6 commits landed on",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the freebuff-harness branch behind PR #47",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the freebuff-harness branch, green end to end",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the HarmonyOS branch carrying the unmerged leak fix",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the PR branch fix/native-devtools-dyld-skip-terminal",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the PR branch feat/physical-ios-via-simserver",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the release branch publish_public leaves behind",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "never touched the PR branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "confirming the PR branch was never written to",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "no pipeline exists for the MR branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the model-display-names worktree branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-26",
+          "context": "never touched j-piasecki's branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the PR branch vs origin/main",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "branch 9 behind main, no conflicts",
+          "glossed": false
+        }
+      ]
+    },
+    {
+      "hanzi": "运行",
+      "pinyin": "yùnxíng",
+      "meaning": "run (a program, a machine)",
+      "level": 0,
+      "parts": "运 yùn \"transport / move\" + 行 xíng \"go / travel / operate\"",
+      "chars": [
+        "运",
+        "行"
+      ],
+      "added": "2026-07-31",
+      "leveled_at": "2026-07-31",
+      "notes": [
+        "introduced on running the newly installed xpra client on the mac"
+      ],
+      "uses": [
+        {
+          "date": "2026-07-31",
+          "context": "running the xpra client on the mac",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-31",
+          "context": "running every build step locally at the pinned SHA",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-31",
+          "context": "the xpra launcher now running in the GUI session",
+          "glossed": true
+        },
+        {
+          "date": "2026-07-31",
+          "context": "no real tor binary runs in CI",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the CI already running on every push",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the queue self-test and pytest runs",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-04",
+          "context": "restarting programs in the pane",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "gates run unpiped",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the CI run's own printed output",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "CI still running on the PR",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "CI and the local suite still running",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-13",
+          "context": "the full Linux suite still running",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the node not running iroh",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "stale long-running processes",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the tool-server running against the emulator",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the soak still running, round 11 of 60",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the two review agents still going overnight",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "driving the real argent flow run E2E on a simulator",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the import running against prod",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "what model the spawn runs on",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the relaunched applet",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-24",
+          "context": "whether the agent is still running while subagents work",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the nightly job running at 2 AM",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the debug build that is actually running",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the guardian still running after 7 days",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the 360-run matrix that cannot run",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the 60-run interleaved A/B matrix now in flight",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two pass-3 agents still running",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the Boot VVD CI job still running",
+          "glossed": true
+        }
+      ]
+    },
+    {
+      "hanzi": "检查",
+      "pinyin": "jiǎnchá",
+      "meaning": "check / inspect",
+      "level": 0,
+      "parts": "检 jiǎn \"examine / inspect\" + 查 chá \"investigate / look into\"",
+      "chars": [
+        "检",
+        "查"
+      ],
+      "added": "2026-07-31",
+      "leveled_at": "2026-07-31",
+      "notes": [
+        "Introduced on the source audit of the token-economics model; reused when inspecting every rendered PDF page."
+      ],
+      "uses": [
+        {
+          "date": "2026-07-31",
+          "context": "the empirical checks run against the CDP claims",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "re-verifying zsh -n after the compfix edit",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "checking MIME types on the host",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "dry-running the glob with print before git rm",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the 8 passing checks in the e2e",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the new preflight check comparing database names",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the last-step comment-pruning rule for CLAUDE.md",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the coverage checklist of the key hunt",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "checking the day-by-day stats pages",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "checking the draft's claims against sources",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the one adversarial check a LOW gets",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the pin-resolution checks against PyPI",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the mutation-proved checks",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the conformance check against the real OTel SDK",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-11",
+          "context": "checking CI logs when the runs settle",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "checking the tunnel and box state",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the hyperframes check gate on the composition",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the hyperframes check gate after the slide-timing and shader changes",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "probing punchcard's actual auth setup",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "hyperframes check passing 45/45 after the shader rewrite",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the ClickHouse cross-check on the box",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the nine CI checks on PR #35",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the nine CI checks on PR #35",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "checking repo, memory and scratchpad for leaks",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the leftover _tui_need_npm_install observation",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-13",
+          "context": "checking the suite result before pushing",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-13",
+          "context": "the land-register check settling the SPV question",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the green CI checks at HEAD",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the server-side check that actually bites (third_party_client flag)",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "checking the live mesh state.json",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "final verification of the thrash rate",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the Chromium test's value-not-key assertion",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 7 green CI checks on PR #817",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the E2E review pass over radon #155",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the login verification pass on all six accounts",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the memory diagnosis I ran",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "verifying the login rather than trusting the API response",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "suggesting Pawel confirm the dashboards render",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the 7/7 green CI checks on PR #54",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "checking PR 608 still reproduces",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the mechanical registry-vs-table check",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the EXPLAIN indexes probe against ClickHouse 25.3",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the 10 green CI checks",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the seven green CI checks",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-20",
+          "context": "checking the live ~/.claude config state",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the 7 green CI checks on both PRs",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the measurement pass over the screenshot path",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the cap check in the subagent guard",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-22",
+          "context": "the claims-vs-code sweep over the newest commit",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the review moves run over PR #865",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "checking the Grafana dashboard queries",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "verifying via the Grafana panel replay",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the seven CI checks on PR #69",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the review pass over my own diff",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the post-post state check on draft/review-decision",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the verification steps run against the new account",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "auditing README claims against the live box",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "checking the stale built binary before rerunning",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the seven green CI checks on PR #74",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "SelfUpdate's dirty check",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the mandated pre-tap discovery check",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "probing the key scopes",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the local sweep as a redundant check",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the radoniusz throttle re-probe",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the prefix-guard negative check",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the six load-bearing constraints I measured on Docker",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "checking whether pass 4 is needed",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the paired permutation tests on the deltas",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the verification pass over the migrated results tree",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "UIKit has no policy check for depth",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "all 13 CI checks green",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-31",
+          "context": "the post-removal verification pass",
+          "glossed": true
+        }
+      ]
+    },
+    {
+      "hanzi": "部署",
+      "pinyin": "bùshǔ",
+      "meaning": "deploy",
+      "level": 0,
+      "parts": "部 bù \"part / section / ministry\" + 署 shǔ \"arrange / assign / office\"",
+      "chars": [
+        "部",
+        "署"
+      ],
+      "added": "2026-08-03",
+      "leveled_at": "2026-08-03",
+      "notes": [
+        "Introduced on the Vercel deploy CI migration to app-control-bench."
+      ],
+      "uses": [
+        {
+          "date": "2026-08-03",
+          "context": "the Vercel deploy CI run",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the successful Vercel deploy",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the successful production Vercel deploy of e00a534",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "hosting the built public/ dir",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-03",
+          "context": "the still-live vercel deployment",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-04",
+          "context": "the vercel deploy workflow purge",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the stack deployed on the VPS vs. what this repo describes",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-11",
+          "context": "deploying the Grafana dashboard to the box",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "publishing Grafana behind SSO",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the production Grafana at argent-otel.swmansion.com",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "prod being ansible-deployed from another repo",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the swmtest deploy pipeline question",
+          "glossed": true
+        }
+      ]
+    },
+    {
+      "hanzi": "问题",
+      "pinyin": "wèntí",
+      "meaning": "problem / question",
+      "level": 0,
+      "parts": "问 wèn \"ask\" + 题 tí \"topic / problem\"",
+      "chars": [
+        "问",
+        "题"
+      ],
+      "added": "2026-08-05",
+      "leveled_at": "2026-08-05",
+      "notes": [
+        "the puzzle-per-day vs puzzle-per-week cadence research"
+      ],
+      "uses": [
+        {
+          "date": "2026-08-05",
+          "context": "one puzzle per week in the marathon format",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "one puzzle per day at 14 days",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "authored puzzle sets vs crowdsourced work items",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "each puzzle stays open until the common deadline",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the three factual errors found",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-05",
+          "context": "the per-day points question",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the config drift not blocking the tunnel",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the follow-up asking for PRs per issue found",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the heap-corruption bug found while verifying the rebuild",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the two problems found: dead tunnel and memory cap",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the four SQL bugs found by running the panels",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-12",
+          "context": "the two open pre-merge items",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the three safety issues in the verdict",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the mesh hand-off gap filed as issue #48",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the two out-of-scope issues filed, #811 and #812",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the RAM thrashing diagnosis heading",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the cache-collapse problem correlating with context size",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the finding I could not reproduce",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the RAM pressure verdict",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the versionCode delivery gap being the PR's real problem",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the time-filter column mismatch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the telemetry chart root cause",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the flagged non-blocking issues",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "filing the szpontnet contention as issue #57",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the real context cost being Chromium's 1.0 default",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the confidently-wrong-row failure mode at 0.15",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "the real problem behind the 37",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the three gaps the audit turned up",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the anonymous stealth-model id",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "naming the root cause of the blank iTerm windows",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the three orphaned pieces of information",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two blockers",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the class of mandated agent steps",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two separate focus problems",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the wall-time regression and the first RUN_TIMEOUT",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "wanting my own findings verified before posting",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the dropped MEDIUM being a design question not a defect",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-26",
+          "context": "the two RUN_TIMEOUT failures",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-31",
+          "context": "naming the real root cause (Docker k8s) vs the misattributed one",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-31",
+          "context": "kiro's uninstaller falsely reporting success",
+          "glossed": true
+        }
+      ]
+    },
+    {
+      "hanzi": "好的",
+      "pinyin": "hǎo de",
+      "meaning": "OK / alright / got it",
+      "level": 0,
+      "parts": "好 hǎo \"good\" (already learned) + 的 de (particle)",
+      "chars": [
+        "好",
+        "的"
+      ],
+      "added": "2026-08-05",
+      "leveled_at": "2026-08-05",
+      "notes": [
+        "promoted after repeated pass-through use opening research answers"
+      ],
+      "uses": [
+        {
+          "date": "2026-08-05",
+          "context": "opening the public-event cadence answer",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-12",
+          "context": "acknowledging the diagnosis before listing next steps",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "opening the account-creation report",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "opening the Grafana account creation result",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "opening the answer on ArgentOS timing",
+          "glossed": true
+        }
+      ]
+    },
+    {
+      "hanzi": "合并",
+      "pinyin": "hébìng",
+      "meaning": "merge / combine",
+      "level": 0,
+      "parts": "合 hé \"join / close / fit\" + 并 bìng \"combine / side by side\"",
+      "chars": [
+        "合",
+        "并"
+      ],
+      "added": "2026-08-13",
+      "leveled_at": "2026-08-13",
+      "notes": [
+        "Introduced on merging origin/main into the recording branch (PR 155)."
+      ],
+      "uses": [
+        {
+          "date": "2026-08-14",
+          "context": "the merge of origin/main into PR #566",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-14",
+          "context": "the merge of origin/main into PR #744",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the merge of origin/main into PR #559",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "reuse - the merge commit pushed",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-17",
+          "context": "merging origin/main into the harmony branch to unblock CI",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "merging the 2 newer main commits before testing",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the origin/main merge into PR #736",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the origin/main merge into PR #712",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "merged main + PR for verification",
+          "glossed": false
+        },
+        {
+          "date": "2026-08-18",
+          "context": "merging argent #587 with #538 to build the test tree",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the origin/main merge into PR #538",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-20",
+          "context": "merge order for the stacked PRs #59 then #60",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "872 never being merged - draft blocks it",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "merging main into the harmony PR branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-23",
+          "context": "PR #60 merging into a dead base branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "merging the branch to main",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "PRs 79/80/83 squash-merged mid-review",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-26",
+          "context": "folding the scoped.length finding into an existing comment",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "merging origin/main into the MR !7 branch",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "squash-merging PR #94 to main",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the merge decision on #557",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the merge verdict",
+          "glossed": true
+        }
+      ]
+    },
+    {
+      "hanzi": "修复",
+      "pinyin": "xiūfù",
+      "meaning": "fix / repair",
+      "level": 0,
+      "parts": "修 xiū \"repair / cultivate\" + 复 fù \"return / restore / again\"",
+      "chars": [
+        "修",
+        "复"
+      ],
+      "added": "2026-08-17",
+      "leveled_at": "2026-08-17",
+      "notes": [
+        "introduced on the android-input select-all read-back fix, draft PR #821"
+      ],
+      "uses": [
+        {
+          "date": "2026-08-17",
+          "context": "the android select-all read-back fix",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the seven review findings fixed on PR #560",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-17",
+          "context": "the four review-fix commits on radon #155",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the four LOW findings fixed on #740",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the id fix folded into the bundle",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-18",
+          "context": "the fixes landed on PR #738",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the corrections landing in the PR 767 body",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-19",
+          "context": "the materialized-column fix on branch materialize-attrs",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the dashboard query fix",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the PR #817 nix fix itself",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the CLAUDE.md rule rewrite",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-20",
+          "context": "the PR #817 preflight that never ran",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-21",
+          "context": "PR 872 being the fix already in flight",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-23",
+          "context": "the whole completion-detection fix proving out",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-24",
+          "context": "the Hermes delegation guard PR",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the window-level focus restore fix",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the fix landed in PR #92",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "restoring the synapse console script",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two-part fix for the retired-run hook failure",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the two apiwatch fixes in PR #94",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-25",
+          "context": "the cap fix in PR #95",
+          "glossed": true
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the one-line lint fix",
+          "glossed": true
+        }
+      ]
+    },
+    {
+      "hanzi": "声音",
+      "pinyin": "shēngyīn",
+      "meaning": "sound",
+      "level": 0,
+      "parts": "声 shēng \"sound / voice\" + 音 yīn \"sound / tone / music\"",
+      "chars": [
+        "声",
+        "音"
+      ],
+      "added": "2026-08-17",
+      "leveled_at": "2026-08-17",
+      "notes": [
+        "Introduced on the IEM research - diagnosing why sealing the WH-CH720N cups restores bass detail."
+      ],
+      "uses": []
+    }
+  ],
+  "bricks": [
+    {
+      "char": "文",
+      "pinyin": "wén",
+      "meaning": "writing / language / art",
+      "tags": "",
+      "note": "文件; a base for 文字, 中文, 论文"
+    },
+    {
+      "char": "件",
+      "pinyin": "jiàn",
+      "meaning": "item / piece",
+      "tags": "",
+      "note": "文件; measure word for matters/things"
+    },
+    {
+      "char": "代",
+      "pinyin": "dài",
+      "meaning": "substitute / represent / generation",
+      "tags": "",
+      "note": "代码; also 现代 \"modern\", 时代 \"era\""
+    },
+    {
+      "char": "码",
+      "pinyin": "mǎ",
+      "meaning": "code / number",
+      "tags": "",
+      "note": "代码 = 石+马; recurs in 号码, 密码"
+    },
+    {
+      "char": "石",
+      "pinyin": "shí",
+      "meaning": "stone",
+      "tags": "R",
+      "note": "radical in 码"
+    },
+    {
+      "char": "马",
+      "pinyin": "mǎ",
+      "meaning": "horse",
+      "tags": "P",
+      "note": "**key phonetic:** 码 mǎ, 妈 mā (mother), 吗 ma (question)"
+    },
+    {
+      "char": "报",
+      "pinyin": "bào",
+      "meaning": "report / announce",
+      "tags": "",
+      "note": "报错; also 报告 \"report\", 报名 \"sign up\""
+    },
+    {
+      "char": "错",
+      "pinyin": "cuò",
+      "meaning": "wrong / mistaken",
+      "tags": "",
+      "note": "报错 = 钅+昔; recurs in 错误, 没错"
+    },
+    {
+      "char": "钅",
+      "pinyin": "jīn",
+      "meaning": "metal / gold",
+      "tags": "R",
+      "note": "radical (金) — signals metal words"
+    },
+    {
+      "char": "发",
+      "pinyin": "fā",
+      "meaning": "send out / emit / issue",
+      "tags": "",
+      "note": "发布; also 发现 \"discover\", 开发 \"develop\""
+    },
+    {
+      "char": "布",
+      "pinyin": "bù",
+      "meaning": "cloth → spread / announce",
+      "tags": "",
+      "note": "发布; also 宣布 \"declare\""
+    },
+    {
+      "char": "提",
+      "pinyin": "tí",
+      "meaning": "raise / lift / carry",
+      "tags": "",
+      "note": "提交; also 提出 \"put forward\", 提高 \"raise\""
+    },
+    {
+      "char": "交",
+      "pinyin": "jiāo",
+      "meaning": "hand over / exchange",
+      "tags": "",
+      "note": "提交; also 交流 \"exchange\", 交付 \"deliver\""
+    },
+    {
+      "char": "测",
+      "pinyin": "cè",
+      "meaning": "measure / survey",
+      "tags": "",
+      "note": "测试; also 测量 \"measure\", 预测 \"forecast\" (氵 water radical)"
+    },
+    {
+      "char": "试",
+      "pinyin": "shì",
+      "meaning": "try / attempt / test",
+      "tags": "",
+      "note": "测试; also 试试 \"give it a try\", 尝试 \"attempt\""
+    },
+    {
+      "char": "分",
+      "pinyin": "fēn",
+      "meaning": "divide / split / minute",
+      "note": "in 分支 branch; the top 八 is two strokes splitting apart over 刀 knife"
+    },
+    {
+      "char": "支",
+      "pinyin": "zhī",
+      "meaning": "branch / limb / support",
+      "note": "in 分支 branch"
+    },
+    {
+      "char": "运",
+      "pinyin": "yùn",
+      "meaning": "transport / move / fortune",
+      "note": "in 运行 run; 辶 the walking radical",
+      "tags": ""
+    },
+    {
+      "char": "行",
+      "pinyin": "xíng",
+      "meaning": "go / walk / operate / OK",
+      "note": "in 运行 run; also stands alone meaning \"that works / OK\"",
+      "tags": ""
+    },
+    {
+      "char": "检",
+      "pinyin": "jiǎn",
+      "meaning": "examine / inspect",
+      "note": "木 wood radical + 佥; appears in 检查, 检验, 检测",
+      "tags": "R"
+    },
+    {
+      "char": "查",
+      "pinyin": "chá",
+      "meaning": "investigate / look into / check",
+      "note": "木 wood over 旦 dawn; appears in 检查, 调查, 查看"
+    },
+    {
+      "char": "部",
+      "pinyin": "bù",
+      "meaning": "part / section / ministry",
+      "note": "the \"section\" in 部署; also 部分 bùfen \"part\""
+    },
+    {
+      "char": "署",
+      "pinyin": "shǔ",
+      "meaning": "arrange / assign / (government) office",
+      "note": "the \"arrange\" in 部署 — deploying = arranging the sections"
+    },
+    {
+      "char": "问",
+      "pinyin": "wèn",
+      "meaning": "ask",
+      "note": "口 mouth inside 门 mén 'door' (phonetic) - asking at the door",
+      "tags": "P"
+    },
+    {
+      "char": "题",
+      "pinyin": "tí",
+      "meaning": "topic / problem / title",
+      "note": "the 题 in 问题 and in exam/puzzle questions"
+    },
+    {
+      "char": "的",
+      "pinyin": "de",
+      "meaning": "possessive / descriptive particle - the single most common character in Chinese",
+      "note": "grammatical glue; turns 好 'good' into 好的 'alright'"
+    },
+    {
+      "char": "合",
+      "pinyin": "hé",
+      "meaning": "join / close / fit together",
+      "note": "in 合并 merge; also 合作 cooperate"
+    },
+    {
+      "char": "并",
+      "pinyin": "bìng",
+      "meaning": "combine / side by side / and",
+      "note": "in 合并 merge; also 并行 parallel (with 行 xíng, already a brick)"
+    },
+    {
+      "char": "修",
+      "pinyin": "xiū",
+      "meaning": "repair / mend / cultivate",
+      "note": "the 修 of 修复; also 修改 xiūgǎi \"revise\""
+    },
+    {
+      "char": "复",
+      "pinyin": "fù",
+      "meaning": "return / restore / again",
+      "note": "the 复 of 修复; also 恢复 huīfù \"recover\", 重复 chóngfù \"repeat\""
+    },
+    {
+      "char": "声",
+      "pinyin": "shēng",
+      "meaning": "sound / voice",
+      "note": "also the 声 in 声调 shēngdiào 'tone (of a syllable)'"
+    },
+    {
+      "char": "音",
+      "pinyin": "yīn",
+      "meaning": "sound / tone / music",
+      "note": "recurs in 音乐 yīnyuè 'music' and 拼音 pīnyīn - the 音 the user already reads in every gloss"
+    }
+  ],
+  "pipeline": [
+    {
+      "hanzi": "功能",
+      "pinyin": "gōngnéng",
+      "meaning": "feature",
+      "parts": "功 merit + 能 ability"
+    },
+    {
+      "hanzi": "调试",
+      "pinyin": "tiáoshì",
+      "meaning": "debug",
+      "parts": "调 adjust + 试 try/test"
+    },
+    {
+      "hanzi": "需要",
+      "pinyin": "xūyào",
+      "meaning": "need",
+      "parts": ""
+    },
+    {
+      "hanzi": "现在",
+      "pinyin": "xiànzài",
+      "meaning": "now",
+      "parts": ""
+    },
+    {
+      "hanzi": "已经",
+      "pinyin": "yǐjīng",
+      "meaning": "already",
+      "parts": ""
+    },
+    {
+      "hanzi": "函数",
+      "pinyin": "hánshù",
+      "meaning": "function",
+      "parts": ""
+    },
+    {
+      "hanzi": "变量",
+      "pinyin": "biànliàng",
+      "meaning": "variable",
+      "parts": "变 change + 量 quantity"
+    }
+  ],
+  "passthrough": {
+    "标签": {
+      "count": 1,
+      "uses": [
+        {
+          "date": "2026-07-31",
+          "context": "the v0.18.0 tag that alone doesn't trigger the build"
+        }
+      ]
+    },
+    "undefined": {
+      "count": 86,
+      "uses": [
+        {
+          "date": "2026-07-31",
+          "context": ""
+        },
+        {
+          "date": "2026-07-31",
+          "context": ""
+        },
+        {
+          "date": "2026-07-31",
+          "context": ""
+        },
+        {
+          "date": "2026-07-31",
+          "context": ""
+        },
+        {
+          "date": "2026-07-31",
+          "context": ""
+        },
+        {
+          "date": "2026-07-31",
+          "context": ""
+        },
+        {
+          "date": "2026-07-31",
+          "context": ""
+        },
+        {
+          "date": "2026-08-03",
+          "context": ""
+        },
+        {
+          "date": "2026-08-03",
+          "context": ""
+        },
+        {
+          "date": "2026-08-03",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-05",
+          "context": ""
+        },
+        {
+          "date": "2026-08-08",
+          "context": ""
+        },
+        {
+          "date": "2026-08-08",
+          "context": ""
+        },
+        {
+          "date": "2026-08-08",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": ""
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the 发布 pipeline itself is sound"
+        },
+        {
+          "date": "2026-08-10",
+          "context": "mutation 测试 of the gate"
+        },
+        {
+          "date": "2026-08-10",
+          "context": "one 检查 I could not run"
+        },
+        {
+          "date": "2026-08-10",
+          "context": "the real 问题 is in write_tree (glossed inline)"
+        },
+        {
+          "date": "2026-08-10",
+          "context": "one 提交 on the branch"
+        },
+        {
+          "date": "2026-08-10",
+          "context": "every 发布 pulled the corpus"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "which line 报错 in the job"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "two things to 检查 (glossed)"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 发布 job"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "one 提交 straight to main"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 发布 job now gets all the way to the push"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "测试 with a deliberately invalid token"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the old 发布 flow never pushed"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 问题 is the variable (glossed)"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "a throwaway 测试 job"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 测试 job proved it"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "my own yaml 报错"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 发布 job needs a write credential"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 发布 is running"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "release 分支 0.0.6 (glossed)"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the no-novel-models 检查"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 部署 job hasn't started (glossed)"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "没有 error so far"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 发布 pipeline"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "完成 - it's live"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "the 发布 landed"
+        },
+        {
+          "date": "2026-08-11",
+          "context": "post-deploy 检查"
+        },
+        {
+          "date": "2026-08-12",
+          "context": ""
+        },
+        {
+          "date": "2026-08-19",
+          "context": ""
+        },
+        {
+          "date": "2026-08-19",
+          "context": ""
+        },
+        {
+          "date": "2026-08-19",
+          "context": ""
+        },
+        {
+          "date": "2026-08-19",
+          "context": ""
+        },
+        {
+          "date": "2026-08-19",
+          "context": ""
+        },
+        {
+          "date": "2026-08-19",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-21",
+          "context": ""
+        },
+        {
+          "date": "2026-08-24",
+          "context": "1064 测试 pass locally"
+        },
+        {
+          "date": "2026-08-24",
+          "context": "one 提交 on top of the PR"
+        },
+        {
+          "date": "2026-08-24",
+          "context": "gloss + 检查 the identical job"
+        },
+        {
+          "date": "2026-08-25",
+          "context": ""
+        },
+        {
+          "date": "2026-08-28",
+          "context": "the real 问题 was two separate things"
+        },
+        {
+          "date": "2026-08-28",
+          "context": "worth a 检查 in System Settings"
+        }
+      ]
+    },
+    "一步一步来": {
+      "count": 1,
+      "uses": [
+        {
+          "date": "2026-08-19",
+          "context": "closing the whole banner family rather than the one banner reported"
+        }
+      ]
+    },
+    "只读": {
+      "count": 1,
+      "uses": [
+        {
+          "date": "2026-08-25",
+          "context": "the read-only key verdict"
+        }
+      ]
+    }
+  },
+  "sessions": [
+    {
+      "id": 1,
+      "date": "2026-07-30",
+      "started": "2026-07-30T13:23:30.467Z",
+      "last": "2026-07-30T23:00:08.255Z",
+      "replies": 17,
+      "items": 51,
+      "new_tracked": [
+        "分支"
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2026-07-31",
+      "started": "2026-07-31T06:15:02.096Z",
+      "last": "2026-07-31T14:01:39.761Z",
+      "replies": 13,
+      "items": 39,
+      "new_tracked": [
+        "运行",
+        "检查"
+      ]
+    },
+    {
+      "id": 3,
+      "date": "2026-08-03",
+      "started": "2026-08-03T09:10:21.763Z",
+      "last": "2026-08-03T18:35:44.159Z",
+      "replies": 19,
+      "items": 60,
+      "new_tracked": [
+        "部署"
+      ]
+    },
+    {
+      "id": 4,
+      "date": "2026-08-04",
+      "started": "2026-08-04T11:31:58.565Z",
+      "last": "2026-08-04T17:02:38.191Z",
+      "replies": 6,
+      "items": 22,
+      "new_tracked": []
+    },
+    {
+      "id": 5,
+      "date": "2026-08-05",
+      "started": "2026-08-05T10:25:17.610Z",
+      "last": "2026-08-05T19:53:47.801Z",
+      "replies": 12,
+      "items": 51,
+      "new_tracked": [
+        "问题",
+        "好的"
+      ]
+    },
+    {
+      "id": 6,
+      "date": "2026-08-06",
+      "started": "2026-08-06T11:49:11.134Z",
+      "last": "2026-08-06T15:34:07.061Z",
+      "replies": 2,
+      "items": 6,
+      "new_tracked": []
+    },
+    {
+      "id": 7,
+      "date": "2026-08-07",
+      "started": "2026-08-07T11:27:15.660Z",
+      "last": "2026-08-07T11:27:15.665Z",
+      "replies": 1,
+      "items": 3,
+      "new_tracked": []
+    },
+    {
+      "id": 8,
+      "date": "2026-08-08",
+      "started": "2026-08-08T18:46:42.325Z",
+      "last": "2026-08-08T18:48:39.520Z",
+      "replies": 1,
+      "items": 3,
+      "new_tracked": []
+    },
+    {
+      "id": 9,
+      "date": "2026-08-10",
+      "started": "2026-08-10T11:44:42.211Z",
+      "last": "2026-08-10T20:04:53.151Z",
+      "replies": 18,
+      "items": 54,
+      "new_tracked": []
+    },
+    {
+      "id": 10,
+      "date": "2026-08-11",
+      "started": "2026-08-11T12:24:52.279Z",
+      "last": "2026-08-11T22:53:43.004Z",
+      "replies": 15,
+      "items": 45,
+      "new_tracked": []
+    },
+    {
+      "id": 11,
+      "date": "2026-08-12",
+      "started": "2026-08-12T11:31:58.086Z",
+      "last": "2026-08-12T22:15:54.668Z",
+      "replies": 22,
+      "items": 61,
+      "new_tracked": []
+    },
+    {
+      "id": 12,
+      "date": "2026-08-13",
+      "started": "2026-08-13T11:23:00.164Z",
+      "last": "2026-08-13T16:31:26.082Z",
+      "replies": 2,
+      "items": 6,
+      "new_tracked": [
+        "合并"
+      ]
+    },
+    {
+      "id": 13,
+      "date": "2026-08-14",
+      "started": "2026-08-14T10:23:25.415Z",
+      "last": "2026-08-14T20:29:52.346Z",
+      "replies": 11,
+      "items": 29,
+      "new_tracked": []
+    },
+    {
+      "id": 14,
+      "date": "2026-08-17",
+      "started": "2026-08-17T10:28:49.269Z",
+      "last": "2026-08-17T22:06:45.046Z",
+      "replies": 21,
+      "items": 69,
+      "new_tracked": [
+        "修复",
+        "声音"
+      ]
+    },
+    {
+      "id": 15,
+      "date": "2026-08-18",
+      "started": "2026-08-18T11:25:17.620Z",
+      "last": "2026-08-18T19:45:44.111Z",
+      "replies": 10,
+      "items": 34,
+      "new_tracked": []
+    },
+    {
+      "id": 16,
+      "date": "2026-08-19",
+      "started": "2026-08-19T12:00:34.494Z",
+      "last": "2026-08-19T19:51:12.111Z",
+      "replies": 12,
+      "items": 34,
+      "new_tracked": []
+    },
+    {
+      "id": 17,
+      "date": "2026-08-20",
+      "started": "2026-08-20T13:41:32.328Z",
+      "last": "2026-08-20T17:49:20.619Z",
+      "replies": 6,
+      "items": 19,
+      "new_tracked": []
+    },
+    {
+      "id": 18,
+      "date": "2026-08-21",
+      "started": "2026-08-21T07:53:12.827Z",
+      "last": "2026-08-21T18:51:01.523Z",
+      "replies": 13,
+      "items": 37,
+      "new_tracked": []
+    },
+    {
+      "id": 19,
+      "date": "2026-08-22",
+      "started": "2026-08-22T05:05:03.923Z",
+      "last": "2026-08-22T05:05:25.616Z",
+      "replies": 1,
+      "items": 3,
+      "new_tracked": []
+    },
+    {
+      "id": 20,
+      "date": "2026-08-23",
+      "started": "2026-08-23T20:18:37.860Z",
+      "last": "2026-08-23T22:12:27.742Z",
+      "replies": 5,
+      "items": 15,
+      "new_tracked": []
+    },
+    {
+      "id": 21,
+      "date": "2026-08-24",
+      "started": "2026-08-24T10:44:55.058Z",
+      "last": "2026-08-24T18:19:41.213Z",
+      "replies": 20,
+      "items": 66,
+      "new_tracked": []
+    },
+    {
+      "id": 22,
+      "date": "2026-08-25",
+      "started": "2026-08-25T09:56:06.489Z",
+      "last": "2026-08-25T23:10:28.086Z",
+      "replies": 35,
+      "items": 96,
+      "new_tracked": []
+    },
+    {
+      "id": 23,
+      "date": "2026-08-28",
+      "started": "2026-08-28T07:49:33.300Z",
+      "last": "2026-08-28T10:51:28.726Z",
+      "replies": 8,
+      "items": 25,
+      "new_tracked": []
+    },
+    {
+      "id": 24,
+      "date": "2026-08-29",
+      "started": "2026-08-29T12:15:27.955Z",
+      "last": "2026-08-29T12:15:27.955Z",
+      "replies": 0,
+      "items": 0,
+      "new_tracked": []
+    },
+    {
+      "id": 25,
+      "date": "2026-08-31",
+      "started": "2026-08-31T10:19:31.167Z",
+      "last": "2026-08-31T10:22:28.857Z",
+      "replies": 2,
+      "items": 7,
+      "new_tracked": []
+    }
+  ],
+  "archive": {
+    "完成": {
+      "hanzi": "完成",
+      "pinyin": "wánchéng",
+      "meaning": "done / complete",
+      "level": 2,
+      "parts": "完 finish + 成 accomplish",
+      "chars": [
+        "完",
+        "成"
+      ],
+      "notes": [
+        "graduated to lvl 4 on 2026-07-30 (user-set)"
+      ],
+      "uses": []
+    },
+    "brick:完": {
+      "char": "完",
+      "pinyin": "wán",
+      "meaning": "complete / finish",
+      "tags": "",
+      "note": "完成 = 宀 roof + 元 primary"
+    },
+    "brick:成": {
+      "char": "成",
+      "pinyin": "chéng",
+      "meaning": "become / accomplish",
+      "tags": "",
+      "note": "完成 (contains 戈 halberd)"
+    }
+  }
+}
