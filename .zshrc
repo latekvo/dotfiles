@@ -237,3 +237,23 @@ cd_branch() {
 }
 
 export OLLAMA_CONTEXT_LENGTH=32768
+
+# Search Claude Code transcripts: message text only, ±150 chars around each match.
+ctgrep() {
+  local pat="$1"
+  if [ -z "$pat" ]; then
+    echo "usage: ctgrep <regex>" >&2
+    return 1
+  fi
+  rg -il --glob '*.jsonl' -- "$pat" ~/.claude/projects | while read -r f; do
+    jq -r --arg p "$pat" --arg f "$f" '
+      select(.message.content != null)
+      | (.message.content | if type == "array"
+           then (map(select(.type == "text") | .text) | join(" "))
+           else . end
+        | gsub("\\s+"; " ")) as $c
+      | ($c | match($p; "i").offset) as $o
+      | "\($f)\t\(.timestamp // "-")\t[\(.type)] …\($c[([$o-150,0]|max):($o+150)])…"
+    ' "$f" 2>/dev/null
+  done
+}
