@@ -10,6 +10,7 @@
 - **Worktree location:** place every new worktree of `<project_path>` at `<project_path>-worktrees/<worktree_name>` — a sibling `-worktrees` directory, never nested inside the repo. E.g. a worktree of `~/dev/argent` goes to `~/dev/argent-worktrees/foo`.
 - **PRs:** draft PRs are fine to open when there's a fix worth reviewing; never open a non-draft PR or mark one ready-for-review yourself.
 - **Commits during iteration:** push plain incremental commits (`git commit` + `git push`); never `git commit --amend` + force-push just to keep a PR at one commit. PRs are squash-merged, so history tidiness is automatic. Reserve force-push for a rebase the user explicitly asked for.
+- **Description:** Every PR description should be short enough to be read at a glance with **clear** reasoning, approaches and choice explanations contained within at most a couple lines. Further info can be contained within collapsed `<details>` tags.
 
 ### Git — Zero AI Attribution
 No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` overrides, no "Generated with Claude/🤖" taglines. Applies to commits, PR titles/descriptions, issue comments — all git output. Strip these when editing existing PRs/issues. Commit author must always be the user.
