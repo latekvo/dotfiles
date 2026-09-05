@@ -10,6 +10,10 @@ Plug 'junegunn/vim-plug' " self-management
 Plug 'rhysd/vim-clang-format'
 Plug 'vim-autoformat/vim-autoformat'
 
+" markdown: tabular is a hard dependency of vim-markdown's :TableFormat
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
 call plug#end()
 
 packadd YouCompleteMe
@@ -104,11 +108,89 @@ hi ColorColumn ctermbg=236 guibg=blue
 "disable config load confirmation prompt
 let g:ycm_confirm_extra_conf = 0
 
+" ESP32 / PlatformIO: use the system clangd (honors --query-driver; the clangd
+" YCM bundles is older and silently ignores it), and let it query the Xtensa/
+" RISC-V cross-GCC for its system headers -- else ESP32 #includes all go red.
+let g:ycm_clangd_binary_path = '/usr/bin/clangd'
+let g:ycm_clangd_args = ['--query-driver=' . expand('$HOME') . '/.platformio/packages/toolchain-*/bin/*']
+
 if has("syntax")
   syntax on
 endif
 
 syntax enable
+
+" --- Markdown ---------------------------------------------------------------
+
+" Highlight fenced code blocks with the real syntax of the language. Left of
+" the '=' is the fence tag written in the document, right of it is the vim
+" filetype -- entries without '=' use the tag as the filetype directly.
+let g:vim_markdown_fenced_languages = [
+      \ 'c=c', 'cpp=cpp', 'c++=cpp', 'h=c',
+      \ 'bash=sh', 'sh=sh', 'shell=sh', 'zsh=zsh',
+      \ 'py=python', 'python=python',
+      \ 'js=javascript', 'javascript=javascript',
+      \ 'ts=typescript', 'typescript=typescript',
+      \ 'json=json', 'yaml=yaml', 'yml=yaml', 'toml=toml',
+      \ 'html=html', 'css=css', 'sql=sql',
+      \ 'rust=rust', 'rs=rust', 'go=go', 'lua=lua', 'vim=vim',
+      \ 'ini=dosini', 'diff=diff', 'make=make', 'cmake=cmake', 'dockerfile=dockerfile',
+      \ ]
+
+" Conceal emphasis markers and link targets; ``` fences stay literal. The
+" concealed text reappears on whichever line the cursor sits on, so it stays
+" editable. Set this to 0 to see every marker verbatim.
+let g:vim_markdown_conceal = 1
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_no_extensions_in_markdown = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1      " YAML front matter
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+
+augroup markdown_prose
+  au!
+  " conceal only inside markdown; leaves every other filetype untouched.
+  " empty concealcursor => the cursor line always shows its raw markers.
+  autocmd FileType markdown setlocal conceallevel=2 concealcursor=
+augroup END
+
+" Distinct colours per heading level plus readable code/link/quote styling.
+function! s:MarkdownColors() abort
+  hi htmlH1        cterm=bold      ctermfg=204
+  hi htmlH2        cterm=bold      ctermfg=209
+  hi htmlH3        cterm=bold      ctermfg=180
+  hi htmlH4        cterm=bold      ctermfg=114
+  hi htmlH5        cterm=bold      ctermfg=110
+  hi htmlH6        cterm=bold      ctermfg=140
+  hi mkdHeading                    ctermfg=59
+  hi mkdCode                       ctermfg=180 ctermbg=236
+  hi mkdCodeStart                  ctermfg=59
+  hi mkdCodeEnd                    ctermfg=59
+  hi mkdCodeDelimiter              ctermfg=180 ctermbg=236
+  hi mkdListItem   cterm=bold      ctermfg=209
+  hi mkdBlockquote cterm=italic    ctermfg=59
+  hi mkdLink       cterm=underline ctermfg=110
+  hi mkdURL                        ctermfg=59
+  hi mkdInlineURL  cterm=underline ctermfg=110
+  hi mkdLinkDef                    ctermfg=110
+  hi mkdDelimiter                  ctermfg=59
+  hi mkdRule                       ctermfg=59
+  hi htmlBold      cterm=bold      ctermfg=222
+  hi htmlItalic    cterm=italic    ctermfg=140
+  hi htmlBoldItalic cterm=bold,italic ctermfg=222
+  hi mkdStrike     cterm=strikethrough ctermfg=59
+  hi htmlStrike    cterm=strikethrough ctermfg=59
+endfunction
+
+augroup markdown_colors
+  au!
+  autocmd ColorScheme * call s:MarkdownColors()
+augroup END
+call s:MarkdownColors()
 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
