@@ -21,6 +21,11 @@ if [[ $(uname) == "Darwin" ]]; then
 	export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 fi
 
+if [[ $(uname) == "Linux" ]]; then
+	# macOS-style `open`
+	alias open='xdg-open'
+fi
+
 # Start every interactive terminal inside its own tmux session. The guards skip the
 # shells tmux would break or nest inside: shells already under tmux, non-interactive
 # shells (scripts, agent tooling), shells with no tty, and `dumb` terminals. Set
@@ -178,6 +183,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # opencode
 export PATH=/Users/ignacylatka/.opencode/bin:$PATH
+
+# maestro
+export PATH=$PATH:$HOME/.maestro/bin
 
 export NVM_DIR="$HOME/.nvm"
 
