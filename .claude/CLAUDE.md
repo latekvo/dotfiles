@@ -14,11 +14,14 @@
 - **Description:** PR description MUST be short enough to be read at a **glance**
 - Issue, solution and reasoning must be written in a **minimal** amount of text to explain core of the PR. 
 - **Readability** and thus **shortness** is as important of an optimization step as the PR itself, human reviewers parse dozens of PRs a day, **don't waste their time.**
+- Use before+after markdown tables to present all visual changes. This helps understand the changes at a **glance**.
 - further details, such as repro code, tests ran, and other, **must** be placed within collapsed `<details>` tags.
 
 ### Git — Zero AI Attribution
 No Claude/AI traces anywhere in git/GitHub: no `Co-Authored-By`, no `--author` overrides, no "Generated with Claude/🤖" taglines.
 Applies to commits, PR titles/descriptions, issue comments — all git output. Strip these when editing existing PRs/issues. Commit author must always be the user.
+**DO NOT EVEN ATTEMPT** to open PRs, issues, or commits with "🤖 Generated with Claude Code" included in **any** parts of their readable body.
+Any such PRs **MUST** be immediately stripped of such markings, as they reduce readability, accountability and cause spam.
 
 ### Verification Before Reporting Done
 Done = observably proven E2E beyond doubt - static checks do not suffice.
