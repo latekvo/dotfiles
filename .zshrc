@@ -158,6 +158,7 @@ alias atlasdev="EXPO_UNSTABLE_ATLAS=true npx expo start --no-dev"
 
 # perma enable yolo mode + default to xhigh effort (still overridable per-session via /effort)
 alias claude="claude --dangerously-skip-permissions --effort xhigh"
+alias claude-code="claude-code --dangerously-skip-permissions --effort xhigh"
 alias agy="agy --dangerously-skip-permissions"
 
 # kill all processes using given port
