@@ -20,5 +20,18 @@
   "autoCompactWindow": 400000,
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
-  "theme": "dark"
+  "theme": "dark",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I ~/.claude/hooks/pkill-arg-order.py"
+          }
+        ]
+      }
+    ]
+  }
 }
