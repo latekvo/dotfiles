@@ -1,13 +1,24 @@
 {
-  "model": "opus",
-  "effortLevel": "xhigh",
-  "skipDangerousModePermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
-  "theme": "dark",
   "env": {
     "CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS": "8"
   },
+  "model": "opus",
   "enabledPlugins": {
-    "clangd-lsp@claude-plugins-official": true
-  }
+    "clangd-lsp@claude-plugins-official": true,
+    "cc-plugin-you-should-know@builtin": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+  },
+  "extraKnownMarketplaces": {
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "autoCompactWindow": 400000,
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark"
 }
