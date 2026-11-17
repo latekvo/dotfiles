@@ -105,6 +105,8 @@ Anything that burns credits, quota, or a concurrency slot (cloud GPU instances, 
 ### Linear / Project Management
 Never update, reassign, or change the status of any ticket (Linear, Jira, GitHub Issues) assigned to another person. Only create or modify tickets that are unassigned or assigned to "me." If a ticket belongs to someone else, report its state but don't touch it.
 
+**Argent's tracker is Linear, not GitHub.** Open ALL new Argent issues in Linear with the `automated` label - out-of-scope findings and ledger Ls included. Never `gh issue create` on `software-mansion/argent`.
+
 ### Writing Style
 Use regular dashes (-) instead of em-dashes in all output.
 
