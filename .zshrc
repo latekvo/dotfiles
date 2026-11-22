@@ -49,8 +49,9 @@ ZSH_THEME="essembeh"
 
 # makes _ and - interchangeable.
 HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
+
+ENABLE_CORRECTION="false"
+COMPLETION_WAITING_DOTS="false"
 
 # standard plugins can be found in $ZSH/plugins/
 # custom plugins may be added to $ZSH_CUSTOM/plugins/
