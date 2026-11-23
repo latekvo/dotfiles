@@ -1,6 +1,6 @@
 {
   "name": "session-title",
   "version": "0.1.0",
-  "description": "Shows the session title as a pale-yellow card in the top-right corner; click it or press ctrl+t to rename the session",
+  "description": "Shows the session title as a pale-yellow card in the top-right corner; click it or press ctrl+q to rename the session",
   "types": "./types/index.d.ts"
 }
