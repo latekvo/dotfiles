@@ -18,6 +18,9 @@
 # keeps repo-only files (this script, README.md) out of $HOME automatically and
 # means `git add` is the whole of "start managing this file".
 #
+# A folder holding .claude-plugin/plugin.json is linked whole: Claude Code
+# refuses a plugin whose hooks module resolves outside the plugin's folder.
+#
 # Conflicts (a real file in $HOME whose bytes differ from the repo's) are never
 # overwritten silently. Without --force they are skipped and the script exits 1;
 # with --force the existing file is copied under ~/.dotfiles-backup/<stamp>/
@@ -36,7 +39,7 @@ for arg in "$@"; do
 	--force) FORCE=1 ;;
 	--status) STATUS=1 DRY=1 ;;
 	-h | --help)
-		sed -n '3,26p' "${BASH_SOURCE[0]}" | sed -e 's/^#$//' -e 's/^# //'
+		sed -n '3,29p' "${BASH_SOURCE[0]}" | sed -e 's/^#$//' -e 's/^# //'
 		exit 0
 		;;
 	*)
@@ -60,10 +63,17 @@ backup() {
 	cp -pR "$HOME/$1" "$BACKUP/$1" # -pR, not -a: BSD cp predates -a
 }
 
-linked=0 adopted=0 already=0 conflict=0 restored=0
+linked=0 adopted=0 already=0 conflict=0 restored=0 last=
 
 while IFS= read -r f; do
 	case "$f" in .*) ;; *) continue ;; esac # tracked, and a dotfile
+	d="$f"
+	while [[ "$d" == */* ]]; do # up to the plugin folder holding it, if any
+		d="${d%/*}"
+		[[ -f "$d/.claude-plugin/plugin.json" ]] && f="$d"
+	done
+	[[ "$f" == "$last" ]] && continue # a folder's files are listed together
+	last="$f"
 	src="$REPO/$f" dst="$HOME/$f"
 
 	# Plain readlink, compared against the absolute path this script links to.

@@ -14,7 +14,9 @@ between a macOS machine and an Arch/XFCE one.
 
 Every git-tracked path starting with a dot is symlinked into `$HOME`. `git add`
 is therefore the whole of "start managing this file", and repo-only files
-(`install.sh`, this README) stay out of `$HOME` on their own.
+(`install.sh`, this README) stay out of `$HOME` on their own. A folder holding
+`.claude-plugin/plugin.json` is linked whole: Claude Code refuses a plugin whose
+hooks module resolves outside the plugin's folder.
 
 Symlinks rather than copies, deliberately: a copy-based install is what let this
 repo rot. Files were edited in `$HOME` and in the repo independently until 14 of
