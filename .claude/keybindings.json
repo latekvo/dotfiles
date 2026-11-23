@@ -5,8 +5,7 @@
     {
       "context": "Global",
       "bindings": {
-        "ctrl+t": "app:toggleReplTab",
-        "ctrl+x t": "app:toggleTodos"
+        "ctrl+q": "app:toggleReplTab"
       }
     }
   ]
