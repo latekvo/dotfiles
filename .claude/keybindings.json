@@ -5,7 +5,7 @@
     {
       "context": "Global",
       "bindings": {
-        "ctrl+q": "app:toggleReplTab"
+        "ctrl+shift+y": "app:toggleReplTab"
       }
     }
   ]

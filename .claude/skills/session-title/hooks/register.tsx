@@ -5,7 +5,7 @@ import type { CardMessage } from '../types'
 import { BACKGROUND, fit } from './layout'
 
 const PANE = 'session-title'
-// ctrl+q is bound to this in ~/.claude/keybindings.json; the REPL has no handler
+// ctrl+shift+y is bound to this in ~/.claude/keybindings.json; the REPL has no handler
 // for it, so a mounted Button naming it gets the chord.
 const SHORTCUT = 'app:toggleReplTab'
 // The transcript rows that report `onScreen`, less InfoNotice: the logo's
